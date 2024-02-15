@@ -14,3 +14,9 @@
 .accordion-button:not(.collapsed)  {
   background-color: transparent;
 }
+
+.card-footer {
+    span {
+        cursor: pointer;
+    }
+}

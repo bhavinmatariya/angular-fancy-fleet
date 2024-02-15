@@ -15,7 +15,7 @@ import { ComponentsModule } from './components/components.module';
     ComponentsModule
   ],
   providers: [
-    provideClientHydration()
+    // provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CustomerService } from '../customer.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-customer-create',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,RouterModule],
   templateUrl: './customer-create.component.html',
   styleUrl: './customer-create.component.scss'
 })
@@ -15,23 +15,23 @@ export class CustomerCreateComponent {
 
   constructor(private fb: FormBuilder,private customerService: CustomerService,private router : Router) {
     this.customerForm = this.fb.group({
-      firstName: ['Emma', Validators.required],
-      lastName: ['Lopez', Validators.required],
-      phoneNumber: ['+1666555444', [Validators.required, Validators.pattern(/^\+\d{10,}$/)]],
-      email: ['emma.lopez@example.com', [Validators.required, Validators.email]],
-      streetAddress: ['999 Maple St', Validators.required],
-      city: ['Downton', Validators.required],
-      state: ['NY', [Validators.required, Validators.maxLength(2)]],
-      postalCode: ['74185', [Validators.required, Validators.pattern(/^\d{5}$/)]],
-      licenseNumber: ['L741852963', Validators.required],
-      licenseState: ['NY', [Validators.required, Validators.maxLength(2)]],
-      startDate: ['2023-12-01', Validators.required],
-      endDate: ['2024-12-01', Validators.required],
-      cardType: ['Discover', Validators.required],
-      cardNumber: ['************7890', [Validators.required, Validators.pattern(/^\*{12}\d{4}$/)]],
-      expiryDate: ['12/24', [Validators.required, Validators.pattern(/^\d{2}\/\d{2}$/)]],
-      currentRecord: ['R-23134', Validators.required],
-      pastRecord: ['467', Validators.required]
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      phoneNumber: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      streetAddress: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', [Validators.required]],
+      postalCode: ['', [Validators.required]],
+      licenseNumber: ['', Validators.required],
+      licenseState: ['', [Validators.required]],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      cardType: ['', Validators.required],
+      cardNumber: ['', [Validators.required]],
+      expiryDate: ['', [Validators.required]],
+      currentRecord: ['', Validators.required],
+      pastRecord: ['', Validators.required]
     });
    }
 

@@ -1,39 +1,11 @@
-table {
-    border-color: transparent !important;
-}
-
-.avatar {
-    position: relative;
-    display: inline-block;
-}
-
-.avatar-xl {
-    height: 2rem;
-    width: 2rem;
-}
-
-.avatar .avatar-name {
-    background-color: var(--bs-heading-color);
-    position: absolute;
-    text-align: center;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    display: block;
-}
-
-.avatar .avatar-name {
-    width: 100%;
-    height: 100%;
-}
-
-.avatar .avatar-name > span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-}
-
-.avatar-xl .avatar-name {
-    font-size: 0.6666666667rem;
+.flex-1 {
+    a {
+        opacity: 0.6;
+    }
+    h6 {
+        opacity: 0.8;
+    }
+    .customer-email {
+        text-decoration: none !important;
+    }
 }
