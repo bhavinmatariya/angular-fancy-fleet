@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fancy-fleet-new';
+  isSidebarOpen: boolean = false;
+  collapseSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
 }

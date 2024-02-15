@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: '[app-navbar-vertical]',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar-vertical.component.scss'],
 })
 export class NavbarVerticalComponent implements OnInit {
-  isSidebarOpen: boolean = false;
+  @Input() isSidebarOpen: boolean = false;
   constructor() {}
 
   ngOnInit(): void {
@@ -16,9 +16,5 @@ export class NavbarVerticalComponent implements OnInit {
     //     .querySelector('.navbar-vertical')
     //     ?.classList.add(`navbar-${navbarStyle}`);
     // }
-  }
-
-  collapseSidebar() {
-    this.isSidebarOpen = !this.isSidebarOpen;
   }
 }

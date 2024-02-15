@@ -1,14 +1,5 @@
 <div>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-  <a class="navbar-brand me-1 me-sm-3" href="../index.html">
-    <div class="d-flex align-items-center">
-      <span class="fas fa-car-side text-primary"></span>
-      <span class="fw-bold text-primary">Fancy Fleet</span>
-    </div>
-  </a>
-<div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+<div class="collapse navbar-collapse" [ngClass]="{'navbar-collapse-close': isSidebarOpen}" id="navbarVerticalCollapse">
   <div class="navbar-vertical-content scrollbar">
     <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
       <li class="nav-item">

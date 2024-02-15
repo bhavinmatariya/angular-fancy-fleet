@@ -1,0 +1,29 @@
+
+.nav-bar-icon {
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.navbar-brand {
+    .company-name-logo {
+        font-size: 23px;
+    }
+}
+
+.flex {
+    display: flex;
+}
+.w-2 {
+    width: 225px;
+}
+
+.w-8 {
+    width: calc(100% - 225px);
+}
+.w-2.w-small {
+    width: 45px;
+}
+
+.w-8.w-big {
+    width: calc(100% - 45px);
+}

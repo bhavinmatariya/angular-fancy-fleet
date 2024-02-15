@@ -5,16 +5,25 @@
   <div class="container" data-layout="container">
     
     <!-- <app-navbar-vertical></app-navbar-vertical> -->
-
+    <a class="navbar-brand">
+      <div class="d-flex align-items-center">
+        <span (click)="collapseSidebar()">
+          <span class="fas fa-bars-staggered text-secondary nav-bar-icon"></span>
+        </span>
+        <span class="fas fa-car-side text-primary company-name-logo"></span>
+        <span class="fw-bold text-primary company-name-logo">Fancy Fleet</span>
+      </div>
+    </a>
     <div class="content">
-        <div class="row">
-          <div class="col-2">
+        <div class="flex">
+          <div class="w-2" [ngClass]="{'w-small': isSidebarOpen}">
             <nav
-            app-navbar-vertical
+            app-navbar-vertical [isSidebarOpen]="isSidebarOpen"
               class="navbar navbar-light navbar-vertical navbar-expand-xl mr-3"
             ></nav>
           </div>
-          <div class="col-10 pt-4">
+          <div class="w-8 pt-1" 
+          [ngClass]="{'w-big': isSidebarOpen}">
             <router-outlet></router-outlet>
           </div>
         </div>

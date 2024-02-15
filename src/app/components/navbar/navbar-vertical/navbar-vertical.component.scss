@@ -77,3 +77,37 @@
     -ms-transform: translateY(-50%) rotate(225deg);
     transform: translateY(-50%) rotate(225deg);
 }
+
+.navbar-collapse-close {
+    width: 21px;
+    overflow: hidden;
+    .navbar-vertical-content {
+        width: 210px;
+        .navbar-nav {
+            width: 100%;
+            .nav-item {
+                width: 200px;
+            }
+            .navbar-vertical-label  {
+                display: none;
+            }
+        }
+    }
+}
+
+.navbar-collapse-close:hover {
+    overflow: visible;
+    z-index: 999999;
+    position: relative;
+    transition: 200ms all;
+    .navbar-vertical-content {
+        width: 225px;
+        background-color: #e9ecef;
+        padding-right: 40px;
+        transition: 200ms all;
+        box-shadow: 20px 0rem 1rem rgba(0, 0, 0, 0.07);
+        .navbar-vertical-label  {
+            display: block !important;
+        }
+    }
+}
