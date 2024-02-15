@@ -12,7 +12,7 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class CustomerCreateComponent {
   customerForm: FormGroup;
-
+  isSelectedData: boolean = false;
   constructor(private fb: FormBuilder,private customerService: CustomerService,private router : Router) {
     this.customerForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -36,12 +36,15 @@ export class CustomerCreateComponent {
    }
 
   ngOnInit(): void {
-   
+    this.customerService.selectedCustomerData$.subscribe((res) => {
+      if(res) {
+        this.isSelectedData = true;
+        this.customerForm.patchValue(res);
+      }
+    })
   }
 
   onSubmit() {
-    // Handle form submission
-    console.log(this.customerForm.value);
     this.customerService.addCustomer(this.customerForm.value);
     this.router.navigate(['./customer/list']);
   }

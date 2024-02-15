@@ -16,9 +16,11 @@ export class CustomerListComponent {
   }
     ngOnInit(): void {
       this.customerService.getCustomers().subscribe((res:any) => {
-        this.customerData = res;
-        console.log('===========res',res);
-        
+        this.customerData = res;        
       })
+    }
+
+    selectedCustomerData(cData : any) {
+      this.customerService.selectedCustomerData$.next(cData);
     }
 }

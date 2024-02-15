@@ -1,6 +1,6 @@
 <div class="row flex-between-center">
     <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
-        <h3 class="fs-9 mb-0 text-nowrap py-2 py-xl-0">Add New Customer</h3>
+        <h3 class="fs-9 mb-0 text-nowrap py-2 py-xl-0">{{isSelectedData ? 'View Customer' :'Add New Customer'}}</h3>
     </div>
 </div>
 <form class="mt-4" [formGroup]="customerForm" (ngSubmit)="onSubmit()"> 
@@ -169,9 +169,11 @@
            
         </div>
     </div>
-    <div class="card-footer d-flex justify-content-between mt-4 mb-3">
-        <span  [routerLink]="['/customer/list']">Cancel</span>
-        <button class="btn btn-secondary" type="submit" [disabled]="customerForm.invalid">Save Customer</button>
-    </div>
+    @if(!isSelectedData) {
+      <div class="card-footer d-flex justify-content-between mt-4 mb-3">
+          <span [routerLink]="['/customer/list']">Cancel</span>
+          <button class="btn btn-secondary" type="submit" [disabled]="customerForm.invalid">Save Customer</button>
+      </div>
+    }
 </form>
 

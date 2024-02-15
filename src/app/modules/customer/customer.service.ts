@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -197,6 +197,7 @@ export class CustomerService {
         pastRecord: '467'
     }
 ];
+  selectedCustomerData$ = new BehaviorSubject<any>(null);  
   constructor() { }
 
   getCustomers(): Observable<any[]> {
