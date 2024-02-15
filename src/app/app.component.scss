@@ -15,6 +15,7 @@
 }
 .fleet-sidenav {
     width: 225px;
+    transition: 200ms all;
 }
 
 .fleet-content {
@@ -52,7 +53,7 @@
 
     .fleet-sidenav.w-small {
         width: 0;
-        display: none;
+        transform: translateX(-235px);
     }
     .fleet-content {
         width: 100%;
