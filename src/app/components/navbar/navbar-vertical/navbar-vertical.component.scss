@@ -112,9 +112,6 @@
     }
 }
 
-
-@media screen and (max-width:700px) {
-    .collapse:not(.show) {
-        display: block;
-    }
- }
+#navbarVerticalCollapse {
+    display: block !important;
+}
