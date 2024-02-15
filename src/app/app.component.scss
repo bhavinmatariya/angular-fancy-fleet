@@ -13,17 +13,55 @@
 .flex {
     display: flex;
 }
-.w-2 {
+.fleet-sidenav {
     width: 225px;
 }
 
-.w-8 {
+.fleet-content {
     width: calc(100% - 225px);
 }
-.w-2.w-small {
+.fleet-sidenav.w-small {
     width: 45px;
 }
 
-.w-8.w-big {
+.fleet-content.w-big {
     width: calc(100% - 45px);
 }
+
+
+ @media screen and (max-width:700px) {
+    .nav-bar-icon {
+        position: relative;
+        z-index: 10;
+    }
+    .company-name-logo {
+        position: relative;
+        z-index: 10;
+    }
+    .fleet-sidenav {
+        width: 235px;
+        position: absolute;
+        padding-top: 40px;
+        top: 0;
+        left: 0;
+        background: #fff;
+        z-index: 9;
+        padding-left: 12px;
+        box-shadow: 20px 0rem 1rem rgba(0, 0, 0, 0.07);
+    }
+
+    .fleet-sidenav.w-small {
+        width: 0;
+        display: none;
+    }
+    .fleet-content {
+        width: 100%;
+    }
+
+    .fleet-content.w-big {
+        width: 100%;
+    }
+    .collapse:not(.show) {
+        display: block;
+    }
+ }
