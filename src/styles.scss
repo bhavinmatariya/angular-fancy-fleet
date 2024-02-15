@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    --bs-heading-color:#344050;
+}
+.nav {
+    --bs-nav-link-color: #5e6e82;
+   
+}
+@import 'bootstrap/dist/css/bootstrap.min.css';

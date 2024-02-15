@@ -1,0 +1,16 @@
+.accordion-header {
+    ::before {
+        content: '+';
+        margin-right: 5px;
+    }
+    ::after {
+        content: none !important;
+    }
+}
+.accordion-button:not(.collapsed)::before {
+    content: '-';
+}
+
+.accordion-button:not(.collapsed)  {
+  background-color: transparent;
+}

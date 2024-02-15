@@ -1,0 +1,179 @@
+<div class="">
+    <div class="row flex-between-center">
+        <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
+            <h3 class="fs-9 mb-0 text-nowrap py-2 py-xl-0">Add New Customer</h3>
+        </div>
+    </div>
+</div>
+<form class="mt-4" [formGroup]="customerForm" (ngSubmit)="onSubmit()"> 
+    <div class="accordion" id="accordionExample1">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1"
+                    aria-expanded="true" aria-controls="collapse1">Customer Information</button>
+            </h2>
+            <div class="accordion-collapse collapse show" id="collapse1" aria-labelledby="heading1"
+                data-bs-parent="#accordionExample1">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col">
+                            <label>First name</label>
+                          <input type="text" class="form-control" formControlName="firstName">
+                        </div>
+                        <div class="col">
+                          <label>Last name</label>
+                          <input type="text" class="form-control" formControlName="lastName">
+                        </div>
+                      </div>
+
+                      <div class="row mt-2">
+                        <div class="col">
+                            <label>Phone Number</label>
+                          <input type="text" class="form-control" formControlName="phoneNumber">
+                        </div>
+                        <div class="col">
+                          <label>Email</label>
+                          <input type="text" class="form-control" formControlName="email">
+                        </div>
+                      </div>
+                </div>
+
+                   
+            </div>
+        </div>
+    </div>
+    <div class="accordion" id="accordionExample2">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading2">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">Address
+                    Information</button>
+            </h2>
+            <div class="accordion-collapse collapse show" id="collapse2" aria-labelledby="heading2"
+                data-bs-parent="#accordionExample2">
+                <div class="accordion-body">
+                        <div class="row">
+                            <div class="col">
+                                <label>Street Address</label>
+                              <input type="text" class="form-control" formControlName="streetAddress">
+                            </div>
+                            <div class="col">
+                              <label>City</label>
+                              <input type="text" class="form-control" formControlName="city">
+                            </div>
+                          </div>
+    
+                        <div class="row mt-2">
+                            <div class="col">
+                                <label>State</label>
+                              <input type="text" class="form-control" formControlName="state">
+                            </div>
+                            <div class="col">
+                              <label>Postal Code</label>
+                              <input type="text" class="form-control" formControlName="postalCode">
+                            </div>
+                          </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion" id="accordionExample3">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading3">
+                <button class="accordion-button show" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">License
+                    Information</button>
+            </h2>
+            <div class="accordion-collapse collapse show" id="collapse3" aria-labelledby="heading3"
+                data-bs-parent="#accordionExample3">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col">
+                            <label>License Number</label>
+                          <input type="text" class="form-control" formControlName="licenseNumber">
+                        </div>
+                        <div class="col">
+                          <label>State</label>
+                          <input type="text" class="form-control" formControlName="licenseState">
+                        </div>
+                      </div>
+
+                      <div class="row mt-2">
+                        <div class="col">
+                            <label>Start Date</label>
+                          <input type="date" class="form-control" formControlName="startDate">
+                        </div>
+                        <div class="col">
+                          <label>End Date</label>
+                          <input type="date" class="form-control" formControlName="endDate">
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion" id="accordionExample4">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading4">
+                <button class="accordion-button show" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">Payment
+                    Information</button>
+            </h2>
+            <div class="accordion-collapse collapse show" id="collapse4" aria-labelledby="heading4"
+                data-bs-parent="#accordionExample4">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col">
+                            <label>Card Type</label>
+                            <select class="form-select" formControlName="cardType">
+                                <option value="1">Rupay</option>
+                                <option value="2">Visa</option>
+                              </select>
+                        </div>
+                        <div class="col">
+                          <label>Card Number</label>
+                          <input type="text" class="form-control" formControlName="cardNumber">
+                        </div>
+                        <div class="col">
+                            <label>Expiry Date</label>
+                            <input type="date" class="form-control" formControlName="expiryDate">
+                          </div>
+                      </div>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+    <div class="accordion" id="accordionExample5">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading4">
+                <button class="accordion-button show" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">Reservation
+                    Information</button>
+            </h2>
+            <div class="accordion-collapse collapse show" id="collapse5" aria-labelledby="heading4"
+                data-bs-parent="#accordionExample5">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col">
+                            <label>Current Record</label>
+                            <input type="text" class="form-control" formControlName="currentRecord">
+                        </div>
+                        <div class="col">
+                          <label>Past Record</label>
+                          <input type="text" class="form-control" formControlName="pastRecord">
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+    <div class="card-footer d-flex justify-content-between mt-4 mb-3">
+        <span>Cancel</span>
+        <button class="btn btn-secondary" type="submit">Save Customer</button>
+    </div>
+</form>
+
