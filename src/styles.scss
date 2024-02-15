@@ -36,3 +36,9 @@ $theme-colors: (
 body {
     background-color: $gray-200;
 }
+
+label {
+    display: inline-block;
+    font-size: 13px;
+    color: #919191;
+}
