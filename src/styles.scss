@@ -6,4 +6,33 @@
     --bs-nav-link-color: #5e6e82;
    
 }
-@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+$primary:       $primary;
+$secondary:     $secondary;
+$light:         $gray-300;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-900;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+body {
+    background-color: $gray-200;
+}
