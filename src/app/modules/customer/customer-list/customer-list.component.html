@@ -27,28 +27,28 @@
           <tbody class="list" id="table-customers-body">
             @for (cdata of customerData; track cdata; let  i = $index) {
             <tr class="btn-reveal-trigger" ngFor="let cdata of customerData">
-              <td class="name align-middle white-space-nowrap py-2"><a href="../../app/e-commerce/customer-details.html">
+              <td class="name align-middle white-space-nowrap py-2"><a>
                   <div class="d-flex d-flex align-items-center">
                     <div class="avatar avatar-xl me-2">
                       <div class="avatar-name rounded-circle"><span><img src="https://avatar.iran.liara.run/public" height="30" width="30"/></span></div>
                     </div>
                     <div class="flex-1">
-                        <a routerLink="/customer/add" (click)="selectedCustomerData(cdata)">{{cdata.firstName}} {{cdata.lastName}}</a> <br>
-                        <h6 class="mb-0">{{cdata.phoneNumber}}</h6>
+                        <a  class="mb-1" routerLink="/customer/add" (click)="selectedCustomerData(cdata)">{{cdata.firstName}} {{cdata.lastName}}</a> <br/>
+                        <h6 class="mb-1">{{cdata.phoneNumber}}</h6>
                         <a class="customer-email">{{cdata.email}}</a>
                     </div>
                   </div>
                 </a></td>
               <td class="email align-middle py-2">
-                {{cdata.streetAddress}} <br>  
-                {{cdata.city}}  {{cdata.endDate}}
+               <span class="mb-1"> {{cdata.streetAddress}}</span> <br/>  
+               <span> {{cdata.city}}  {{cdata.endDate}} </span>
               </td>
               <td class="phone align-middle white-space-nowrap py-2">
-                {{cdata.licenseNumber}} {{cdata.licenseState}} <br>
-                {{cdata.startDate}}   <br>
-                {{cdata.startDate}}
+                <span class="mb-1"> {{cdata.licenseNumber}} {{cdata.licenseState}}</span> <br/>
+                <span class="mb-1"> {{cdata.startDate}}</span> <br/>
+                <span> {{cdata.endDate}}</span>
               </td>
-              <td class="address align-middle white-space-nowrap ps-5 py-2">
+              <td class="payment-info align-middle white-space-nowrap ps-5 py-2">
                 <div class="d-flex align-items-center">
                   @if(i %2 === 0) {
                     <img src="assets/visa-logo.png" height="40" width="40"/>
@@ -56,16 +56,15 @@
                   @else {
                     <img src="assets/mastercard-logo.png" height="40" width="40"/>
                   }
-                
                  <div>
-                  {{cdata.cardNumber}} <br/>
-                  Expiry {{cdata.expiryDate}}
+                  <span> {{cdata.cardNumber}}</span>  <br/>
+                  Expiry <span> {{cdata.expiryDate}}</span>
                  </div>
                 </div>
               </td>
               <td class="joined align-middle py-2">
-                Current {{cdata.currentRecord}} <br/>
-                Past {{cdata.pastRecord}}
+                Current <span class="mb-1"> {{cdata.currentRecord}}</span> <br/>
+                Past <span> {{cdata.pastRecord}}</span>
               </td>
             </tr>
         }
