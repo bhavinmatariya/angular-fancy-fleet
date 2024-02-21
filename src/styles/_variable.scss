@@ -1,0 +1,48 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+
+/* You can add global styles to this file, and also import other style files */
+* {
+    --bs-heading-color:#344050;
+}
+.nav {
+    --bs-nav-link-color: #5e6e82;
+   
+}
+
+$primary:       $primary;
+$secondary:     $secondary;
+$light:         $gray-300;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-900;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+
+/* // global variables
+$enable-rounded: false;
+$enable-button-pointers: false;
+$enable-negative-margins: true;
+$enable-smooth-scroll: false;
+
+// theme color variables
+$primary: #ff3287;
+$secondary: #16be7e;
+$light: #fff9f1; */
+
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
