@@ -1,3 +1,5 @@
+@import "../../../../styles/common.scss";
+
 .nav {
     flex-flow: column nowrap;
     font-size: 0.8125rem;
@@ -10,11 +12,12 @@
 
 .nav-link {
     padding: 4px 0px !important;
-    font-size: 17px;
+    font-size: $font-size-base;
+    font-family: $font-family-base;
     .nav-link-icon {
         .fas {
-            font-size: 14px;
-            width: 18px;
+            font-size: $navbar-icon-size;
+            width: 2rem;
             text-align: center;
         }
     }
@@ -22,7 +25,7 @@
 .nav-item {
     .nav {
         .nav-link {
-            font-size: 15px;
+            font-size: $navbar-link-font-size;
             color: var(--bs-heading-color);
             padding-left: 18px !important;
         }
@@ -30,7 +33,7 @@
 }
 
 .navbar-vertical-label {
-    font-size: 14px;
+    font-size: $font-size-sm;
     color: rgb(164, 164, 164);
 }
 
