@@ -2,15 +2,6 @@
 @import "../../node_modules/bootstrap/scss/variables";
 
 
-/* You can add global styles to this file, and also import other style files */
-* {
-    --bs-heading-color:#344050;
-}
-.nav {
-    --bs-nav-link-color: #5e6e82;
-   
-}
-
 $primary:       $primary;
 $secondary:     $secondary;
 $light:         $gray-300;
@@ -59,6 +50,19 @@ $font-weight-base:            $font-weight-normal;
 
 $navbar-icon-size: 0.875rem;
 $navbar-link-font-size: 0.938rem;
+$navbar-brand-font-size: 1.4375rem;
+
+/* ------ Labels ------ */
+
+$label-font-size: 0.8125rem;
+
+/* ------ Colors ------ */
+
+$label-color: #919191;
+$sidenav-color: #fff;
+$dropdown-indicator-color: #5e6e82;
+$navbar-collpase: #e9ecef;
+$heading-color: #344050;
 
 /* // global variables
 $enable-rounded: false;
@@ -70,6 +74,16 @@ $enable-smooth-scroll: false;
 $primary: #ff3287;
 $secondary: #16be7e;
 $light: #fff9f1; */
+
+
+/* You can add global styles to this file, and also import other style files */
+* {
+  --bs-heading-color:$heading-color;
+}
+.nav {
+  --bs-nav-link-color: $dropdown-indicator-color;
+ 
+}
 
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';

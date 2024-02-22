@@ -1,3 +1,14 @@
 @import 'variable';
 @import 'components/table';
 @import 'components/avatar';
+
+body {
+    background-color: $gray-200;
+    font-family: $font-family-roboto;
+}
+
+label {
+    display: inline-block;
+    font-size: $label-font-size;
+    color: $label-color;
+}

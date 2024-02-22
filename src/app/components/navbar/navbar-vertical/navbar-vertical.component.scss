@@ -53,8 +53,8 @@
     right: 5px;
     height: 0.4rem;
     width: 0.4rem;
-    border-right: 1px solid #5e6e82;
-    border-bottom: 1px solid #5e6e82;
+    border-right: 1px solid $dropdown-indicator-color;
+    border-bottom: 1px solid $dropdown-indicator-color;
     top: 50%;
     -webkit-transform: translateY(-50%) rotate(45deg);
     -ms-transform: translateY(-50%) rotate(45deg);
@@ -102,7 +102,7 @@
     transition: 200ms all;
     .navbar-vertical-content {
         width: 225px;
-        background-color: #e9ecef;
+        background-color: $navbar-collpase;
         padding-right: 40px;
         transition: 200ms all;
         box-shadow: 20px 0rem 1rem rgba(0, 0, 0, 0.07);

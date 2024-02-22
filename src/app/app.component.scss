@@ -1,3 +1,4 @@
+@import '../styles/common.scss';
 
 .nav-bar-icon {
     margin-right: 12px;
@@ -6,7 +7,7 @@
 
 .navbar-brand {
     .company-name-logo {
-        font-size: 23px;
+        font-size: $navbar-brand-font-size;
         cursor: pointer;
     }
 }
@@ -43,7 +44,7 @@
         padding-top: 40px;
         top: 0;
         left: 0;
-        background: #fff;
+        background: $sidenav-color;
         z-index: 9;
         padding-left: 12px;
         box-shadow: 20px 0rem 1rem rgba(0, 0, 0, 0.07);
