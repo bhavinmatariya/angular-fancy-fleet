@@ -16,7 +16,9 @@ export class CustomerListComponent {
   }
     ngOnInit(): void {
       this.customerService.getCustomers().subscribe((res:any) => {
-        this.customerData = res;        
+        if (res) {
+          this.customerData = res;
+        }
       })
     }
 

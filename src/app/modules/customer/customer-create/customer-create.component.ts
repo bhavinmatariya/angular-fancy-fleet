@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CustomerService } from '../customer.service';
 import { Router, RouterModule } from '@angular/router';
@@ -10,7 +10,7 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './customer-create.component.html',
   styleUrl: './customer-create.component.scss'
 })
-export class CustomerCreateComponent {
+export class CustomerCreateComponent implements OnDestroy{
   customerForm: FormGroup;
   isSelectedData: boolean = false;
   constructor(private fb: FormBuilder,private customerService: CustomerService,private router : Router) {
@@ -47,5 +47,9 @@ export class CustomerCreateComponent {
   onSubmit() {
     this.customerService.addCustomer(this.customerForm.value);
     this.router.navigate(['./customer/list']);
+  }
+
+  ngOnDestroy(): void {
+    this.customerService.selectedCustomerData$.next(null);
   }
 }

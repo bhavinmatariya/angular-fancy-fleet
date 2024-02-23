@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path:'add',
     component: CustomerCreateComponent
+  },
+  {
+    path:'view',
+    component: CustomerCreateComponent
   }
 ];
 

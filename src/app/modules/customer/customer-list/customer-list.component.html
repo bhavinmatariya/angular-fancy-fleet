@@ -5,7 +5,7 @@
       </div>
       <div class="col-8 col-sm-auto text-end ps-2">
         <div id="table-customers-replace-element">
-          <button type="button" class="btn btn-primary" routerLink="/customer/add"><span class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span><span class="d-none d-sm-inline-block ms-1" routerLink="/customer/add">Add Customer</span></button>
+          <button type="button" class="btn btn-primary" routerLink="/customer/add"><span class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span><span class="d-none d-sm-inline-block ms-1">Add Customer</span></button>
         </div>
       </div>
     </div>
@@ -29,11 +29,11 @@
             <tr class="btn-reveal-trigger" ngFor="let cdata of customerData">
               <td class="name align-middle white-space-nowrap py-2"><a>
                   <div class="d-flex d-flex align-items-center">
-                    <div class="avatar avatar-xl me-2">
-                      <div class="avatar-name rounded-circle"><span><img src="https://avatar.iran.liara.run/public" height="30" width="30"/></span></div>
+                    <div class="me-2">
+                      <div class="rounded-circle"><span><img src="https://avatar.iran.liara.run/public" height="30" width="30"/></span></div>
                     </div>
                     <div class="flex-1">
-                        <a  class="mb-1" routerLink="/customer/add" (click)="selectedCustomerData(cdata)">{{cdata.firstName}} {{cdata.lastName}}</a> <br/>
+                        <a  class="mb-1" routerLink="/customer/view" (click)="selectedCustomerData(cdata)">{{cdata.firstName}} {{cdata.lastName}}</a> <br/>
                         <h6 class="mb-1">{{cdata.phoneNumber}}</h6>
                         <a class="customer-email">{{cdata.email}}</a>
                     </div>
