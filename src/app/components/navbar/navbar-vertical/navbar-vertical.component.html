@@ -1,389 +1,381 @@
-<div>
-<div class="collapse navbar-collapse" [ngClass]="{'navbar-collapse-close': isSidebarOpen}" id="navbarVerticalCollapse">
-  <div class="navbar-vertical-content scrollbar">
-    <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
-      <li class="nav-item">
-        <a class="nav-link dropdown-indicator" href="#dashboard" role="button"
-          data-bs-toggle="collapse" aria-expanded="false" aria-controls="dashboard">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span
-              class="nav-link-text ps-1">Dashboard</span>
+<div class="w-100">
+  <div class="collapse navbar-collapse" [ngClass]="{'navbar-collapse-close': isSidebarOpen}"
+    id="navbarVerticalCollapse">
+    <div class="navbar-vertical-content scrollbar">
+      <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+        <li class="nav-item">
+          <a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse"
+            aria-expanded="false" aria-controls="dashboard">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span
+                class="nav-link-text ps-1">Dashboard</span>
+            </div>
+          </a>
+          <ul class="nav collapse" id="dashboard">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Dashboard Home</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Dashboard Fleet</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+            <div class="col-auto navbar-vertical-label">App
+            </div>
+            <div class="col ps-0">
+              <hr class="mb-0 navbar-vertical-divider">
+            </div>
           </div>
-        </a>
-        <ul class="nav collapse" id="dashboard">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Dashboard Home</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Dashboard Fleet</span>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
-          <div class="col-auto navbar-vertical-label">App
+          <a class="nav-link" routerLink="" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-calendar-alt"></span></span><span
+                class="nav-link-text ps-1">Reservation List</span>
+            </div>
+          </a>
+          <a class="nav-link" routerLink="" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-comments"></span></span><span
+                class="nav-link-text ps-1">Calendar
+                View</span>
+            </div>
+          </a>
+          <a class="nav-link" routerLink="/customer/list" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-comments"></span></span><span
+                class="nav-link-text ps-1">Customer
+                List</span>
+            </div>
+          </a>
+          <a class="nav-link" routerLink="" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-comments"></span></span><span
+                class="nav-link-text ps-1">Invoice
+                List</span>
+            </div>
+          </a>
+          <a class="nav-link" routerLink="" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-comments"></span></span><span
+                class="nav-link-text ps-1">Airport
+                Boards</span>
+            </div>
+          </a>
+          <a class="nav-link" routerLink="" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-comments"></span></span><span
+                class="nav-link-text ps-1">Transaction List</span>
+            </div>
+          </a>
+          <a class="nav-link" routerLink="" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-comments"></span></span><span
+                class="nav-link-text ps-1">Customer
+                Contract</span>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+            <div class="col-auto navbar-vertical-label">Fleet
+            </div>
+            <div class="col ps-0">
+              <hr class="mb-0 navbar-vertical-divider">
+            </div>
           </div>
-          <div class="col ps-0">
-            <hr class="mb-0 navbar-vertical-divider">
-          </div>
-        </div>
-        <a class="nav-link" routerLink="" role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-calendar-alt"></span></span><span
-              class="nav-link-text ps-1">Reservation List</span>
-          </div>
-        </a>
-        <a class="nav-link" routerLink="" role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-comments"></span></span><span
-              class="nav-link-text ps-1">Calendar
-              View</span>
-          </div>
-        </a>
-        <a class="nav-link" routerLink="/customer/list"  role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-comments"></span></span><span
-              class="nav-link-text ps-1">Customer
-              List</span>
-          </div>
-        </a>
-        <a class="nav-link" routerLink="" role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-comments"></span></span><span
-              class="nav-link-text ps-1">Invoice
-              List</span>
-          </div>
-        </a>
-        <a class="nav-link" routerLink="" role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-comments"></span></span><span
-              class="nav-link-text ps-1">Airport
-              Boards</span>
-          </div>
-        </a>
-        <a class="nav-link" routerLink="" role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-comments"></span></span><span
-              class="nav-link-text ps-1">Transaction List</span>
-          </div>
-        </a>
-        <a class="nav-link" routerLink="" role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-comments"></span></span><span
-              class="nav-link-text ps-1">Customer
-              Contract</span>
-          </div>
-        </a>
-      </li>
-      <li class="nav-item">
-        <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
-          <div class="col-auto navbar-vertical-label">Fleet
-          </div>
-          <div class="col ps-0">
-            <hr class="mb-0 navbar-vertical-divider">
-          </div>
-        </div>
-        <a class="nav-link dropdown-indicator" href="#vehicles" role="button" data-bs-toggle="collapse"
-          aria-expanded="false" aria-controls="user">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-user"></span></span><span
-              class="nav-link-text ps-1">Vehicles</span>
-          </div>
-        </a>
-        <ul class="nav collapse" id="vehicles">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Vehicle List</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Mileage History</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Expense History</span>
-              </div>
-            </a>
-          </li>
-        </ul>
+          <a class="nav-link dropdown-indicator" href="#vehicles" role="button" data-bs-toggle="collapse"
+            aria-expanded="false" aria-controls="user">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-user"></span></span><span
+                class="nav-link-text ps-1">Vehicles</span>
+            </div>
+          </a>
+          <ul class="nav collapse" id="vehicles">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Vehicle List</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Mileage History</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Expense History</span>
+                </div>
+              </a>
+            </li>
+          </ul>
 
-        <a class="nav-link dropdown-indicator" href="#inspections" role="button" data-bs-toggle="collapse"
-          aria-expanded="false" aria-controls="user">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-user"></span></span><span
-              class="nav-link-text ps-1">Inspections</span>
-          </div>
-        </a>
-        <ul class="nav collapse" id="inspections">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Inspection List</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Checklists</span>
-              </div>
-            </a>
-          </li>
-        </ul>
+          <a class="nav-link dropdown-indicator" href="#inspections" role="button" data-bs-toggle="collapse"
+            aria-expanded="false" aria-controls="user">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-user"></span></span><span
+                class="nav-link-text ps-1">Inspections</span>
+            </div>
+          </a>
+          <ul class="nav collapse" id="inspections">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Inspection List</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Checklists</span>
+                </div>
+              </a>
+            </li>
+          </ul>
 
-        <a class="nav-link dropdown-indicator" href="#issues" role="button" data-bs-toggle="collapse"
-          aria-expanded="false" aria-controls="user">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-user"></span></span><span
-              class="nav-link-text ps-1">Issues</span>
-          </div>
-        </a>
-        <ul class="nav collapse" id="issues">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Issue List</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Faults</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Recall Items</span>
-              </div>
-            </a>
-          </li>
-        </ul>
+          <a class="nav-link dropdown-indicator" href="#issues" role="button" data-bs-toggle="collapse"
+            aria-expanded="false" aria-controls="user">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-user"></span></span><span
+                class="nav-link-text ps-1">Issues</span>
+            </div>
+          </a>
+          <ul class="nav collapse" id="issues">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Issue List</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Faults</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Recall Items</span>
+                </div>
+              </a>
+            </li>
+          </ul>
 
-        <a class="nav-link dropdown-indicator" href="#service" role="button" data-bs-toggle="collapse"
-          aria-expanded="false" aria-controls="user">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-user"></span></span><span
-              class="nav-link-text ps-1">Service</span>
-          </div>
-        </a>
-        <ul class="nav collapse" id="service">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Service Tasks</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Service Programs</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Work Order History</span>
-              </div>
-            </a>
-          </li>
-        </ul>
+          <a class="nav-link dropdown-indicator" href="#service" role="button" data-bs-toggle="collapse"
+            aria-expanded="false" aria-controls="user">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-user"></span></span><span
+                class="nav-link-text ps-1">Service</span>
+            </div>
+          </a>
+          <ul class="nav collapse" id="service">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Service Tasks</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Service Programs</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Work Order History</span>
+                </div>
+              </a>
+            </li>
+          </ul>
 
-        <a class="nav-link dropdown-indicator" href="#alerts" role="button" data-bs-toggle="collapse"
-          aria-expanded="false" aria-controls="user">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-user"></span></span><span
-              class="nav-link-text ps-1">Alerts</span>
+          <a class="nav-link dropdown-indicator" href="#alerts" role="button" data-bs-toggle="collapse"
+            aria-expanded="false" aria-controls="user">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-user"></span></span><span
+                class="nav-link-text ps-1">Alerts</span>
+            </div>
+          </a>
+          <ul class="nav collapse" id="alerts">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Service Alerts</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Vehicle Renewal Alerts</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Customer Alerts</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+            <div class="col-auto navbar-vertical-label">Settings
+            </div>
+            <div class="col ps-0">
+              <hr class="mb-0 navbar-vertical-divider">
+            </div>
           </div>
-        </a>
-        <ul class="nav collapse" id="alerts">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Service Alerts</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Vehicle Renewal Alerts</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Customer Alerts</span>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
-          <div class="col-auto navbar-vertical-label">Settings
-          </div>
-          <div class="col ps-0">
-            <hr class="mb-0 navbar-vertical-divider">
-          </div>
-        </div>
-        <a class="nav-link" routerLink="" role="button"
-          data-bs-toggle="" aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-rocket"></span></span><span
-              class="nav-link-text ps-1">Organization & Locations</span>
-          </div>
-        </a>
-        <a class="nav-link dropdown-indicator" href="#tables" role="button"
-          data-bs-toggle="collapse" aria-expanded="false" aria-controls="tables">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-table"></span></span><span class="nav-link-text ps-1">USer &
-              Management</span>
-          </div>
-        </a>
-        <ul class="nav collapse" id="tables">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Users</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Roles</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Access Control</span>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <a class="nav-link dropdown-indicator" href="#charts" role="button"
-          data-bs-toggle="collapse" aria-expanded="false" aria-controls="charts">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-chart-line"></span></span><span
-              class="nav-link-text ps-1">Vehicle Class</span>
-          </div>
-        </a>
-        <ul class="nav collapse" id="charts">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Vehicle Class List</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link dropdown-indicator" href="#eCharts" data-bs-toggle="collapse" aria-expanded="false"
-              aria-controls="charts">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Feature List</span>
-              </div>
-            </a>
-          </li>
-        </ul>
+          <a class="nav-link" routerLink="" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-rocket"></span></span><span
+                class="nav-link-text ps-1">Organization & Locations</span>
+            </div>
+          </a>
+          <a class="nav-link dropdown-indicator" href="#tables" role="button" data-bs-toggle="collapse"
+            aria-expanded="false" aria-controls="tables">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-table"></span></span><span class="nav-link-text ps-1">USer
+                &
+                Management</span>
+            </div>
+          </a>
+          <ul class="nav collapse" id="tables">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Users</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Roles</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Access Control</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <a class="nav-link dropdown-indicator" href="#charts" role="button" data-bs-toggle="collapse"
+            aria-expanded="false" aria-controls="charts">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-chart-line"></span></span><span
+                class="nav-link-text ps-1">Vehicle Class</span>
+            </div>
+          </a>
+          <ul class="nav collapse" id="charts">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Vehicle Class List</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-indicator" href="#eCharts" data-bs-toggle="collapse" aria-expanded="false"
+                aria-controls="charts">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Feature List</span>
+                </div>
+              </a>
+            </li>
+          </ul>
 
-        <a class="nav-link" routerLink="" role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-poll"></span></span><span class="nav-link-text ps-1">Vehicle
-              Statuses</span>
-          </div>
-        </a>
-        <a class="nav-link" routerLink="" role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-poll"></span></span><span class="nav-link-text ps-1">Expense
-              Types</span>
-          </div>
-        </a>
-        <a class="nav-link" routerLink="" role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-poll"></span></span><span class="nav-link-text ps-1">Vehicle
-              Types</span>
-          </div>
-        </a>
-        <a class="nav-link" routerLink="" role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-poll"></span></span><span
-              class="nav-link-text ps-1">Reservation Defaults</span>
-          </div>
-        </a>
-        <a class="nav-link dropdown-indicator" href="#icons" role="button" data-bs-toggle="collapse"
-          aria-expanded="false" aria-controls="icons">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-shapes"></span></span><span
-              class="nav-link-text ps-1">Rates</span>
-          </div>
-        </a>
-        <ul class="nav collapse" id="icons">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Rate Calendar</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-text ps-1">Default Rates</span>
-              </div>
-            </a>
-          </li>
-        </ul>
+          <a class="nav-link" routerLink="" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-poll"></span></span><span
+                class="nav-link-text ps-1">Vehicle
+                Statuses</span>
+            </div>
+          </a>
+          <a class="nav-link" routerLink="" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-poll"></span></span><span
+                class="nav-link-text ps-1">Expense
+                Types</span>
+            </div>
+          </a>
+          <a class="nav-link" routerLink="" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-poll"></span></span><span
+                class="nav-link-text ps-1">Vehicle
+                Types</span>
+            </div>
+          </a>
+          <a class="nav-link" routerLink="" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-poll"></span></span><span
+                class="nav-link-text ps-1">Reservation Defaults</span>
+            </div>
+          </a>
+          <a class="nav-link dropdown-indicator" href="#icons" role="button" data-bs-toggle="collapse"
+            aria-expanded="false" aria-controls="icons">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-shapes"></span></span><span
+                class="nav-link-text ps-1">Rates</span>
+            </div>
+          </a>
+          <ul class="nav collapse" id="icons">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Rate Calendar</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <span class="nav-link-text ps-1">Default Rates</span>
+                </div>
+              </a>
+            </li>
+          </ul>
 
-        <a class="nav-link" href="../widgets.html" role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-poll"></span></span><span class="nav-link-text ps-1">Company
-              Contract</span>
-          </div>
-        </a>
+          <a class="nav-link" href="../widgets.html" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-poll"></span></span><span
+                class="nav-link-text ps-1">Company
+                Contract</span>
+            </div>
+          </a>
 
-        <a class="nav-link" href="../widgets.html" role="button" data-bs-toggle=""
-          aria-expanded="false">
-          <div class="d-flex align-items-center">
-            <span class="nav-link-icon"><span class="fas fa-poll"></span></span><span class="nav-link-text ps-1">3rd
-              Party Integration</span>
-          </div>
-        </a>
-      </li>
-    </ul>
+          <a class="nav-link" href="../widgets.html" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon"><span class="fas fa-poll"></span></span><span class="nav-link-text ps-1">3rd
+                Party Integration</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>

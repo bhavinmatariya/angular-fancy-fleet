@@ -1,11 +1,14 @@
 // Table css
-
+@import '../responsive';
 table {
     border-color: transparent !important;
     border-radius: 0.375rem;
 }
 
-.table tfoot > tr > th:first-child, .table thead > tr > th:first-child, .table tr th:first-child, .table tr td:first-child {
+.table tfoot>tr>th:first-child,
+.table thead>tr>th:first-child,
+.table tr th:first-child,
+.table tr td:first-child {
     padding-left: 1.25rem;
 }
 
@@ -14,12 +17,26 @@ table tr th:after {
     margin-left: 0.25rem;
 }
 
+thead {
+    background: $light;
+}
+
 th {
     color: gray;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 td {
-    color: gray;
-    font-size: 1rem;
+    font-size: 0.85rem;
+    span{
+        color: $data-text-color;
+    }
+}
+.table > :not(caption) > * > *{
+    padding: 0.85rem 0.85rem;
+}
+tr{
+    &:hover{
+        background-color: #edf2f7b6;
+    }
 }

@@ -1,22 +1,48 @@
+
+.accordion {
+    .accordion-item {
+        border: 0;
+
+        .accordion-body {
+            padding: 0;
+            tbody {
+                overflow-y: auto;
+                max-height: 172px;
+                display: block;
+            }
+
+            table thead,
+            tbody tr {
+                display: table;
+                width: 100%;
+                table-layout: auto;
+            }
+
+            .reservation-info {
+                // max-width: 900px;
+                width: 100%;
+            }
+        }
+    }
+}
+
 .accordion-header {
     ::before {
-        content: '+';
+        content: url('../../../../assets/svgIcons/add-circle-line.svg');
+        position: relative;
+        top: 2px;
         margin-right: 5px;
     }
+
     ::after {
         content: none !important;
     }
 }
+
 .accordion-button:not(.collapsed)::before {
-    content: '-';
+    content: url('../../../../assets/svgIcons/indeterminate-circle-line.svg');
 }
 
-.accordion-button:not(.collapsed)  {
-  background-color: transparent;
-}
-
-.card-footer {
-    span {
-        cursor: pointer;
-    }
+.accordion-button:not(.collapsed) {
+    background-color: transparent;
 }

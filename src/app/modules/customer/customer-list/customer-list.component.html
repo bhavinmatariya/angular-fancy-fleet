@@ -1,80 +1,107 @@
 <div class="">
-    <div class="row align-items-center justify-content-between">
-      <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
-        <h3 class="fs-9 mb-0 text-nowrap py-2 py-xl-0">Customer List</h3>
-      </div>
-      <div class="col-8 col-sm-auto text-end ps-2">
-        <div id="table-customers-replace-element">
-          <button type="button" class="btn btn-primary" routerLink="/customer/add"><span class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span><span class="d-none d-sm-inline-block ms-1">Add Customer</span></button>
-        </div>
+  <div class="row align-items-center justify-content-between">
+    <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
+      <h3 class="fs-9 mb-0 text-nowrap py-2 py-xl-0">Customer List</h3>
+    </div>
+    <div class="col-8 col-sm-auto text-end ps-2">
+      <div id="table-customers-replace-element">
+        <button type="button" class="btn btn-secondary" routerLink="/customer/add"><span class="fas fa-plus"
+            data-fa-transform="shrink-3 down-2"></span><span class="d-none d-sm-inline-block ms-1">Add
+            Customer</span></button>
       </div>
     </div>
   </div>
-<div class="card mb-3 mt-4" id="customersTable" data-list='{"valueNames":["name","email","phone","address","joined"],"page":10,"pagination":true}'>
-    
-    <div class="card-body p-0">
-      <div class="table-responsive scrollbar">
-        <table class="table table-sm table-striped fs-10 mb-0 overflow-hidden">
-          <thead class="bg-200">
-            <tr>
-              <th class="sort pe-1 align-middle white-space-nowrap" data-sort="name">Customer Info</th>
-              <th class="sort pe-1 align-middle white-space-nowrap" data-sort="email">Address Info</th>
-              <th class="sort pe-1 align-middle white-space-nowrap" data-sort="phone">License Info</th>
-              <th class="sort pe-1 align-middle white-space-nowrap ps-5" data-sort="address">Payment Info</th>
-              <th class="sort pe-1 align-middle white-space-nowrap" data-sort="joined">Reservation Info</th>
-            </tr>
-          </thead>
-          <tbody class="list" id="table-customers-body">
-            @for (cdata of customerData; track cdata; let  i = $index) {
-            <tr class="btn-reveal-trigger" ngFor="let cdata of customerData">
-              <td class="name align-middle white-space-nowrap py-2"><a>
-                  <div class="d-flex d-flex align-items-center">
-                    <div class="me-2">
-                      <div class="rounded-circle"><span><img src="https://avatar.iran.liara.run/public" height="30" width="30"/></span></div>
-                    </div>
-                    <div class="flex-1">
-                        <a  class="mb-1" routerLink="/customer/view" (click)="selectedCustomerData(cdata)">{{cdata.firstName}} {{cdata.lastName}}</a> <br/>
-                        <h6 class="mb-1">{{cdata.phoneNumber}}</h6>
-                        <a class="customer-email">{{cdata.email}}</a>
+</div>
+<div class="card mb-3 mt-2 mt-md-4 overflow-hidden border-0" id="customersTable"
+  data-list='{"valueNames":["name","email","phone","address","joined"],"page":10,"pagination":true}'>
+
+  <div class="card-body p-0">
+    <div class="table-responsive scrollbar">
+      <table class="table table-hover mb-0 overflow-hidden">
+        <thead>
+          <tr>
+            <th class="sort pe-1 align-middle white-space-nowrap fw-medium" data-sort="name">Customer Info</th>
+            <th class="sort pe-1 align-middle white-space-nowrap fw-medium" data-sort="email">Street</th>
+            <th class="sort pe-1 align-middle white-space-nowrap fw-medium" data-sort="email">Street 2</th>
+            <th class="sort pe-1 align-middle white-space-nowrap fw-medium" data-sort="email">City</th>
+            <th class="sort pe-1 align-middle white-space-nowrap fw-medium" data-sort="email">State</th>
+            <th class="sort pe-1 align-middle white-space-nowrap fw-medium" data-sort="email">Zip</th>
+            <th class="sort pe-1 align-middle white-space-nowrap fw-medium" data-sort="email">Country</th>
+            <th class="sort pe-1 align-middle white-space-nowrap fw-medium" data-sort="phone">License Info</th>
+            <th class="sort pe-1 align-middle white-space-nowrap fw-medium" data-sort="joined">Current Reservation</th>
+            <th class="sort pe-1 align-middle white-space-nowrap fw-medium" data-sort="joined">Past Reservation</th>
+          </tr>
+        </thead>
+        <tbody class="list" id="table-customers-body">
+          @for (cdata of customerData; track cdata; let i = $index) {
+          <tr class="btn-reveal-trigger">
+            <td class="name align-middle white-space-nowrap py-2">
+              <a>
+                <div class="d-flex align-items-center">
+                  <div class="me-2">
+                    <div class="rounded-circle">
+                      <span>
+                        <img src="https://avatar.iran.liara.run/public" height="30" width="30" />
+                      </span>
                     </div>
                   </div>
-                </a></td>
-              <td class="email align-middle py-2">
-               <span class="mb-1"> {{cdata.streetAddress}}</span> <br/>  
-               <span> {{cdata.city}}  {{cdata.endDate}} </span>
-              </td>
-              <td class="phone align-middle white-space-nowrap py-2">
-                <span class="mb-1"> {{cdata.licenseNumber}} {{cdata.licenseState}}</span> <br/>
-                <span class="mb-1"> {{cdata.startDate}}</span> <br/>
-                <span> {{cdata.endDate}}</span>
-              </td>
-              <td class="payment-info align-middle white-space-nowrap ps-5 py-2">
-                <div class="d-flex align-items-center">
-                  @if(i %2 === 0) {
-                    <img src="assets/visa-logo.png" height="40" width="40"/>
-                  }
-                  @else {
-                    <img src="assets/mastercard-logo.png" height="40" width="40"/>
-                  }
-                 <div>
-                  <span> {{cdata.cardNumber}}</span>  <br/>
-                  Expiry <span> {{cdata.expiryDate}}</span>
-                 </div>
+                  <div class="flex-1">
+                    <a class="mb-1" routerLink="/customer/view"
+                      (click)="selectedCustomerData(cdata)">{{cdata.customerDetails.firstName}} {{cdata.customerDetails.lastName}}</a> <br />
+                    <span class="mb-1 text-decoration-none">{{cdata.customerDetails.phoneNumber}}</span><br />
+                    <a class="customer-email">{{cdata.customerDetails.email}}</a>
+                  </div>
                 </div>
-              </td>
-              <td class="joined align-middle py-2">
-                Current <span class="mb-1"> {{cdata.currentRecord}}</span> <br/>
-                Past <span> {{cdata.pastRecord}}</span>
-              </td>
-            </tr>
-        }
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="card-footer d-flex align-items-center justify-content-center">
-      <button class="btn btn-sm me-1" type="button" title="Previous" data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
-      <ul class="pagination mb-0"></ul>
-      <button class="btn btn-sm ms-1" type="button" title="Next" data-list-pagination="next"><span class="fas fa-chevron-right"></span></button>
+              </a>
+            </td>
+            <td class="email align-middle py-2">
+              <span class="mb-1"> {{cdata.addressDetails.street}}</span>
+            </td>
+            <td class="align-middle">
+              <span> {{cdata.addressDetails.street2}} </span>
+            </td>
+            <td class="align-middle">
+              <span> {{cdata.addressDetails.city}}</span>
+            </td>
+            <td class="align-middle">
+              <span> {{cdata.addressDetails.state}}</span>
+            </td>
+            <td class="align-middle">
+              <span> {{cdata.addressDetails.zip}}</span>
+            </td>
+            <td class="align-middle">
+              <span> {{cdata.addressDetails.country}}</span>
+            </td>
+            <td class="phone align-middle white-space-nowrap py-2">
+              <span class="mb-1"> {{cdata.licenseDetails.licenseNumber}} {{cdata.licenseDetails.state}}</span> <br />
+              <span> {{cdata.licenseDetails.endDate}}</span>
+            </td>
+            <td class="align-middle">
+              <span class="ps-3">{{cdata.currentReservation}}</span>
+            </td>
+            <td class="align-middle">
+              <span class="ps-3">{{cdata.pastReservation}}</span>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
     </div>
   </div>
+  <div class="card-footer d-flex align-items-center justify-content-between">
+    <div class="page-numbers">
+      <p class="mb-0 fw-medium">Page
+        <span>1</span> of <span>10</span>
+      </p>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <button class="btn btn-sm btn btn-outline-secondary btn-outline rounded-2" type="button" title="Previous" data-list-pagination="prev">
+        Previous
+      </button>
+      <ul class="pagination mb-0"></ul>
+      <button class="btn btn-sm btn btn-outline-secondary btn-outline rounded-2" type="button" title="Next" data-list-pagination="next">
+        Next
+      </button>
+    </div>
+  </div>
+</div>

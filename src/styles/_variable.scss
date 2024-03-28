@@ -63,6 +63,8 @@ $sidenav-color: #fff;
 $dropdown-indicator-color: #5e6e82;
 $navbar-collpase: #e9ecef;
 $heading-color: #344050;
+$body-bg: #edf2f7;
+$data-text-color: #667085;
 
 /* // global variables
 $enable-rounded: false;
@@ -79,6 +81,9 @@ $light: #fff9f1; */
 /* You can add global styles to this file, and also import other style files */
 * {
   --bs-heading-color:$heading-color;
+  --bs-body-bg: $body-bg;
+  --bs-table-hover-bg: $light;
+  --bs-accordion-border-width: 0;
 }
 .nav {
   --bs-nav-link-color: $dropdown-indicator-color;

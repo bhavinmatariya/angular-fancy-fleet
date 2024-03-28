@@ -3,6 +3,8 @@
 .nav-bar-icon {
     margin-right: 12px;
     cursor: pointer;
+    font-size: 20px;
+    width: 24px;
 }
 
 .navbar-brand {
@@ -13,7 +15,7 @@
 }
 
 .fleet-sidenav {
-    width: 225px;
+    width: 235px;
     transition: 200ms all;
 }
 
@@ -28,8 +30,7 @@
     width: calc(100% - 45px);
 }
 
-
- @media screen and (max-width:700px) {
+ @media (max-width:991px) {
     .nav-bar-icon {
         position: relative;
         z-index: 10;
@@ -39,15 +40,17 @@
         z-index: 10;
     }
     .fleet-sidenav {
-        width: 235px;
-        position: absolute;
-        padding-top: 40px;
+        max-width: 235px;
+        width: 100%;
+        position: fixed;
+        padding-top: 60px;
         top: 0;
         left: 0;
         background: $sidenav-color;
         z-index: 9;
-        padding-left: 12px;
+        padding: 60px 12px 0 12px;
         box-shadow: 20px 0rem 1rem rgba(0, 0, 0, 0.07);
+        height: 100%;
     }
 
     .fleet-sidenav.w-small {

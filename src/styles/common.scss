@@ -1,13 +1,44 @@
 @import 'variable';
 @import 'components/table';
+@import 'components/card';
+@import 'components/accordion';
+@import 'responsive';
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 0;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf2f7;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(170, 169, 169, 0.575);
+    border-radius: 10px;
+}
 
 body {
-    background-color: $gray-200;
-    font-family: $font-family-roboto;
+    background-color: #edf2f7;
+    font-family: $font-family-base;
 }
 
 label {
     display: inline-block;
     font-size: $label-font-size;
     color: $label-color;
+}
+.btn:active{
+    outline: none;
+    border-color: transparent !important;
+}
+.btn-outline:hover{
+    background-color: #edf2f7 !important;
+    color: $secondary;
+}
+.form-control:focus,
+.form-select:focus,
+.accordion-button:focus{
+    box-shadow: none;
 }

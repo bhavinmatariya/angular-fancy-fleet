@@ -1,0 +1,9 @@
+// CARD CSS
+.card{
+    background: $light;
+    --bs-card-cap-padding-y: 0.60rem;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 6px;
+    .card-footer{
+        background: $light;
+    }
+}
