@@ -14,7 +14,35 @@ export class CustomerCreateComponent implements OnDestroy{
   customerForm: FormGroup;
   isSelectedData: boolean = false;
   containsCustomerView: boolean = false;
-
+  isReadOnly: boolean = true;
+  selectedCustomer: any;
+  
+  states: string[] = [
+    "California",
+    "New York",
+    "Texas",
+    "Florida",
+    "Illinois",
+    "Pennsylvania",
+    "Ohio",
+    "Georgia",
+    "North Carolina",
+    "Michigan",
+  ];
+  cities: string[] = [
+    "New York City",
+    "Los Angeles",
+    "Chicago",
+    "Houston",
+    "Phoenix",
+    "Philadelphia",
+    "San Antonio",
+    "San Diego",
+    "Dallas",
+    "San Francisco",
+    "Smallville"
+  ];
+ 
   constructor(private fb: FormBuilder,private customerService: CustomerService,private router : Router, private route: ActivatedRoute) {
     this.customerForm = this.fb.group({
       customerDetails: this.fb.group({
@@ -36,8 +64,6 @@ export class CustomerCreateComponent implements OnDestroy{
         state: ['', Validators.required],
         endDate: ['', Validators.required],
       }),
-      currentReservation: [''],
-      pastReservation: [''],
       savedCreditCard: this.fb.group({
         cardNumber: ['', Validators.required],
         expiryDate: ['', Validators.required],
@@ -51,13 +77,20 @@ export class CustomerCreateComponent implements OnDestroy{
       if(res) {
         this.isSelectedData = true;
         this.customerForm.patchValue(res);
+        this.selectedCustomer = res;
       }
     })
     this.checkForCustomerView();
+
+    this.customerForm.valueChanges.subscribe(value => {
+      this.selectedCustomer.customerDetails = value.customerDetails;
+      this.selectedCustomer.addressDetails = value.addressDetails;
+      this.selectedCustomer.licenseDetails = value.licenseDetails;
+      this.selectedCustomer.savedCreditCard = value.savedCreditCard;
+    });
   }
 
   onSubmit() {
-    const formData = this.customerForm.value;    
     this.customerService.addCustomer(this.customerForm.value);
     this.router.navigate(['./customer/list']);
   }

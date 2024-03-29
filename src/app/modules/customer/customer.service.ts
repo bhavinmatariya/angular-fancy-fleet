@@ -21,7 +21,7 @@ export class CustomerService {
                 city: 'Smallville',
                 state: 'California',
                 zip: 123456,
-                country: 'India',
+                country: 'United States',
             },
             licenseDetails: {
                 licenseNumber: 'L543210987',
@@ -32,7 +32,7 @@ export class CustomerService {
             pastReservation: '458',
             savedCreditCard: {
                 cardNumber: '************9012',
-                expiryDate: '03/24',
+                expiryDate: '2027-07',
                 cardType: 'American Express',
             }
         },
@@ -47,10 +47,10 @@ export class CustomerService {
             addressDetails: {
                 street: 'Street 1',
                 street2: 'Street 2',
-                city: 'Smallville',
+                city: 'Houston',
                 state: 'New York',
                 zip: 123456,
-                country: 'India',
+                country: 'United States',
             },
             licenseDetails: {
                 licenseNumber: 'L543210987',
@@ -61,7 +61,7 @@ export class CustomerService {
             pastReservation: '458',
             savedCreditCard: {
                 cardNumber: '************9012',
-                expiryDate: '03/24',
+                expiryDate: '2025-05',
                 cardType: 'American Express',
             }
         },
@@ -79,7 +79,7 @@ export class CustomerService {
                 city: 'Smallville',
                 state: 'Texas',
                 zip: 123456,
-                country: 'India',
+                country: 'United States',
             },
             licenseDetails: {
                 licenseNumber: 'L543210987',
@@ -90,7 +90,7 @@ export class CustomerService {
             pastReservation: '458',
             savedCreditCard: {
                 cardNumber: '************9012',
-                expiryDate: '03/24',
+                expiryDate: '2025-02',
                 cardType: 'American Express',
             }
         },
@@ -108,7 +108,7 @@ export class CustomerService {
                 city: 'Smallville',
                 state: 'Texas',
                 zip: 123456,
-                country: 'India',
+                country: 'United States',
             },
             licenseDetails: {
                 licenseNumber: 'L543210987',
@@ -119,7 +119,7 @@ export class CustomerService {
             pastReservation: '458',
             savedCreditCard: {
                 cardNumber: '************9012',
-                expiryDate: '03/24',
+                expiryDate: '2027-07',
                 cardType: 'American Express',
             }
         },
@@ -134,10 +134,10 @@ export class CustomerService {
             addressDetails: {
                 street: 'Street 1',
                 street2: 'Street 2',
-                city: 'Smallville',
-                state: 'Texas',
+                city: 'Dallas',
+                state: 'Pennsylvania',
                 zip: 123456,
-                country: 'India',
+                country: 'United States',
             },
             licenseDetails: {
                 licenseNumber: 'L543210987',
@@ -148,7 +148,7 @@ export class CustomerService {
             pastReservation: '458',
             savedCreditCard: {
                 cardNumber: '************9012',
-                expiryDate: '03/24',
+                expiryDate: '2027-07',
                 cardType: 'American Express',
             }
         },
@@ -163,10 +163,10 @@ export class CustomerService {
             addressDetails: {
                 street: 'Street 1',
                 street2: 'Street 2',
-                city: 'Smallville',
-                state: 'Texas',
+                city: 'Chicago',
+                state: 'Ohio',
                 zip: 123456,
-                country: 'India',
+                country: 'United States',
             },
             licenseDetails: {
                 licenseNumber: 'L543210987',
@@ -177,7 +177,7 @@ export class CustomerService {
             pastReservation: '458',
             savedCreditCard: {
                 cardNumber: '************9012',
-                expiryDate: '03/24',
+                expiryDate: '2027-07',
                 cardType: 'American Express',
             }
         },
@@ -192,10 +192,10 @@ export class CustomerService {
             addressDetails: {
                 street: 'Street 1',
                 street2: 'Street 2',
-                city: 'Smallville',
-                state: 'Texas',
+                city: 'Los Angeles',
+                state: 'Illinois',
                 zip: 123456,
-                country: 'India',
+                country: 'United States',
             },
             licenseDetails: {
                 licenseNumber: 'L543210987',
@@ -206,7 +206,7 @@ export class CustomerService {
             pastReservation: '458',
             savedCreditCard: {
                 cardNumber: '************9012',
-                expiryDate: '03/24',
+                expiryDate: '2025-09',
                 cardType: 'American Express',
             }
         },
@@ -224,7 +224,7 @@ export class CustomerService {
                 city: 'Smallville',
                 state: 'Texas',
                 zip: 123456,
-                country: 'India',
+                country: 'United States',
             },
             licenseDetails: {
                 licenseNumber: 'L543210987',
@@ -235,7 +235,7 @@ export class CustomerService {
             pastReservation: '458',
             savedCreditCard: {
                 cardNumber: '************9012',
-                expiryDate: '03/24',
+                expiryDate: '2024-05',
                 cardType: 'American Express',
             }
         },
@@ -250,10 +250,10 @@ export class CustomerService {
             addressDetails: {
                 street: 'Street 1',
                 street2: 'Street 2',
-                city: 'Smallville',
-                state: 'Texas',
+                city: 'Phoenix',
+                state: 'North Carolina',
                 zip: 123456,
-                country: 'India',
+                country: 'United States',
             },
             licenseDetails: {
                 licenseNumber: 'L543210987',
@@ -264,7 +264,7 @@ export class CustomerService {
             pastReservation: '458',
             savedCreditCard: {
                 cardNumber: '************9012',
-                expiryDate: '03/24',
+                expiryDate: '2025-07',
                 cardType: 'American Express',
             }
         },
@@ -282,7 +282,7 @@ export class CustomerService {
                 city: 'Smallville',
                 state: 'Texas',
                 zip: 123456,
-                country: 'India',
+                country: 'United States',
             },
             licenseDetails: {
                 licenseNumber: 'L543210987',
@@ -293,7 +293,7 @@ export class CustomerService {
             pastReservation: '458',
             savedCreditCard: {
                 cardNumber: '************9012',
-                expiryDate: '03/24',
+                expiryDate: '2027-07',
                 cardType: 'American Express',
             }
         },

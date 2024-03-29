@@ -3,7 +3,7 @@
     <div class="d-flex align-items-center justify-content-between w-100 pe-4">
       <h3 class="fs-9 mb-0 text-nowrap py-2 py-xl-0">{{ isSelectedData ? 'View Customer' : 'Add New Customer' }}</h3>
       @if(containsCustomerView) {
-      <div class="d-flex cursor-pointer btn p-0">
+      <div class="d-flex cursor-pointer btn p-0" (click)="isReadOnly = !isReadOnly">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
           <path
             d="M15.7279 9.57627L14.3137 8.16206L5 17.4758V18.89H6.41421L15.7279 9.57627ZM17.1421 8.16206L18.5563 6.74785L17.1421 5.33363L15.7279 6.74785L17.1421 8.16206ZM7.24264 20.89H3V16.6473L16.435 3.21231C16.8256 2.82179 17.4587 2.82179 17.8492 3.21231L20.6777 6.04074C21.0682 6.43126 21.0682 7.06443 20.6777 7.45495L7.24264 20.89Z">
@@ -28,23 +28,23 @@
             <div class="accordion-body py-0" formGroupName="customerDetails">
               <div class="row">
                 <div class="col-12 col-sm-6">
-                  <label>First name</label>
-                  <input type="text" class="form-control" formControlName="firstName">
+                  <label>First name*</label>
+                  <input type="text" class="form-control" formControlName="firstName" [readonly]="isReadOnly">
                 </div>
                 <div class="col-12 col-sm-6">
-                  <label>Last name</label>
-                  <input type="text" class="form-control" formControlName="lastName">
+                  <label>Last name*</label>
+                  <input type="text" class="form-control" formControlName="lastName" [readonly]="isReadOnly">
                 </div>
               </div>
 
               <div class="row mt-2">
                 <div class="col-12 col-sm-6">
                   <label>Phone Number</label>
-                  <input type="tel" class="form-control" formControlName="phoneNumber">
+                  <input type="tel" class="form-control" formControlName="phoneNumber" [readonly]="isReadOnly">
                 </div>
                 <div class="col-12 col-sm-6">
                   <label>Email*</label>
-                  <input type="text" class="form-control" formControlName="email">
+                  <input type="text" class="form-control" formControlName="email" [readonly]="isReadOnly">
                 </div>
               </div>
             </div>
@@ -65,43 +65,48 @@
 
               <div class="row">
                 <div class="col-12 col-sm-6">
-                  <label>Street Address</label>
-                  <input type="text" class="form-control" formControlName="street">
+                  <label>Street Address*</label>
+                  <input type="text" class="form-control" formControlName="street" [readonly]="isReadOnly">
                 </div>
                 <div class="col-12 col-sm-6">
                   <label>Street Address 2</label>
-                  <input type="text" class="form-control" formControlName="street2">
+                  <input type="text" class="form-control" formControlName="street2" [readonly]="isReadOnly">
                 </div>
               </div>
 
               <div class="row mt-2">
                 <div class="col-12 col-sm-6">
-                  <label>State</label>
-                  <select class="form-select" aria-label="Default select example" formControlName="state">
-                    <option>Open this select menu</option>
-                    <option value="1" selected>One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                  <label>Country*</label>
+                  <select class="form-select" aria-label="Default select example" formControlName="country"  [class.disabled]="isReadOnly">
+                    <option selected>United States</option>
                   </select>
+                </div>
+                
+                <div class="col-12 col-sm-6">
+                  <label>State*</label>
+                  <select class="form-select" aria-label="Default select example" formControlName="state"  [class.disabled]="isReadOnly">
+                    @for (state of states; track state; let i = $index) {
+                    <option [value]="state">{{ state }}</option>
+                    }
+                  </select>                
                 </div>
 
-                <div class="col-12 col-sm-6">
-                  <label>Country</label>
-                  <select class="form-select" aria-label="Default select example" formControlName="country">
-                    <option selected>US</option>
-                  </select>
-                </div>
               </div>
 
               <div class="row mt-2">
                 <div class="col-12 col-sm-6">
-                  <label>City</label>
-                  <input type="text" class="form-control" formControlName="city">
+                  <label>City*</label>
+                  <select class="form-select" aria-label="Default select example" formControlName="city"  [class.disabled]="isReadOnly">
+                    @for (city of cities; track city; let i = $index) {
+                    <option [value]="city">{{ city }}</option>
+                    }
+                  </select> 
+                  <!-- <input type="text" class="form-control" formControlName="city"> -->
                 </div>
-
+                
                 <div class="col-12 col-sm-6">
-                  <label>Postal Code</label>
-                  <input type="text" class="form-control" formControlName="zip">
+                  <label>Postal Code*</label>
+                  <input type="text" class="form-control" formControlName="zip" [readonly]="isReadOnly">
                 </div>
               </div>
 
@@ -121,16 +126,16 @@
             <div class="accordion-body py-0" formGroupName="licenseDetails">
               <div class="row">
                 <div class="col-12 col-sm-4">
-                  <label>License Number</label>
-                  <input type="text" class="form-control" formControlName="licenseNumber">
+                  <label>License Number*</label>
+                  <input type="text" class="form-control" formControlName="licenseNumber" [readonly]="isReadOnly">
                 </div>
                 <div class="col-12 col-sm-4">
-                  <label>State</label>
-                  <input type="text" class="form-control" formControlName="state">
+                  <label>State*</label>
+                  <input type="text" class="form-control" formControlName="state" [readonly]="isReadOnly">
                 </div>
                 <div class="col-12 col-sm-4">
-                  <label>Expiry Date</label>
-                  <input type="date" class="form-control" formControlName="endDate">
+                  <label>Expiry Date*</label>
+                  <input type="date" class="form-control" formControlName="endDate" [readonly]="isReadOnly">
                 </div>
               </div>
 
@@ -150,24 +155,26 @@
               <div class="row">
                 <div class="col-12 col-sm-4">
                   <label>Card Type</label>
-                  <select class="form-select" formControlName="cardType">
-                    <option value="1">Rupay</option>
-                    <option value="2">Visa</option>
+                  <select class="form-select" formControlName="cardType"  [class.disabled]="isReadOnly">
+                    <option value="American Express">American Express</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Master card">Master card</option>
                   </select>
                 </div>
                 <div class="col-12 col-sm-4">
                   <label>Card Number</label>
-                  <input type="text" class="form-control" formControlName="cardNumber">
+                  <input type="text" class="form-control" formControlName="cardNumber" [readonly]="isReadOnly">
                 </div>
                 <div class="col-12 col-sm-4">
                   <label>Expiry Date</label>
-                  <input type="date" class="form-control" formControlName="expiryDate">
+                  <input type="month" class="form-control" formControlName="expiryDate" [readonly]="isReadOnly">
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      @if(containsCustomerView) {
       <div class="accordion mb-3" id="accordionExample5">
         <div class="accordion-item">
           <h2 class="accordion-header d-inline-block" id="heading4">
@@ -270,6 +277,7 @@
 
         </div>
       </div>
+    }
 
     </div>
     @if(!isSelectedData) {
