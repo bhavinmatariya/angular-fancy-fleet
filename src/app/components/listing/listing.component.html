@@ -1,0 +1,75 @@
+<div class="fleet-wrapper">
+  <div>
+    <!-- ACCORDION START -->
+    <div class="accordion" [id]="title">
+      <div class="accordion-item border-0">
+        <h2 class="d-inline-block px-4" id="heading1">
+          <button class="accordion-button px-0 my-1 fw-medium" type="button" data-bs-toggle="collapse"
+          [attr.data-bs-target]="'#' + title" aria-expanded="true" aria-controls="collapse1">
+            {{title}}
+            @if(title === "Departures") {
+            <span class="d-flex ms-3">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path
+                  d="M21.949 10.1118C22.1634 10.912 21.6886 11.7345 20.8884 11.9489L5.2218 16.1467C4.77856 16.2655 4.31138 16.0674 4.08866 15.6662L1.46582 10.9415L2.91471 10.5533L5.3825 12.9979L10.4778 11.6326L5.96728 4.55896L7.89913 4.04132L14.8505 10.4609L20.1119 9.05113C20.9121 8.83671 21.7346 9.31159 21.949 10.1118ZM4.00013 19H20.0001V21H4.00013V19Z">
+                </path>
+              </svg>
+            </span>
+            }
+            @if(title === "Arrivals") {
+            <span class="d-flex ms-3">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path
+                  d="M20.949 14.8882C20.7346 15.6884 19.9121 16.1633 19.1119 15.9489L3.44528 11.751C3.00205 11.6323 2.69653 11.2271 2.70424 10.7683L2.79514 5.36515L4.24403 5.75338L5.15891 9.10435L10.2542 10.4696L9.88479 2.08844L11.8166 2.60608L14.6269 11.6413L19.8883 13.0511C20.6885 13.2655 21.1634 14.088 20.949 14.8882ZM4.00008 19H20.0001V21H4.00008V19Z">
+                </path>
+              </svg>
+            </span>
+            }
+          </button>
+        </h2>
+        <div class="accordion-collapse collapse show" [id]="title" aria-labelledby="heading1"
+        [attr.data-bs-parent]="'#' + title">
+          <div class="accordion-body py-0 px-0" formGroupName="customerDetails">
+            <!-- TABLE START -->
+            <div class="table-responsive scrollbar border-bottom">
+              <table class="table table-hover mb-0 overflow-hidden rounded-0">
+                <thead>
+                  <tr class="border border-start-0 border-end-0">
+                    @for (header of headers; track header; let i = $index) {
+                    <th class="sort align-middle white-space-nowrap fw-medium text-nowrap" data-sort="name">
+                      <span>{{header}}</span>
+                    </th>
+                    }
+                  </tr>
+                </thead>
+                <tbody class="list" id="table-airport-boards">
+                  @for (data of tableData; track data; let i = $index) {
+                  <tr class="btn-reveal-trigger">
+                    @for (key of dataKeys; track key) {
+                    @if (key !== 'airline') {
+                    <td class="align-middle">
+                      <span>{{data[key]}}</span>
+                    </td>
+                    }
+                    @if (key === 'airline') {
+                    <td class="name align-middle white-space-nowrap py-2">
+                      <div class="airline-logo"><img src="{{data[key]}}" alt="Airline logo"
+                          class="d-block h-100 w-100 object-fit-contain"></div>
+                    </td>
+                    }
+                    }
+                  </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+            <!-- TABLE END -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- ACCORDION END -->
+  </div>
+</div>
+<!-- <app-departure-arriaval></app-departure-arriaval> -->

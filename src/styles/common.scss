@@ -2,44 +2,93 @@
 @import 'components/table';
 @import 'components/card';
 @import 'components/accordion';
+@import './components/dropdown';
 @import './customHtmlStyles';
 @import 'responsive';
 
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 0;
+  width: 6px;
+  height: 0;
 }
 
 ::-webkit-scrollbar-track {
-    background: #edf2f7;
-    border-radius: 10px;
+  background: #edf2f7;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(170, 169, 169, 0.575);
-    border-radius: 10px;
+  background: rgba(170, 169, 169, 0.575);
+  border-radius: 10px;
 }
 
 body {
-    background-color: #edf2f7;
-    font-family: $font-family-base;
+  background-color: #edf2f7;
+  font-family: $font-family-base;
 }
 
 label {
-    display: inline-block;
-    font-size: $label-font-size;
-    color: $label-color;
+  display: inline-block;
+  font-size: $label-font-size;
+  color: $label-color;
 }
-.btn:active{
-    outline: none;
-    border-color: transparent !important;
+
+ul>li {
+  list-style-type: none;
 }
-.btn-outline:hover{
-    background-color: #edf2f7 !important;
-    color: $secondary;
+
+.btn:active {
+  outline: none;
+  border-color: transparent !important;
 }
+
+.btn-outline:hover {
+  background-color: #edf2f7 !important;
+  color: $secondary;
+}
+
+.btn-transparent:hover {
+  background-color: $light;
+}
+
+.filter-btns {
+  color: $data-text-color;
+}
+
+.active {
+  color: $btn-active-color;
+}
+
 .form-control:focus,
 .form-select:focus,
-.accordion-button:focus{
-    box-shadow: none;
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.fleet-wrapper {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 6px;
+  margin-bottom: 24px;
+}
+
+.multiselect-dropdown {
+  width: 340px !important;
+  // max-width: 340px;
+  background-color: $white !important;
+  margin-bottom: 26px;
+
+  .dropdown-btn {
+    max-width: 340px;
+    border: none;
+    display: block;
+    overflow-x: auto;
+    .dropdown-multiselect__caret:before {
+      top: 75% !important;
+    }
+  }
+
+  .dropdown-list {
+    width: 440px !important;
+  }
 }

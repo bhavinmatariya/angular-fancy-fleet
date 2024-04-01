@@ -1,0 +1,66 @@
+<!-- FILTER BUTTONS START -->
+<div class="filters">
+  <div class="mb-3">
+    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3" (click)="filterWithTopLevelFilter(-4)">
+      <span class="fa-solid fa-angles-left me-2"></span>
+      <span>4 Hrs</span>
+    </button>
+    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3 ms-1 ms-sm-2" (click)="filterWithTopLevelFilter(-2)">
+      <span class="fa-solid fa-angles-left me-2"></span>
+      <span>2 Hrs</span>
+    </button>
+    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3 mx-1 mx-am-2" (click)="resetData()">Reset To Now</button>
+    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3 me-1 me-sm-2" (click)="filterWithTopLevelFilter(2)">
+      <span>2 Hrs</span>
+      <span class="fa-solid fa-angles-right ms-2"></span>
+    </button>
+    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3" (click)="filterWithTopLevelFilter(4)">
+      <span>4 Hrs</span>
+      <span class="fa-solid fa-angles-right ms-2"></span>
+    </button>
+  </div>
+</div>
+<!--  FILTER BUTTONS END -->
+
+<div class="d-flex align-items-center gap-3">
+  <ng-multiselect-dropdown #multiSelect
+[settings]="settings"
+[placeholder]="'Airline'"
+[data]="airlines"
+(onSelect)="onItemSelect($event)"
+(onDeSelect)="onDeSelect($event)"
+(onSelectAll)="onSelectAll($event)"
+(onDeSelectAll)="onDeSelectAll($event)"
+>
+</ng-multiselect-dropdown>
+
+<ng-multiselect-dropdown #multiSelect
+[settings]="settings"
+[placeholder]="'From'"
+[data]="airlines"
+(onSelect)="onItemSelect($event)"
+(onDeSelect)="onDeSelect($event)"
+(onSelectAll)="onSelectAll($event)"
+(onDeSelectAll)="onDeSelectAll($event)"
+>
+</ng-multiselect-dropdown>
+
+<ng-multiselect-dropdown #multiSelect
+[settings]="settings"
+[placeholder]="'To'"
+[data]="airlines"
+(onSelect)="onItemSelect($event)"
+(onDeSelect)="onDeSelect($event)"
+(onSelectAll)="onSelectAll($event)"
+(onDeSelectAll)="onDeSelectAll($event)"
+>
+</ng-multiselect-dropdown>
+</div>
+
+
+
+<!-- <app-departure-arriaval [headers]="departureHeaders" [isDeparture]="true"></app-departure-arriaval>
+<app-departure-arriaval [headers]="arrivalHeaders" [isDeparture]="true"></app-departure-arriaval> -->
+
+<app-listing [headers]="departureHeaders" [tableData]="toSentDepartureData" [title]="'Departures'"></app-listing>
+<app-listing [headers]="arrivalHeaders" [tableData]="toSentlArrivalData" [title]="'Arrivals'"></app-listing>

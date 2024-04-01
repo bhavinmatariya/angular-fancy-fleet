@@ -1,5 +1,38 @@
-.accordion-body{
-    h3{
-        color: $label-color;
-    }
+.accordion-body {
+  h3 {
+    color: $label-color;
+  }
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+// .accordion-header {
+//   ::before {
+//     content: url('../../assets/svgIcons/add-circle-line.svg');
+//     position: relative;
+//     // top: 2px;
+//     margin-right: 5px;
+//   }
+
+//   ::after {
+//     // content: none !important;
+//     background-image: none;
+//   }
+// }
+
+.accordion-button::before{
+  content: url('../../assets/svgIcons/add-circle-line.svg');
+  position: relative;
+  top: 2px;
+  margin-right: 8px;
+}
+.accordion-button:not(.collapsed)::after ,.accordion-button::after{
+  background-image: none;
+}
+
+.accordion-button:not(.collapsed)::before {
+  content: url('../../assets/svgIcons/indeterminate-circle-line.svg');
 }
