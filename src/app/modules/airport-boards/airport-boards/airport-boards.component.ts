@@ -1,11 +1,12 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { ListingComponent } from '../../../components/listing/listing.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-airport-boards',
   standalone: true,
-  imports: [ListingComponent,  NgMultiSelectDropDownModule],
+  imports: [ListingComponent,  NgMultiSelectDropDownModule, CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './airport-boards.component.html',
   styleUrl: './airport-boards.component.scss'
@@ -13,7 +14,10 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 export class AirportBoardsComponent implements OnInit {
   departureHeaders: string[] = ['Airline', 'Flight No', 'From', 'Scheduled', 'Estimated', 'Status'];
   arrivalHeaders: string[] = ['Airline', 'Flight No', 'To', 'Scheduled', 'Estimated', 'Status'];
+  departedHeaders: string[] =[];
+  arrivedHeaders: string[] =[];
   currentFilter: number = 2;
+  activeFilter: string = "resetToNow"
 
   departureData: {}[] = [
     {
@@ -44,7 +48,7 @@ export class AirportBoardsComponent implements OnInit {
       "status": "Early Arrival"
     },
     {
-      "airline": "https://toppng.com/uploads/preview/united-airlines-logo-vector-eps-ai-free-download-11573936204cvzvujpgwj.png",
+      "airline": "https://1000logos.net/wp-content/uploads/2017/06/United-Airlines-Logo-500x313.png",
       "airlineName": "United",
       "flightNo": "CX789",
       "from": "Hong Kong (HKG)",
@@ -105,7 +109,52 @@ export class AirportBoardsComponent implements OnInit {
       "scheduled": "08:45 AM",
       "estimated": "08:45 AM",
       "status": "On Time"
-    }
+    },
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2020/03/Hawaiian-Airlines-Logo.png",
+      "airlineName": "Hawaiian",
+      "flightNo": "AA123",
+      "from": "Los Angeles (LAX)",
+      "scheduled": "09:15 AM",
+      "estimated": "09:30 AM",
+      "status": "On Time"
+    },
+    {
+      "airline": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc3YWdl36w4aj1icy2pBiQbgNkkA_3WitorqB9cxvVZAMczwtq2eMzjLe1VfUMbx9zX0&usqp=CAU",
+      "airlineName": "Alaska",
+      "flightNo": "EK567",
+      "from": "Dubai (DXB)",
+      "scheduled": "12:45 PM",
+      "estimated": "01:00 PM",
+      "status": "Boarding"
+    },
+    {
+      "airline": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc3YWdl36w4aj1icy2pBiQbgNkkA_3WitorqB9cxvVZAMczwtq2eMzjLe1VfUMbx9zX0&usqp=CAU",
+      "airlineName": "Alaska",
+      "flightNo": "LH101",
+      "from": "Frankfurt (FRA)",
+      "scheduled": "11:00 AM",
+      "estimated": "10:45 AM",
+      "status": "Early Arrival"
+    },
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2017/06/United-Airlines-Logo-500x313.png",
+      "airlineName": "United",
+      "flightNo": "CX789",
+      "from": "Hong Kong (HKG)",
+      "scheduled": "07:15 PM",
+      "estimated": "07:30 PM",
+      "status": "N/A"
+    },
+    {
+      "airline": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc3YWdl36w4aj1icy2pBiQbgNkkA_3WitorqB9cxvVZAMczwtq2eMzjLe1VfUMbx9zX0&usqp=CAU",
+      "airlineName": "Alaska",
+      "flightNo": "AF321",
+      "from": "Paris (CDG)",
+      "scheduled": "09:30 PM",
+      "estimated": "09:30 PM",
+      "status": "On Time"
+    },
   ]
 
   arrivalData: {}[] = [
@@ -198,8 +247,55 @@ export class AirportBoardsComponent implements OnInit {
       "scheduled": "08:45 AM",
       "estimated": "08:45 AM",
       "status": "On Time"
-    }
+    },
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2017/06/United-Airlines-Logo-500x313.png",
+      "airlineName": "United",
+      "flightNo": "AA123",
+      "to": "Los Angeles (LAX)",
+      "scheduled": "10:15 PM",
+      "estimated": "10:30 PM",
+      "status": "On Time"
+    },
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2019/08/southwest-airlines-logo-500x226.png",
+      "airlineName": "Southwest",
+      "flightNo": "EK567",
+      "to": "Dubai (DXB)",
+      "scheduled": "03:45 PM",
+      "estimated": "04:00 PM",
+      "status": "Boarding"
+    },
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2019/08/southwest-airlines-logo-500x226.png",
+      "airlineName": "Southwest",
+      "flightNo": "LH101",
+      "to": "Frankfurt (FRA)",
+      "scheduled": "09:00 AM",
+      "estimated": "09:15 AM",
+      "status": "Early Arrival"
+    },
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2019/08/southwest-airlines-logo-500x226.png",
+      "airlineName": "Southwest",
+      "flightNo": "CX789",
+      "to": "Hong Kong (HKG)",
+      "scheduled": "07:15 PM",
+      "estimated": "07:15 PM",
+      "status": "N/A"
+    },
+    {
+      "airline": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc3YWdl36w4aj1icy2pBiQbgNkkA_3WitorqB9cxvVZAMczwtq2eMzjLe1VfUMbx9zX0&usqp=CAU",
+      "airlineName": "Alaska",
+      "flightNo": "AF321",
+      "to": "Paris (CDG)",
+      "scheduled": "09:30 AM",
+      "estimated": "09:30 AM",
+      "status": "On Time"
+    },
   ]
+  departedData: {}[] = [];
+  arrivedData: {}[] = [];
   originalDepartureData: {}[] = [];
   originalArrivalData: {}[] = [];
 
@@ -211,6 +307,20 @@ export class AirportBoardsComponent implements OnInit {
     { item_id: 2, item_text: 'Alaska' },
     { item_id: 3, item_text: 'United' },
     { item_id: 4, item_text: 'Southwest' },
+  ];
+  from = [
+    { item_id: 1, item_text: 'New York' },
+    { item_id: 2, item_text: 'Los Angeles' },
+    { item_id: 3, item_text: 'Dubai' },
+    { item_id: 4, item_text: 'Hong Kong' },
+    { item_id: 4, item_text: 'Paris' },
+  ];
+  to = [
+    { item_id: 1, item_text: 'New York' },
+    { item_id: 2, item_text: 'Los Angeles' },
+    { item_id: 3, item_text: 'Dubai' },
+    { item_id: 4, item_text: 'Hong Kong' },
+    { item_id: 4, item_text: 'Paris' },
   ];
   airlineFilters: string[] = [];
 

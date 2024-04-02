@@ -2,11 +2,12 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CustomerService } from '../customer.service';
 import { Router, RouterModule, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-customer-create',
   standalone: true,
-  imports: [ReactiveFormsModule,RouterModule],
+  imports: [ReactiveFormsModule,RouterModule, CommonModule],
   templateUrl: './customer-create.component.html',
   styleUrl: './customer-create.component.scss'
 })
@@ -16,7 +17,7 @@ export class CustomerCreateComponent implements OnDestroy{
   containsCustomerView: boolean = false;
   isReadOnly: boolean = true;
   selectedCustomer: any;
-  
+
   states: string[] = [
     "California",
     "New York",
@@ -42,32 +43,32 @@ export class CustomerCreateComponent implements OnDestroy{
     "San Francisco",
     "Smallville"
   ];
- 
+
   constructor(private fb: FormBuilder,private customerService: CustomerService,private router : Router, private route: ActivatedRoute) {
     this.customerForm = this.fb.group({
       customerDetails: this.fb.group({
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        phoneNumber: ['', Validators.required],
+        firstName: [''],
+        lastName: [''],
+        phoneNumber: [''],
         email: ['', [Validators.required, Validators.email]],
       }),
       addressDetails: this.fb.group({
-        street: ['', Validators.required],
+        street: [''],
         street2: [''],
-        city: ['', Validators.required],
-        state: ['', Validators.required],
-        zip: ['', Validators.required],
-        country: ['', Validators.required],
+        city: [''],
+        state: [''],
+        zip: [''],
+        country: [''],
       }),
       licenseDetails: this.fb.group({
-        licenseNumber: ['', Validators.required],
-        state: ['', Validators.required],
-        endDate: ['', Validators.required],
+        licenseNumber: [''],
+        state: [''],
+        endDate: [''],
       }),
       savedCreditCard: this.fb.group({
-        cardNumber: ['', Validators.required],
-        expiryDate: ['', Validators.required],
-        cardType: ['', Validators.required],
+        cardNumber: [''],
+        expiryDate: [''],
+        cardType: [''],
       })
     });
    }
@@ -99,6 +100,7 @@ export class CustomerCreateComponent implements OnDestroy{
     let snapshot: ActivatedRouteSnapshot = this.route.snapshot;
     const urlSegments: string[] = snapshot.url.map(segment => segment.path);
     this.containsCustomerView = urlSegments.includes('view');
+    this.isReadOnly = urlSegments.includes('view');
   }
 
   ngOnDestroy(): void {

@@ -1,20 +1,20 @@
 <!-- FILTER BUTTONS START -->
 <div class="filters">
   <div class="mb-3">
-    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3" (click)="filterWithTopLevelFilter(-4)">
+    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3" (click)="filterWithTopLevelFilter(-4); activeFilter='lFour'" [ngClass]="{filterActive: activeFilter === 'lFour'}">
       <span class="fa-solid fa-angles-left me-2"></span>
       <span>4 Hrs</span>
     </button>
-    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3 ms-1 ms-sm-2" (click)="filterWithTopLevelFilter(-2)">
+    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3 ms-1 ms-sm-2" (click)="filterWithTopLevelFilter(-2); activeFilter='lTwo'" [ngClass]="{filterActive: activeFilter === 'lTwo'}">
       <span class="fa-solid fa-angles-left me-2"></span>
       <span>2 Hrs</span>
     </button>
-    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3 mx-1 mx-am-2" (click)="resetData()">Reset To Now</button>
-    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3 me-1 me-sm-2" (click)="filterWithTopLevelFilter(2)">
+    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3 mx-1 mx-am-2" (click)="resetData(); activeFilter='resetToNow'" [ngClass]="{filterActive: activeFilter === 'resetToNow'}">Reset To Now</button>
+    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3 me-1 me-sm-2" (click)="filterWithTopLevelFilter(2); activeFilter='gTwo'" [ngClass]="{filterActive: activeFilter === 'gTwo'}">
       <span>2 Hrs</span>
       <span class="fa-solid fa-angles-right ms-2"></span>
     </button>
-    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3" (click)="filterWithTopLevelFilter(4)">
+    <button class="btn btn-transparent filter-btns fw-bold py-2 px-2 px-sm-3" (click)="filterWithTopLevelFilter(4); activeFilter='gFour'" [ngClass]="{filterActive: activeFilter === 'gFour'}">
       <span>4 Hrs</span>
       <span class="fa-solid fa-angles-right ms-2"></span>
     </button>
@@ -22,8 +22,9 @@
 </div>
 <!--  FILTER BUTTONS END -->
 
-<div class="d-flex align-items-center gap-3">
-  <ng-multiselect-dropdown #multiSelect
+<div class="d-flex align-items-center gap-2 gap-xl-3 airport-boards-dropdowns mb-4 flex-xl-nowrap flex-wrap">
+<ng-multiselect-dropdown #multiSelect
+class="dropdown airlines-dropdown"
 [settings]="settings"
 [placeholder]="'Airline'"
 [data]="airlines"
@@ -35,9 +36,10 @@
 </ng-multiselect-dropdown>
 
 <ng-multiselect-dropdown #multiSelect
+class="dropdown from-dropdown"
 [settings]="settings"
 [placeholder]="'From'"
-[data]="airlines"
+[data]="from"
 (onSelect)="onItemSelect($event)"
 (onDeSelect)="onDeSelect($event)"
 (onSelectAll)="onSelectAll($event)"
@@ -46,9 +48,10 @@
 </ng-multiselect-dropdown>
 
 <ng-multiselect-dropdown #multiSelect
+class="dropdown to-dropdown"
 [settings]="settings"
 [placeholder]="'To'"
-[data]="airlines"
+[data]="to"
 (onSelect)="onItemSelect($event)"
 (onDeSelect)="onDeSelect($event)"
 (onSelectAll)="onSelectAll($event)"
@@ -64,3 +67,6 @@
 
 <app-listing [headers]="departureHeaders" [tableData]="toSentDepartureData" [title]="'Departures'"></app-listing>
 <app-listing [headers]="arrivalHeaders" [tableData]="toSentlArrivalData" [title]="'Arrivals'"></app-listing>
+<app-listing [headers]="departedHeaders" [tableData]="departedData" [title]="'Departed'"></app-listing>
+<app-listing [headers]="arrivedHeaders" [tableData]="arrivedData" [title]="'Arrived'"></app-listing>
+

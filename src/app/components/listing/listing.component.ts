@@ -1,13 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-listing',
   standalone: true,
   templateUrl: './listing.component.html',
-  styleUrl: './listing.component.scss'
+  styleUrl: './listing.component.scss',
+  imports: [CommonModule]
 })
 export class ListingComponent implements OnInit{
-  @Input() headers: string[] = [];
+  @Input() headers: any[] = [];
   @Input() title: string = '';
   @Input() tableData: any;
 
@@ -20,6 +22,6 @@ export class ListingComponent implements OnInit{
         return data;
       });
       this.dataKeys = Object.keys(this.tableData[0]);
-    }
+      }
   }
 }

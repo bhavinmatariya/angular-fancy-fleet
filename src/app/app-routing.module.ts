@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ComingSoonComponent } from './components/common/coming-soon/coming-soon.component';
 import { CustomerRoutingModule } from './modules/customer/customer-routing.module';
 import { AirportBoardsComponent } from './modules/airport-boards/airport-boards/airport-boards.component';
+import { VehicleTypesComponent } from './modules/vehicle/vehicle-types/vehicle-types.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'airport-boards',
     component: AirportBoardsComponent
+  },
+  {
+    path: 'vehicle-types',
+    component: VehicleTypesComponent
   }
 ];
 
