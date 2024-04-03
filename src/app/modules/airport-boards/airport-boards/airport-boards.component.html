@@ -1,3 +1,5 @@
+
+<h2 class="d-inline-block px-4 mb-4" id="heading1">Airport Boards</h2>
 <!-- FILTER BUTTONS START -->
 <div class="filters">
   <div class="mb-3">
@@ -65,8 +67,8 @@ class="dropdown to-dropdown"
 <!-- <app-departure-arriaval [headers]="departureHeaders" [isDeparture]="true"></app-departure-arriaval>
 <app-departure-arriaval [headers]="arrivalHeaders" [isDeparture]="true"></app-departure-arriaval> -->
 
-<app-listing [headers]="departureHeaders" [tableData]="toSentDepartureData" [title]="'Departures'"></app-listing>
-<app-listing [headers]="arrivalHeaders" [tableData]="toSentlArrivalData" [title]="'Arrivals'"></app-listing>
-<app-listing [headers]="departedHeaders" [tableData]="departedData" [title]="'Departed'"></app-listing>
-<app-listing [headers]="arrivedHeaders" [tableData]="arrivedData" [title]="'Arrived'"></app-listing>
+<app-departure-arrival [headers]="departureHeaders" [tableData]="toSentDepartureData" [title]="'Departures'"></app-departure-arrival>
+<app-departure-arrival [headers]="arrivalHeaders" [tableData]="toSentlArrivalData" [title]="'Arrivals'"></app-departure-arrival>
+<app-departure-arrival [headers]="departedHeaders" [tableData]="departedData" [title]="'Departed'"></app-departure-arrival>
+<app-departure-arrival [headers]="arrivedHeaders" [tableData]="arrivedData" [title]="'Arrived'"></app-departure-arrival>
 

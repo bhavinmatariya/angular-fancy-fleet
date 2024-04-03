@@ -7,7 +7,7 @@
 }
 table tbody {
   overflow-y: auto;
-  max-height: 390px;
+  max-height: 500px;
   display: block;
 }
 table thead,
@@ -19,3 +19,23 @@ tbody tr {
     table-layout: auto;
   }
 }
+.id-actions{
+  width: 12% !important;
+  @include xl{
+    width: 16% !important;
+  }
+}
+.delete-item,
+.edit-item{
+  height: 24px;
+  width: 24px;
+  @include sm{
+      height: 18px;
+      width: 18px;
+  }
+  @include md{
+      height: 20px;
+      width: 20px;
+  }
+}
+

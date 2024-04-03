@@ -2,11 +2,12 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { ListingComponent } from '../../../components/listing/listing.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { CommonModule } from '@angular/common';
+import { DepartureArrivalComponent } from '../departure-arrival/departure-arrival.component';
 
 @Component({
   selector: 'app-airport-boards',
   standalone: true,
-  imports: [ListingComponent,  NgMultiSelectDropDownModule, CommonModule],
+  imports: [DepartureArrivalComponent,  NgMultiSelectDropDownModule, CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './airport-boards.component.html',
   styleUrl: './airport-boards.component.scss'
