@@ -1,0 +1,9 @@
+<ng-template #featureTemplate let-inputValue="inputValue" let-index="index">
+  <span>
+    <input type="text" [id]="'input'+index" class="vehicle-data form-control border rounded-2 px-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue"  [(ngModel)]="vehicleFeaturesData[index].data[0].value" (ngModelChange)="onChange($event, index)">
+  </span>
+</ng-template>
+
+<app-listing [headers]="headers" [tableData]="vehicleFeaturesData" [title]="'Vehicle Features'"></app-listing>
+
+<button type="button" class="btn btn-outline-secondary bg-white btn-outline rounded-3 fw-medium float-end mt-3" (click)="addRow()"> Add Row </button>

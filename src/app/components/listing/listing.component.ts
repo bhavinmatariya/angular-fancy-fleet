@@ -40,7 +40,6 @@ export class ListingComponent implements OnInit, OnDestroy{
   }
 
   onDeleteIcon(componentName: string, i: number) {
-    debugger;
     this.currentDeleteData.componentName = componentName;
     this.currentDeleteData.index = i;
   }

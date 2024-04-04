@@ -1,13 +1,18 @@
 @import '../../../styles/responsive';
-
 .airline-logo{
   max-width: 100px;
   width: 100%;
   height: 60px;
 }
+.fleet-content-wrapper{
+  max-height: calc(100vh - 254px);
+  overflow: auto;
+  // margin-bottom: 16px;
+  border-radius: 8px;
+}
 table tbody {
   overflow-y: auto;
-  max-height: 500px;
+  // max-height: 500px;
   display: block;
 }
 table thead,
@@ -24,6 +29,9 @@ tbody tr {
   @include xl{
     width: 16% !important;
   }
+  @include md{
+    width: 19% !important;
+  }
 }
 .delete-item,
 .edit-item{
@@ -38,4 +46,3 @@ tbody tr {
       width: 20px;
   }
 }
-

@@ -2,10 +2,9 @@
 <!--    Main Content-->
 <!-- ===============================================-->
 <main class="main" id="top">
-  <div class="container-fluid" data-layout="container">
-
+  <!-- <div class="container-fluid" data-layout="container"> -->
     <a class="navbar-brand">
-      <div class="d-flex align-items-center py-3 py-sm-4 ps-2">
+      <div class="d-flex align-items-center py-3 py-sm-4 px-md-4 px-3">
         <span (click)="collapseSidebar()" class="d-flex align-items-center justify-content-center">
           <span class="fas fa-bars text-secondary nav-bar-icon"></span>
         </span>
@@ -17,13 +16,13 @@
       <div class="d-flex">
         <div class="fleet-sidenav" [ngClass]="{'w-small': isSidebarOpen}">
           <nav app-navbar-vertical [isSidebarOpen]="isSidebarOpen"
-            class="navbar navbar-light navbar-vertical navbar-expand-xl mr-3 w-100">
+            class="navbar navbar-light navbar-vertical navbar-expand-xl mr-3 w-100 py-0">
           </nav>
         </div>
-        <div class="fleet-content pt-1 ps-lg-4" [ngClass]="{'w-big': isSidebarOpen}">
+        <div class="fleet-content px-2 px-lg-4 py-2 pt-lg-0 pb-lg-4 " [ngClass]="{'w-big': isSidebarOpen}">
           <router-outlet></router-outlet>
         </div>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 </main>

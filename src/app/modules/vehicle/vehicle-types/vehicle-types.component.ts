@@ -17,39 +17,45 @@ export class VehicleTypesComponent implements OnInit {
 
   @ViewChild('nameTemplate', { read: TemplateRef, static: true })
   nameTemplate!: TemplateRef<any>;
+
+  @ViewChild('activeTemplate', { read: TemplateRef, static: true })
+  activeTemplate!: TemplateRef<any>;
+
   vehicleTypesData: any = [];
   headers: {}[] = [];
 
   ngOnInit(): void {
     this.vehicleTypesData = [
       {
-        title: 'Name',
-        field: 'name',
-        value: 'Car',
-        type: 'template',
-        templateRef: this.nameTemplate,
+        rowId: 1,
+        data: [
+          { title: 'Name', field: 'name', value: 'Car', type: 'template', templateRef: this.nameTemplate },
+          { title: '# of vehicles', field: '# of vehicles', value: 10, type: 'label' },
+          { title: 'Active', field: 'active', value: 'Yes', type: 'template', templateRef: this.activeTemplate }
+        ]
       },
       {
-        title: 'Name',
-        field: 'name',
-        value: 'Motorcycle',
-        type: 'template',
-        templateRef: this.nameTemplate,
+        rowId: 2,
+        data: [
+          { title: 'Name', field: 'name', value: 'Motorcycle', type: 'template', templateRef: this.nameTemplate },
+          { title: '# of vehicles', field: '# of vehicles', value: 5, type: 'label' },
+          { title: 'Active', field: 'active', value: 'Yes', type: 'template', templateRef: this.activeTemplate }
+        ]
       },
       {
-        title: 'Name',
-        field: 'name',
-        value: 'Limo',
-        type: 'template',
-        templateRef: this.nameTemplate,
-      },
-      ]
+        rowId: 3,
+        data: [
+          { title: 'Name', field: 'name', value: 'Limo', type: 'template', templateRef: this.nameTemplate },
+          { title: '# of vehicles', field: '# of vehicles', value: 3, type: 'label' },
+          { title: 'Active', field: 'active', value: 'Yes', type: 'template', templateRef: this.activeTemplate }
+        ]
+      }
+    ];
 
-    this.headers = [{"header": 'Name', "type": 'template'}];
+    this.headers = [{ "header": 'Name', "type": 'template' }, { "header": '# of vehicles', "type": 'label' }, { "header": 'Active', "type": 'template' }];
     this.listingService.updateTableData(this.vehicleTypesData);
 
     this.listingService.deleteInitiated.subscribe(payload => {
-      debugger;
       const componentName = payload.componentName;
       const index = payload.index;
 
@@ -63,13 +69,15 @@ export class VehicleTypesComponent implements OnInit {
   }
 
   addRow() {
-    this.vehicleTypesData.push({
-      title: 'Name',
-      field: 'name',
-      value: '',
-      type: 'template',
-      templateRef: this.nameTemplate,
-    },)
+    this.vehicleTypesData.push(
+    {
+      rowId: this.vehicleTypesData.length + 1,
+      data: [
+        { title: 'Name', field: 'name', value: '', type: 'template', templateRef: this.nameTemplate },
+        { title: '# of vehicles', field: '# of vehicles', value: 0, type: 'label' },
+        { title: 'Active', field: 'active', value: 'Yes', type: 'template', templateRef: this.activeTemplate }
+      ]
+    })
     this.listingService.updateTableData(this.vehicleTypesData);
   }
 

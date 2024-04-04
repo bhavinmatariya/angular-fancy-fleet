@@ -1,8 +1,8 @@
-<div class="w-100">
+<div class="vertical-navbar-wrapper">
   <div class="collapse navbar-collapse" [ngClass]="{'navbar-collapse-close': isSidebarOpen}"
     id="navbarVerticalCollapse">
     <div class="navbar-vertical-content scrollbar">
-      <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+      <ul class="navbar-nav flex-column mb-3 me-2" id="navbarVerticalNav">
         <li class="nav-item">
           <a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse"
             aria-expanded="false" aria-controls="dashboard">
@@ -257,7 +257,8 @@
           <a class="nav-link dropdown-indicator" href="#tables" role="button" data-bs-toggle="collapse"
             aria-expanded="false" aria-controls="tables">
             <div class="d-flex align-items-center">
-              <span class="nav-link-icon"><span class="fas fa-table"></span></span><span class="nav-link-text ps-1">USer
+              <span class="nav-link-icon"><span class="fas fa-table"></span></span><span
+                class="nav-link-text ps-1">USer
                 &
                 Management</span>
             </div>
@@ -301,7 +302,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link dropdown-indicator" href="#eCharts" data-bs-toggle="collapse" aria-expanded="false"
+              <a class="nav-link" routerLink="/vehicle-features" href="#eCharts" data-bs-toggle="collapse" aria-expanded="false"
                 aria-controls="charts">
                 <div class="d-flex align-items-center">
                   <span class="nav-link-text ps-1">Feature List</span>
@@ -379,3 +380,4 @@
       </ul>
     </div>
   </div>
+</div>

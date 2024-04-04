@@ -5,74 +5,64 @@
 @import './components/dropdown';
 @import './customHtmlStyles';
 @import 'responsive';
-
 ::-webkit-scrollbar {
   width: 6px;
   height: 0;
+  @include sm{
+    width: 0;
+  }
 }
-
 ::-webkit-scrollbar-track {
-  background: #edf2f7;
+  background: #EDF2F7;
   border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb {
   background: rgba(170, 169, 169, 0.575);
   border-radius: 10px;
 }
-
 body {
-  background-color: #edf2f7;
+  background-color: #EDF2F7;
   font-family: $font-family-base;
 }
-
 label {
   display: inline-block;
   font-size: $label-font-size;
   color: $label-color;
 }
-
 ul>li {
   list-style-type: none;
 }
-
 .btn:active {
   outline: none;
   border-color: transparent !important;
 }
-
 .btn-outline:hover {
-  background-color: #edf2f7 !important;
+  background-color: #EDF2F7 !important;
   color: $secondary;
 }
-
 .btn-transparent:hover {
   background-color: $light;
 }
-
 .filter-btns {
   color: $data-text-color;
 }
-
 .active {
   color: $btn-active-color;
 }
-
 .form-control:focus,
 .form-select:focus,
 .accordion-button:focus {
   box-shadow: none;
 }
-
 .fleet-wrapper {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 6px;
-  margin-bottom: 24px;
+  // margin-bottom: 24px;
 }
 .disabled {
-  background-color: #eeeff1;
+  background-color: #EEEFF1;
   color: black;
   cursor: not-allowed;
   pointer-events: none;

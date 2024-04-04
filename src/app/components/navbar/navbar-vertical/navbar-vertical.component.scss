@@ -1,15 +1,17 @@
 @import "../../../../styles/common.scss";
-
 .nav {
     flex-flow: column nowrap;
     font-size: 0.8125rem;
 }
-
+.vertical-navbar-wrapper {
+    width: 100%;
+    // height: calc(100vh - 72px);
+    // overflow: auto;
+}
 .navbar-expand .navbar-toggler {
     display: block;
     border: none;
 }
-
 .nav-link {
     padding: 4px 0px !important;
     font-size: $font-size-base;
@@ -31,21 +33,17 @@
         }
     }
 }
-
 .navbar-vertical-label {
     font-size: $font-size-sm;
     color: rgb(164, 164, 164);
 }
-
 .navbar-vertical-divider {
     margin-top: 0.65rem;
     color: rgb(164, 164, 164);
 }
-
 .dropdown-indicator {
     position: relative;
 }
-
 .dropdown-indicator:after {
     content: "";
     display: block;
@@ -71,13 +69,15 @@
     transition-property: transform, border-color;
     transition-property: transform, border-color, -webkit-transform;
 }
-
 .dropdown-indicator[aria-expanded=true]:after {
     -webkit-transform: translateY(-50%) rotate(225deg);
     -ms-transform: translateY(-50%) rotate(225deg);
     transform: translateY(-50%) rotate(225deg);
 }
-
+.navbar-vertical-content{
+    height: calc(100vh - 100px);
+        overflow: auto;
+}
 .navbar-collapse-close {
     width: 30px;
     overflow: hidden;
@@ -85,33 +85,29 @@
         width: 210px;
         .navbar-nav {
             width: 100%;
-            .nav-item {
-                width: 200px;
-            }
-            .navbar-vertical-label  {
+            padding: 0 10px 0 0;
+            background-color: #EDF2F7;
+            .navbar-vertical-label {
                 display: none;
             }
         }
     }
 }
-
 .navbar-collapse-close:hover {
     overflow: visible;
     z-index: 999999;
     position: relative;
     transition: 200ms all;
     .navbar-vertical-content {
-        width: 225px;
-        background-color: $navbar-collpase;
-        padding-right: 40px;
+        width: 278px;
+        // padding-right: 40px;
         transition: 200ms all;
         box-shadow: 20px 0rem 1rem rgba(0, 0, 0, 0.07);
-        .navbar-vertical-label  {
+        .navbar-vertical-label {
             display: block !important;
         }
     }
 }
-
 #navbarVerticalCollapse {
     display: block !important;
 }

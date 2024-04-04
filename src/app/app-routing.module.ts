@@ -4,6 +4,7 @@ import { ComingSoonComponent } from './components/common/coming-soon/coming-soon
 import { CustomerRoutingModule } from './modules/customer/customer-routing.module';
 import { AirportBoardsComponent } from './modules/airport-boards/airport-boards/airport-boards.component';
 import { VehicleTypesComponent } from './modules/vehicle/vehicle-types/vehicle-types.component';
+import { VehicleFeatureComponent } from './modules/vehicle/vehicle-feature/vehicle-feature.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'vehicle-types',
     component: VehicleTypesComponent
+  },
+  {
+    path: 'vehicle-features',
+    component: VehicleFeatureComponent
   }
 ];
 

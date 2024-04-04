@@ -1,36 +1,42 @@
 @import '../styles/common.scss';
-
+.main {
+    height: 100vh;
+}
 .nav-bar-icon {
     margin-right: 12px;
     cursor: pointer;
     font-size: 20px;
     width: 24px;
 }
-
 .navbar-brand {
     .company-name-logo {
         font-size: $navbar-brand-font-size;
         cursor: pointer;
     }
 }
-
 .fleet-sidenav {
-    width: 235px;
+    // top: 0;
+    // left: 0;
+    width: 278px;
+    padding: 0 14px;
     transition: 200ms all;
+    // height: calc(100vh - 84px);
+    // overflow: auto;
 }
-
 .fleet-content {
-    width: calc(100% - 226px);
+    width: calc(100% - 278px);
+    @include lg {
+        margin-left: 0;
+    }
 }
 .fleet-sidenav.w-small {
-    width: 45px;
+    width: 52px;
+    padding: 0 0 0 14px;
 }
-
 .fleet-content.w-big {
-    width: calc(100% - 45px);
+    width: calc(100% - 52px);
 }
-
- @media (max-width:991px) {
+@media (max-width:991px) {
     .nav-bar-icon {
         position: relative;
         z-index: 10;
@@ -40,7 +46,7 @@
         z-index: 10;
     }
     .fleet-sidenav {
-        max-width: 226px;
+        max-width: 278px;
         width: 100%;
         position: fixed;
         padding-top: 60px;
@@ -51,8 +57,10 @@
         padding: 60px 12px 0 12px;
         box-shadow: 20px 0rem 1rem rgba(0, 0, 0, 0.07);
         height: 100%;
+        @include md {
+            padding: 66px 12px 0 12px;
+        }
     }
-
     .fleet-sidenav.w-small {
         width: 0;
         transform: translateX(-235px);
@@ -60,11 +68,10 @@
     .fleet-content {
         width: 100%;
     }
-
     .fleet-content.w-big {
         width: 100%;
     }
     .collapse:not(.show) {
         display: block;
     }
- }
+}
