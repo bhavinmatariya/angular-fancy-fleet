@@ -4,7 +4,7 @@
 <main class="main" id="top">
   <!-- <div class="container-fluid" data-layout="container"> -->
     <a class="navbar-brand">
-      <div class="d-flex align-items-center py-3 py-sm-4 px-md-4 px-3">
+      <div class="d-flex align-items-center py-3 py-md-4 px-md-4 px-3">
         <span (click)="collapseSidebar()" class="d-flex align-items-center justify-content-center">
           <span class="fas fa-bars text-secondary nav-bar-icon"></span>
         </span>
@@ -13,7 +13,7 @@
       </div>
     </a>
     <div class="content">
-      <div class="d-flex">
+      <div class="d-flex h-100">
         <div class="fleet-sidenav" [ngClass]="{'w-small': isSidebarOpen}">
           <nav app-navbar-vertical [isSidebarOpen]="isSidebarOpen"
             class="navbar navbar-light navbar-vertical navbar-expand-xl mr-3 w-100 py-0">

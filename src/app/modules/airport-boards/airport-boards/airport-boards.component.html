@@ -1,5 +1,5 @@
 
-<h2 class="d-inline-block px-4 mb-4" id="heading1">Airport Boards</h2>
+<h2 class="d-inline-block mb-4" id="heading1">Airport Boards</h2>
 <div class="fleet-content-wrapper">
 <!-- FILTER BUTTONS START -->
 <div class="filters">
@@ -31,10 +31,10 @@ class="dropdown airlines-dropdown"
 [settings]="settings"
 [placeholder]="'Airline'"
 [data]="airlines"
-(onSelect)="onItemSelect($event)"
-(onDeSelect)="onDeSelect($event)"
-(onSelectAll)="onSelectAll($event)"
-(onDeSelectAll)="onDeSelectAll($event)"
+(onSelect)="onItemSelect($event, 'airline')"
+(onDeSelect)="onDeSelect($event, 'airline')"
+(onSelectAll)="onSelectAll($event, 'airline')"
+(onDeSelectAll)="onDeSelectAll($event, 'airline')"
 >
 </ng-multiselect-dropdown>
 
@@ -43,10 +43,10 @@ class="dropdown from-dropdown"
 [settings]="settings"
 [placeholder]="'From'"
 [data]="from"
-(onSelect)="onItemSelect($event)"
-(onDeSelect)="onDeSelect($event)"
-(onSelectAll)="onSelectAll($event)"
-(onDeSelectAll)="onDeSelectAll($event)"
+(onSelect)="onItemSelect($event, 'from')"
+(onDeSelect)="onDeSelect($event, 'from')"
+(onSelectAll)="onSelectAll($event, 'from')"
+(onDeSelectAll)="onDeSelectAll($event, 'from')"
 >
 </ng-multiselect-dropdown>
 
@@ -55,10 +55,10 @@ class="dropdown to-dropdown"
 [settings]="settings"
 [placeholder]="'To'"
 [data]="to"
-(onSelect)="onItemSelect($event)"
-(onDeSelect)="onDeSelect($event)"
-(onSelectAll)="onSelectAll($event)"
-(onDeSelectAll)="onDeSelectAll($event)"
+(onSelect)="onItemSelect($event, 'to')"
+(onDeSelect)="onDeSelect($event, 'to')"
+(onSelectAll)="onSelectAll($event, 'to')"
+(onDeSelectAll)="onDeSelectAll($event, 'to')"
 >
 </ng-multiselect-dropdown>
 </div>

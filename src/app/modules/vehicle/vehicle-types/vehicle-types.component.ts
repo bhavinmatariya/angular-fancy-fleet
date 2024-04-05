@@ -75,7 +75,7 @@ export class VehicleTypesComponent implements OnInit {
       data: [
         { title: 'Name', field: 'name', value: '', type: 'template', templateRef: this.nameTemplate },
         { title: '# of vehicles', field: '# of vehicles', value: 0, type: 'label' },
-        { title: 'Active', field: 'active', value: 'Yes', type: 'template', templateRef: this.activeTemplate }
+        { title: 'Active', field: 'active', value: '', type: 'template', templateRef: this.activeTemplate }
       ]
     })
     this.listingService.updateTableData(this.vehicleTypesData);

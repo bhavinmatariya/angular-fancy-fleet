@@ -74,14 +74,15 @@ export class CustomerCreateComponent implements OnDestroy{
    }
 
   ngOnInit(): void {
+    this.checkForCustomerView();
     this.customerService.selectedCustomerData$.subscribe((res) => {
       if(res) {
+        this.isReadOnly = res.isReadOnly;
         this.isSelectedData = true;
         this.customerForm.patchValue(res);
         this.selectedCustomer = res;
       }
     })
-    this.checkForCustomerView();
 
     this.customerForm.valueChanges.subscribe(value => {
       this.selectedCustomer.customerDetails = value.customerDetails;
@@ -100,7 +101,9 @@ export class CustomerCreateComponent implements OnDestroy{
     let snapshot: ActivatedRouteSnapshot = this.route.snapshot;
     const urlSegments: string[] = snapshot.url.map(segment => segment.path);
     this.containsCustomerView = urlSegments.includes('view');
-    this.isReadOnly = urlSegments.includes('view');
+    // this.isReadOnly = !urlSegments.includes('add');
+    urlSegments.includes('add') ? this.isReadOnly = false : this.isReadOnly = true;
+
   }
 
   ngOnDestroy(): void {

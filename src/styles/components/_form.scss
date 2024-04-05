@@ -1,0 +1,18 @@
+.form-check {
+  label {
+      color: $btn-active-color;
+      font-size: 14px;
+  }
+  .form-check-input {
+      float: none;
+      margin: 0 8px 0 0;
+      vertical-align: middle;
+      height: 1rem;
+      width: 1rem;
+  }
+}
+.form-control{
+  @include sm{
+      font-size: 14px;
+  }
+}

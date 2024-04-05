@@ -26,89 +26,8 @@ export class AirportBoardsComponent implements OnInit {
       "airlineName": "Hawaiian",
       "flightNo": "AA123",
       "from": "Los Angeles (LAX)",
-      "scheduled": "10:15 AM",
-      "estimated": "10:30 AM",
-      "status": "On Time"
-    },
-    {
-      "airline": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc3YWdl36w4aj1icy2pBiQbgNkkA_3WitorqB9cxvVZAMczwtq2eMzjLe1VfUMbx9zX0&usqp=CAU",
-      "airlineName": "Alaska",
-      "flightNo": "EK567",
-      "from": "Dubai (DXB)",
-      "scheduled": "03:45 PM",
-      "estimated": "04:00 PM",
-      "status": "Boarding"
-    },
-    {
-      "airline": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc3YWdl36w4aj1icy2pBiQbgNkkA_3WitorqB9cxvVZAMczwtq2eMzjLe1VfUMbx9zX0&usqp=CAU",
-      "airlineName": "Alaska",
-      "flightNo": "LH101",
-      "from": "Frankfurt (FRA)",
-      "scheduled": "11:00 AM",
-      "estimated": "10:45 AM",
-      "status": "Early Arrival"
-    },
-    {
-      "airline": "https://1000logos.net/wp-content/uploads/2017/06/United-Airlines-Logo-500x313.png",
-      "airlineName": "United",
-      "flightNo": "CX789",
-      "from": "Hong Kong (HKG)",
-      "scheduled": "07:15 PM",
-      "estimated": "Delayed",
-      "status": "N/A"
-    },
-    {
-      "airline": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc3YWdl36w4aj1icy2pBiQbgNkkA_3WitorqB9cxvVZAMczwtq2eMzjLe1VfUMbx9zX0&usqp=CAU",
-      "airlineName": "Alaska",
-      "flightNo": "AF321",
-      "from": "Paris (CDG)",
-      "scheduled": "09:30 AM",
-      "estimated": "09:30 AM",
-      "status": "On Time"
-    },
-    {
-      "airline": "https://1000logos.net/wp-content/uploads/2019/08/southwest-airlines-logo-500x226.png",
-      "airlineName": "Southwest",
-      "flightNo": "SQ234",
-      "from": "Singapore (SIN)",
-      "scheduled": "01:00 PM",
-      "estimated": "Cancelled",
-      "status": "N/A"
-    },
-    {
-      "airline": "https://1000logos.net/wp-content/uploads/2019/08/southwest-airlines-logo-500x226.png",
-      "airlineName": "Southwest",
-      "flightNo": "DL786",
-      "from": "Atlanta (ATL)",
-      "scheduled": "12:45 PM",
-      "estimated": "12:30 PM",
-      "status": "Early Arrival"
-    },
-    {
-      "airline": "https://1000logos.net/wp-content/uploads/2017/06/United-Airlines-Logo-500x313.png",
-      "airlineName": "United",
-      "flightNo": "KL654",
-      "from": "Amsterdam (AMS)",
-      "scheduled": "05:00 PM",
-      "estimated": "05:15 PM",
-      "status": "On Time"
-    },
-    {
-      "airline": "https://1000logos.net/wp-content/uploads/2017/06/United-Airlines-Logo-500x313.png",
-      "airlineName": "United",
-      "flightNo": "QF129",
-      "from": "Sydney (SYD)",
-      "scheduled": "02:15 AM",
-      "estimated": "02:30 AM",
-      "status": "On Time"
-    },
-    {
-      "airline": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc3YWdl36w4aj1icy2pBiQbgNkkA_3WitorqB9cxvVZAMczwtq2eMzjLe1VfUMbx9zX0&usqp=CAU",
-      "airlineName": "Alaska",
-      "flightNo": "EY456",
-      "from": "Abu Dhabi (AUH)",
-      "scheduled": "08:45 AM",
-      "estimated": "08:45 AM",
+      "scheduled": "12:30 AM",
+      "estimated": "12:30 AM",
       "status": "On Time"
     },
     {
@@ -116,8 +35,8 @@ export class AirportBoardsComponent implements OnInit {
       "airlineName": "Hawaiian",
       "flightNo": "AA123",
       "from": "Los Angeles (LAX)",
-      "scheduled": "09:15 AM",
-      "estimated": "09:30 AM",
+      "scheduled": "01:00 AM",
+      "estimated": "01:00 AM",
       "status": "On Time"
     },
     {
@@ -125,38 +44,111 @@ export class AirportBoardsComponent implements OnInit {
       "airlineName": "Alaska",
       "flightNo": "EK567",
       "from": "Dubai (DXB)",
-      "scheduled": "12:45 PM",
-      "estimated": "01:00 PM",
-      "status": "Boarding"
+      "scheduled": "03:00 AM",
+      "estimated": "03:00 AM",
+      "status": "On Time"
     },
     {
       "airline": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc3YWdl36w4aj1icy2pBiQbgNkkA_3WitorqB9cxvVZAMczwtq2eMzjLe1VfUMbx9zX0&usqp=CAU",
       "airlineName": "Alaska",
       "flightNo": "LH101",
       "from": "Frankfurt (FRA)",
-      "scheduled": "11:00 AM",
-      "estimated": "10:45 AM",
-      "status": "Early Arrival"
+      "scheduled": "05:00 AM",
+      "estimated": "05:00 AM",
+      "status": "On Time"
     },
     {
       "airline": "https://1000logos.net/wp-content/uploads/2017/06/United-Airlines-Logo-500x313.png",
       "airlineName": "United",
       "flightNo": "CX789",
       "from": "Hong Kong (HKG)",
-      "scheduled": "07:15 PM",
-      "estimated": "07:30 PM",
-      "status": "N/A"
+      "scheduled": "07:00 AM",
+      "estimated": "07:00 AM",
+      "status": "On Time"
     },
     {
       "airline": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc3YWdl36w4aj1icy2pBiQbgNkkA_3WitorqB9cxvVZAMczwtq2eMzjLe1VfUMbx9zX0&usqp=CAU",
       "airlineName": "Alaska",
       "flightNo": "AF321",
       "from": "Paris (CDG)",
-      "scheduled": "09:30 PM",
-      "estimated": "09:30 PM",
+      "scheduled": "09:00 AM",
+      "estimated": "09:00 AM",
       "status": "On Time"
     },
-  ]
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2019/08/southwest-airlines-logo-500x226.png",
+      "airlineName": "Southwest",
+      "flightNo": "SQ234",
+      "from": "Singapore (SIN)",
+      "scheduled": "11:00 AM",
+      "estimated": "11:00 AM",
+      "status": "On Time"
+    },
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2019/08/southwest-airlines-logo-500x226.png",
+      "airlineName": "Southwest",
+      "flightNo": "DL786",
+      "from": "Atlanta (ATL)",
+      "scheduled": "01:00 PM",
+      "estimated": "01:00 PM",
+      "status": "On Time"
+    },
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2017/06/United-Airlines-Logo-500x313.png",
+      "airlineName": "United",
+      "flightNo": "KL654",
+      "from": "Amsterdam (AMS)",
+      "scheduled": "03:00 PM",
+      "estimated": "03:00 PM",
+      "status": "On Time"
+    },
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2017/06/United-Airlines-Logo-500x313.png",
+      "airlineName": "United",
+      "flightNo": "QF129",
+      "from": "Sydney (SYD)",
+      "scheduled": "05:00 PM",
+      "estimated": "05:00 PM",
+      "status": "On Time"
+    },
+    {
+      "airline": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc3YWdl36w4aj1icy2pBiQbgNkkA_3WitorqB9cxvVZAMczwtq2eMzjLe1VfUMbx9zX0&usqp=CAU",
+      "airlineName": "Alaska",
+      "flightNo": "EY456",
+      "from": "Abu Dhabi (AUH)",
+      "scheduled": "07:00 PM",
+      "estimated": "07:00 PM",
+      "status": "On Time"
+    },
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2020/03/Hawaiian-Airlines-Logo.png",
+      "airlineName": "Hawaiian",
+      "flightNo": "AA123",
+      "from": "Los Angeles (LAX)",
+      "scheduled": "09:00 PM",
+      "estimated": "09:00 PM",
+      "status": "On Time"
+    },
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2020/03/Hawaiian-Airlines-Logo.png",
+      "airlineName": "Hawaiian",
+      "flightNo": "AA123",
+      "from": "Los Angeles (LAX)",
+      "scheduled": "09:45 PM",
+      "estimated": "09:45 PM",
+      "status": "On Time"
+    },
+    {
+      "airline": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc3YWdl36w4aj1icy2pBiQbgNkkA_3WitorqB9cxvVZAMczwtq2eMzjLe1VfUMbx9zX0&usqp=CAU",
+      "airlineName": "Alaska",
+      "flightNo": "EK567",
+      "from": "Dubai (DXB)",
+      "scheduled": "11:00 PM",
+      "estimated": "11:00 PM",
+      "status": "On Time"
+    },
+  ];
+
 
   arrivalData: {}[] = [
     {
@@ -176,6 +168,15 @@ export class AirportBoardsComponent implements OnInit {
       "scheduled": "03:45 PM",
       "estimated": "04:00 PM",
       "status": "Boarding"
+    },
+    {
+      "airline": "https://1000logos.net/wp-content/uploads/2019/08/southwest-airlines-logo-500x226.png",
+      "airlineName": "Southwest",
+      "flightNo": "LH101",
+      "to": "Frankfurt (FRA)",
+      "scheduled": "12:30 AM",
+      "estimated": "12:30 AM",
+      "status": "Early Arrival"
     },
     {
       "airline": "https://1000logos.net/wp-content/uploads/2019/08/southwest-airlines-logo-500x226.png",
@@ -254,8 +255,8 @@ export class AirportBoardsComponent implements OnInit {
       "airlineName": "United",
       "flightNo": "AA123",
       "to": "Los Angeles (LAX)",
-      "scheduled": "10:15 PM",
-      "estimated": "10:30 PM",
+      "scheduled": "02:00 PM",
+      "estimated": "02:00 PM",
       "status": "On Time"
     },
     {
@@ -263,8 +264,8 @@ export class AirportBoardsComponent implements OnInit {
       "airlineName": "Southwest",
       "flightNo": "EK567",
       "to": "Dubai (DXB)",
-      "scheduled": "03:45 PM",
-      "estimated": "04:00 PM",
+      "scheduled": "06:00 AM",
+      "estimated": "04:00 AM",
       "status": "Boarding"
     },
     {
@@ -290,8 +291,8 @@ export class AirportBoardsComponent implements OnInit {
       "airlineName": "Alaska",
       "flightNo": "AF321",
       "to": "Paris (CDG)",
-      "scheduled": "09:30 AM",
-      "estimated": "09:30 AM",
+      "scheduled": "09:30 PM",
+      "estimated": "09:30 PM",
       "status": "On Time"
     },
   ]
@@ -353,35 +354,31 @@ export class AirportBoardsComponent implements OnInit {
   }
 
   filterWithTopLevelFilter(filter: number) {
-    const date = new Date();
-    const currentTime = date.getHours() * 60 + date.getMinutes();
-    const filterTime = Math.abs(filter) * 60 * 60 * 1000;
+    const currentTime = Date.now();
 
-    const filteredDepartures = this.originalDepartureData.filter((data: any) => {
+      const filteredDepartures = this.originalDepartureData.filter((data: any) => {
       const scheduledTime = this.getTimeFromString(data.scheduled);
-      const diff = this.getDifferenceInMinutes(scheduledTime, currentTime);
       const flightTimestamp = new Date().setHours(scheduledTime.hours, scheduledTime.minutes);
 
       if (filter < 0) {
         // For previous hours, check if scheduled time is before current time and within the interval
-        return diff <= filterTime && diff >= 0 && flightTimestamp <= Date.now();
+        return flightTimestamp >= currentTime - Math.abs(filter) * 60 * 60 * 1000 && flightTimestamp <= currentTime;
       } else {
         // For next hours, check if scheduled time is after current time and within the interval
-        return diff <= filterTime && diff >= 0 && flightTimestamp >= Date.now();
+        return flightTimestamp >= currentTime && flightTimestamp <= currentTime + filter * 60 * 60 * 1000;
       }
     });
 
-    const filteredArrivals = this.originalArrivalData.filter((data: any) => {
+      const filteredArrivals = this.originalArrivalData.filter((data: any) => {
       const scheduledTime = this.getTimeFromString(data.scheduled);
-      const diff = this.getDifferenceInMinutes(scheduledTime, currentTime);
       const flightTimestamp = new Date().setHours(scheduledTime.hours, scheduledTime.minutes);
 
       if (filter < 0) {
         // For previous hours, check if scheduled time is before current time and within the interval
-        return diff <= filterTime && diff >= 0 && flightTimestamp <= Date.now();
+        return flightTimestamp >= currentTime - Math.abs(filter) * 60 * 60 * 1000 && flightTimestamp <= currentTime;
       } else {
         // For next hours, check if scheduled time is after current time and within the interval
-        return diff <= filterTime && diff >= 0 && flightTimestamp >= Date.now();
+        return flightTimestamp >= currentTime && flightTimestamp <= currentTime + filter * 60 * 60 * 1000;
       }
     });
 
@@ -389,6 +386,7 @@ export class AirportBoardsComponent implements OnInit {
     this.arrivalData = [...filteredArrivals];
     this.prepareToSentData();
   }
+
 
   getTimeFromString(timeString: string): { hours: number, minutes: number } {
     const [time, period] = timeString.split(' ');
@@ -423,28 +421,36 @@ export class AirportBoardsComponent implements OnInit {
     this.prepareToSentData();
   }
 
-  public onItemSelect(item: any) {
-    this.airlineFilters.push(item.item_text);
-    this.filterByAirlines();
+  public onItemSelect(item: any, type: string) {
+    if (type === 'airline') {
+      this.airlineFilters.push(item.item_text);
+      this.filterByAirlines();
+    }
   }
 
-  public onDeSelect(item: any) {
+  public onDeSelect(item: any, type: string) {
+    if (type === 'airline') {
     const index = this.airlineFilters.indexOf(item.item_text);
     if (index !== -1) {
         this.airlineFilters.splice(index, 1);
     }
     this.filterByAirlines();
   }
+  }
 
-  public onSelectAll(items: any) {
+  public onSelectAll(items: any, type: string) {
+    if (type === 'airline') {
     this.airlineFilters = items.map((item: any) => item.item_text);
     console.log(this.airlineFilters);
     this.filterByAirlines();
+    }
   }
 
-  public onDeSelectAll(items: any) {
+  public onDeSelectAll(items: any, type: string) {
+    if (type === 'airline') {
     this.airlineFilters = [];
     this.filterByAirlines();
+    }
   }
 
   filterByAirlines() {

@@ -3,6 +3,7 @@
 @import 'components/card';
 @import 'components/accordion';
 @import './components/dropdown';
+@import './components/form';
 @import './customHtmlStyles';
 @import 'responsive';
 ::-webkit-scrollbar {
@@ -51,7 +52,8 @@ ul>li {
 }
 .form-control:focus,
 .form-select:focus,
-.accordion-button:focus {
+.accordion-button:focus,
+.form-check-input:focus {
   box-shadow: none;
 }
 .fleet-wrapper {
@@ -80,6 +82,9 @@ ul>li {
           float: none !important;
           .selected-item {
               font-size: 16px;
+              @include xs{
+                font-size: 14px;
+              }
           }
       }
       .dropdown-multiselect__caret:before {

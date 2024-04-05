@@ -1,10 +1,10 @@
 <h2 class="d-inline-block px-4 mb-4" id="heading1">{{ title }}</h2>
-<div class="fleet-content-wrapper">
+<div class="fleet-content-wrapper overflow-auto rounded-3">
   <div class="fleet-wrapper">
     <div class="table-responsive scrollbar border-bottom">
-      <table class="table table-hover mb-0 overflow-hidden rounded-0">
+      <table class="table table-hover mb-0 overflow-auto rounded-0" [class.vehicle-types-table]="isVehicleTypeView">
         <thead>
-          <tr class="border border-start-0 border-end-0">
+          <tr class="border-bottom">
             <th class="sort align-middle white-space-nowrap fw-medium text-nowrap id-actions" data-sort="name">
               <span>ID</span>
             </th>
@@ -12,7 +12,7 @@
               <span>{{ header.header }}</span>
             </th>
             <th class="sort align-middle white-space-nowrap fw-medium text-nowrap pe-4 id-actions" data-sort="name">
-              <p class="mb-0">Actions</p>
+              <p class="mb-0 text-center">Actions</p>
             </th>
           </tr>
         </thead>
@@ -34,10 +34,10 @@
                 <div>
                   <!-- Action buttons -->
                   <td class="align-middle id-actions">
-                    <div class="d-flex align-items-center gap-1">
+                    <div class="d-flex align-items-center gap-1 justify-content-center">
                       <div>
                         @if(checkDisabledClass(i)) {
-                          <button class="btn btn-transparent float-end pe-3" (click)="toggleClass(i)">
+                          <button class="btn btn-transparent float-end p-1 px-md-2" (click)="toggleClass(i)">
                             <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="edit-item" viewBox="0 0 512 512"
                               preserveAspectRatio="xMidYMid meet">
                               <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
@@ -54,7 +54,7 @@
                           </button>
                           }
                           @if(!checkDisabledClass(i)) {
-                          <button class="btn btn-transparent float-end pe-3" (click)="toggleClass(i)">
+                          <button class="btn btn-transparent float-end p-1 px-md-2" (click)="toggleClass(i)">
                             <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="edit-item"
                             viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">
                             <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
@@ -82,7 +82,7 @@
                           </button>
                           }
                       </div>
-                      <button class="btn btn-transparent float-end pe-3" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onDeleteIcon('vehicle-types', i)">
+                      <button class="btn btn-transparent float-end p-1 px-md-2" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onDeleteIcon('vehicle-types', i)">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="delete-item">
                           <path
                             d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z">

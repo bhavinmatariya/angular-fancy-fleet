@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 })
 export class CustomerListComponent {
   customerData: any;
+  currentDeleteIndex: number = 0;
   constructor(private customerService: CustomerService) {
 
   }
@@ -22,7 +23,22 @@ export class CustomerListComponent {
       })
     }
 
-    selectedCustomerData(cData : any) {
+    selectedCustomerData(cData : any, isReadOnly: boolean) {
+
+      cData.isReadOnly = isReadOnly;
       this.customerService.selectedCustomerData$.next(cData);
     }
+
+    onDeleteIcon(event: Event, i: number) {
+      event.stopPropagation();
+      this.currentDeleteIndex = i;
+    }
+
+    confirmDelete() {
+      this.customerData.splice(this.currentDeleteIndex, 1);
+    }
+    checkDisabledClass(i: any){
+      return true
+    }
+    toggleClass(i: any){}
 }

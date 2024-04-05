@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { ListingService } from '../../services/listing.service';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-listing',
@@ -17,15 +18,20 @@ export class ListingComponent implements OnInit, OnDestroy{
 
   dataKeys:  string[] = [];
   currentDeleteData: any = {};
+  isVehicleTypeView: boolean = false;
   private subscription: Subscription;
 
-  constructor(private listingService: ListingService) {
+  constructor(private listingService: ListingService, private route: ActivatedRoute) {
     this.subscription = this.listingService.tableData$.subscribe(data => {
       this.tableData = data;
     });
   }
 
   ngOnInit(): void {
+    let snapshot: ActivatedRouteSnapshot = this.route.snapshot;
+    const urlSegments: string[] = snapshot.url.map(segment => segment.path);
+    this.isVehicleTypeView = urlSegments.includes('vehicle-types');
+
     if (this.tableData && this.tableData.length > 0) {
      this.tableData =  this.tableData.map((data: any) => {
         delete data.airlineName;
@@ -49,10 +55,16 @@ export class ListingComponent implements OnInit, OnDestroy{
   }
 
   toggleClass(i: number) {
-    const id = 'input' + i;
-    const element = document.getElementById(id);
-    if (element) {
-      element.classList.toggle('disabled');
+    const idInput = 'input' + i;
+    const elementInput = document.getElementById(idInput);
+    if (elementInput) {
+      elementInput.classList.toggle('disabled');
+    }
+
+    const idSelect = 'select' + i;
+    const elementSelect = document.getElementById(idSelect);
+    if (elementSelect) {
+      elementSelect.classList.toggle('disabled');
     }
   }
 

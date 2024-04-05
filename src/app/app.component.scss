@@ -2,6 +2,9 @@
 .main {
     height: 100vh;
 }
+.content{
+  height: calc(100% - 84px);
+}
 .nav-bar-icon {
     margin-right: 12px;
     cursor: pointer;

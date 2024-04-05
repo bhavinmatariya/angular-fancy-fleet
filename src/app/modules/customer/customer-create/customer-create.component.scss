@@ -1,3 +1,4 @@
+@import '../../../../styles/responsive';
 .accordion {
     .accordion-item {
         border: 0;
@@ -44,4 +45,11 @@
 
 .accordion-button:not(.collapsed) {
     background-color: transparent;
+}
+.fleet-content-wrapper {
+  height: calc(100vh - 166px);
+  overflow: auto;
+  @include sm{
+    max-height: calc(100vh - 200px);
+  }
 }

@@ -10,6 +10,9 @@ table {
 .table tr th:first-child,
 .table tr td:first-child {
     padding-left: 1.25rem;
+    @include xs{
+      padding-left: 12px;
+  }
 }
 
 table tr th span:after {
