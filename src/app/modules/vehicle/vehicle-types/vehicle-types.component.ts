@@ -27,33 +27,25 @@ export class VehicleTypesComponent implements OnInit {
   ngOnInit(): void {
     this.vehicleTypesData = [
       {
-        rowId: 1,
-        data: [
-          { title: 'Name', field: 'name', value: 'Car', type: 'template', templateRef: this.nameTemplate },
-          { title: '# of vehicles', field: '# of vehicles', value: 10, type: 'label' },
-          { title: 'Active', field: 'active', value: 'Yes', type: 'template', templateRef: this.activeTemplate }
-        ]
+        name: 'Car',
+        noOfVehicles: 10,
+        active: "Yes",
       },
       {
-        rowId: 2,
-        data: [
-          { title: 'Name', field: 'name', value: 'Motorcycle', type: 'template', templateRef: this.nameTemplate },
-          { title: '# of vehicles', field: '# of vehicles', value: 5, type: 'label' },
-          { title: 'Active', field: 'active', value: 'Yes', type: 'template', templateRef: this.activeTemplate }
-        ]
+        name: 'Motorcycle',
+        noOfVehicles: 5,
+        active: "Yes",
       },
       {
-        rowId: 3,
-        data: [
-          { title: 'Name', field: 'name', value: 'Limo', type: 'template', templateRef: this.nameTemplate },
-          { title: '# of vehicles', field: '# of vehicles', value: 3, type: 'label' },
-          { title: 'Active', field: 'active', value: 'Yes', type: 'template', templateRef: this.activeTemplate }
-        ]
+        name: 'Limo',
+        noOfVehicles: 3,
+        active: "Yes",
       }
     ];
 
-    this.headers = [{ "header": 'Name', "type": 'template' }, { "header": '# of vehicles', "type": 'label' }, { "header": 'Active', "type": 'template' }];
+    this.headers = [{ header: 'Name', field: 'name', type: 'template', templateRef: this.nameTemplate }, { header: '# of vehicles', field: 'noOfVehicles', type: 'label' }, { header: 'Active', field: 'active', type: 'template', templateRef: this.activeTemplate }];
     this.listingService.updateTableData(this.vehicleTypesData);
+    this.changeDetectorRef.detectChanges();
 
     this.listingService.deleteInitiated.subscribe(payload => {
       const componentName = payload.componentName;
@@ -62,6 +54,7 @@ export class VehicleTypesComponent implements OnInit {
       if (componentName === 'vehicle-types') {
         this.vehicleTypesData.splice(index, 1);
         this.listingService.updateTableData(this.vehicleTypesData);
+        this.changeDetectorRef.detectChanges();
       }
 
 

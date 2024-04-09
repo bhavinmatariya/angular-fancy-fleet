@@ -24,86 +24,46 @@ export class VehicleFeatureComponent implements OnInit {
   ngOnInit(): void {
     this.vehicleFeaturesData = [
       {
-        rowId: 1,
-        data: [
-          { title: 'Features', field: 'feature', value: '5 Seats', type: 'template', templateRef: this.featureTemplate },
-
-        ]
+      feature: '5 Seats'
       },
       {
-        rowId: 2,
-        data: [
-          { title: 'Name', field: 'name', value: '6 Seats', type: 'template', templateRef: this.featureTemplate },
-        ]
+        feature: '6 Seats'
       },
       {
-        rowId: 3,
-        data: [
-          { title: 'Name', field: 'name', value: '7 Seats', type: 'template', templateRef: this.featureTemplate },
-        ]
+        feature: '7 Seats'
       },
       {
-        rowId: 4,
-        data: [
-          { title: 'Name', field: 'name', value: '2 Luggage', type: 'template', templateRef: this.featureTemplate },
-        ]
+        feature: '2 Luggage'
       },
       {
-        rowId: 5,
-        data: [
-          { title: 'Name', field: 'name', value: '3 Luggage', type: 'template', templateRef: this.featureTemplate },
-        ]
+        feature: '3 Luggage'
       },
       {
-        rowId: 6,
-        data: [
-          { title: 'Name', field: 'name', value: '4 Luggage', type: 'template', templateRef: this.featureTemplate },
-        ]
+        feature: '4 Luggage'
       },
       {
-        rowId: 7,
-        data: [
-          { title: 'Name', field: 'name', value: '5 Luggage', type: 'template', templateRef: this.featureTemplate },
-        ]
+        feature: '5 Luggage'
       },
       {
-        rowId: 8,
-        data: [
-          { title: 'Name', field: 'name', value: 'Automatic', type: 'template', templateRef: this.featureTemplate },
-        ]
+        feature: 'Automatic'
       },
       {
-        rowId: 9,
-        data: [
-          { title: 'Name', field: 'name', value: 'Blutooth CarPlay', type: 'template', templateRef: this.featureTemplate },
-        ]
+        feature: 'Blutooth CarPlay'
       },
       {
-        rowId: 10,
-        data: [
-          { title: 'Name', field: 'name', value: 'AC', type: 'template', templateRef: this.featureTemplate },
-        ]
+        feature: 'AC'
       },
       {
-        rowId: 11,
-        data: [
-          { title: 'Name', field: 'name', value: 'Mild Hybrid', type: 'template', templateRef: this.featureTemplate },
-        ]
+        feature: 'Mild Hybrid'
       },
       {
-        rowId: 12,
-        data: [
-          { title: 'Name', field: 'name', value: 'Plugin Hybrid', type: 'template', templateRef: this.featureTemplate },
-        ]
+        feature: 'Plugin Hybrid'
       },
       {
-        rowId: 13,
-        data: [
-          { title: 'Name', field: 'name', value: 'EV', type: 'template', templateRef: this.featureTemplate },
-        ]
+        feature: 'EV'
       }
     ];
-    this.headers = [{ "header": 'Features', "type": 'template' }];
+    this.headers = [{ header: 'Features', field: 'feature', type: 'template', templateRef: this.featureTemplate }];
     this.listingService.updateTableData(this.vehicleFeaturesData);
 
     this.listingService.deleteInitiated.subscribe(payload => {

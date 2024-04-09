@@ -5,6 +5,7 @@ import { CustomerRoutingModule } from './modules/customer/customer-routing.modul
 import { AirportBoardsComponent } from './modules/airport-boards/airport-boards/airport-boards.component';
 import { VehicleTypesComponent } from './modules/vehicle/vehicle-types/vehicle-types.component';
 import { VehicleFeatureComponent } from './modules/vehicle/vehicle-feature/vehicle-feature.component';
+import { VehicleClassComponent } from './modules/vehicle/vehicle-class/vehicle-class.component';
 
 const routes: Routes = [
   {
@@ -21,13 +22,10 @@ const routes: Routes = [
     component: AirportBoardsComponent
   },
   {
-    path: 'vehicle-types',
-    component: VehicleTypesComponent
+    path: 'vehicle',
+    loadChildren: () =>
+      import('./modules/vehicle/vehicle.module').then((m) => m.VehicleModule),
   },
-  {
-    path: 'vehicle-features',
-    component: VehicleFeatureComponent
-  }
 ];
 
 @NgModule({

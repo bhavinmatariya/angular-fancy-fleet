@@ -1,0 +1,174 @@
+<div class="d-flex justify-content-between mb-3  mb-md-4" *ngIf="!isAddModal">
+  <div class="text-end ps-2">
+    <div id="table-customers-replace-element" (click)="isAddModal = true">
+      <button type="button" class="btn btn-secondary"><span class="fas fa-plus"
+          data-fa-transform="shrink-3 down-2"></span><span class="d-none d-sm-inline-block ms-1">Add Vehicle Class</span></button>
+    </div>
+  </div>
+</div>
+
+@if(!isAddModal) {
+  <div>
+    <!-- VEHICLE TABLE -->
+    <app-listing [tableData]="vehicleClassData" [headers]="headers"></app-listing>
+  </div>
+}
+
+<!-- ADD VEHICLE FORM START -->
+@if(isAddModal) {
+  <div class="fleet-content-wrapper">
+    <div class="vehicle-detail-form">
+        <div class="fleet-wrapper overflow-auto px-4 py-3">
+            <h2 class="d-inline-block fs-5 mb-3" id="heading1">Details</h2>
+            <form [formGroup]="vehicleClassForm" (ngSubmit)="onSubmit()">
+                <div class="row gy-2">
+                    <div class="col-12">
+                        <label class="mb-2">Vehicle types</label>
+                        <select formControlName="vehicleType" class="form-select border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium">
+                          @for (class of vehicleTypes; track class; let i = $index) {
+                            <option [value]="class">{{ class }}</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="mb-2">Name</label>
+                        <input formControlName="name" type="text" class="form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium">
+                        <span class="example">e.g. Full Size SUV, Standard SUV</span>
+                    </div>
+                    <div class="col-12">
+                        <label class="mb-2">Passenger</label>
+                        <select formControlName="passenger" class="form-select border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="mb-2">Active</label>
+                        <select formControlName="active" class="form-select border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium">
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="mb-2">Features</label>
+                        <!-- <select formControlName="features" class="form-select border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium">
+                            <option>5 Seats</option>
+                            <option>6 Seats</option>
+                            <option>7 Seats</option>
+                            <option>2 Luggage</option>
+                        </select> -->
+
+                        <ng-multiselect-dropdown #multiSelect
+                          class="dropdown"
+                          [settings]="settings"
+                          [placeholder]="'Features'"
+                          [data]="features"
+                          (onSelect)="onItemSelect($event, 'airline')"
+                          (onDeSelect)="onDeSelect($event, 'airline')"
+                          (onSelectAll)="onSelectAll($event, 'airline')"
+                          (onDeSelectAll)="onDeSelectAll($event, 'airline')"
+                          >
+                        </ng-multiselect-dropdown>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="d-flex justify-content-between mt-4 mb-3 me-md-2">
+            <button class="btn btn-tranparent outline-0" (click)="isAddModal = false">Cancel</button>
+            <button class="btn btn-secondary" type="submit" (click)="onSubmit()" [disabled]="vehicleClassForm.invalid">Save Vehicle</button>
+        </div>
+    </div>
+</div>
+
+}
+<!-- ADD VEHICLE FORM END -->
+
+<!-- VIEW VEHICLE DETAIL START -->
+<!-- <div class="fleet-content-wrapper">
+    <div class="vehicle-detail-form">
+        <div class="fleet-wrapper px-4 py-3">
+            <h2 class="d-inline-block fs-5 mb-3" id="heading1">Details
+            </h2>
+            <div class="shadow-sm rounded-3">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="px-3 py-3">
+                            <h6 class="mb-0">Vehicle types</h6>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="px-3 py-3">
+                            <p class="mb-0">Full Size SUV</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="px-3 py-3">
+                            <h6 class="mb-0">Name</h6>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="px-3 py-3">
+                            <p class="mb-0">abc</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="px-3 py-3">
+                            <h6 class="mb-0">Passenger</h6>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="px-3 py-3">
+                            <p class="mb-0">7</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="px-3 py-3">
+                            <h6 class="mb-0">Features</h6>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="px-3 py-3">
+                            <p class="mb-0">5 seats, AC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="px-3 py-3">
+                            <h6 class="mb-0"># of vehicles</h6>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="px-3 py-3">
+                            <p class="mb-0">10</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                       <div class="px-3 py-4">
+                        <h6 class="mb-0">Active</h6>
+                       </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="px-3 py-4">
+                            <p class="mb-0">Yes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- VIEW VEHICLE DETAIL END -->

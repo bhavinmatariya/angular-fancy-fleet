@@ -19,6 +19,7 @@ export class ListingComponent implements OnInit, OnDestroy{
   dataKeys:  string[] = [];
   currentDeleteData: any = {};
   isVehicleTypeView: boolean = false;
+  isVehicleClassView: boolean = false;
   private subscription: Subscription;
 
   constructor(private listingService: ListingService, private route: ActivatedRoute) {
@@ -31,6 +32,7 @@ export class ListingComponent implements OnInit, OnDestroy{
     let snapshot: ActivatedRouteSnapshot = this.route.snapshot;
     const urlSegments: string[] = snapshot.url.map(segment => segment.path);
     this.isVehicleTypeView = urlSegments.includes('vehicle-types');
+    this.isVehicleClassView = urlSegments.includes('vehicle-class');
 
     if (this.tableData && this.tableData.length > 0) {
      this.tableData =  this.tableData.map((data: any) => {
@@ -75,6 +77,10 @@ export class ListingComponent implements OnInit, OnDestroy{
       return element.classList.contains('disabled');
     }
     return false;
+  }
+
+  removeBrackets(value: string): string {
+    return value.replace(/^\[|\]$/g, '');
   }
 
 

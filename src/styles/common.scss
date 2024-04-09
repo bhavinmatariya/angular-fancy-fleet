@@ -9,7 +9,7 @@
 ::-webkit-scrollbar {
   width: 6px;
   height: 0;
-  @include sm{
+  @include md{
     width: 0;
   }
 }
@@ -98,5 +98,11 @@ ul>li {
       @include md {
           width: 100% !important;
       }
+  }
+}
+.fleet-content-wrapper {
+  max-height: calc(100vh - 226px);
+  @include md{
+    max-height: calc(100vh - 196px);
   }
 }

@@ -1,16 +1,23 @@
 @import '../../../../styles/responsive';
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  @include md {
+    width: 0;
+  }
+}
 .fleet-content-wrapper{
-    max-height: calc(100vh - 170px);
-    overflow: auto;
-    @include xl{
-        max-height: calc(100vh - 180px);
-    }
-    @include md{
-        max-height: calc(100vh - 150px);
-    }
-    @include sm{
-        max-height: calc(100vh - 140px);
-    }
+  max-height: calc(100vh - 170px);
+  overflow: auto;
+  @include xl{
+      max-height: calc(100vh - 180px);
+  }
+  @include md{
+      max-height: calc(100vh - 150px);
+  }
+  @include sm{
+      max-height: calc(100vh - 140px);
+  }
 }
 .page-numbers{
     p{

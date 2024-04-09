@@ -1,13 +1,11 @@
-<div class="row">
   <div class="d-flex align-items-center pe-0">
     <div class="d-flex align-items-center justify-content-between w-100 pe-4">
-      <h3 class="fs-9 mb-0 text-nowrap py-2 py-xl-0">{{ isSelectedData ? 'View Customer' : 'Add New Customer' }}</h3>
+      <h3 class="fs-9 mb-4 text-nowrap py-2 py-xl-0">{{ isSelectedData ? 'View Customer' : 'Add New Customer' }}</h3>
     </div>
   </div>
-</div>
-<div class="my-4 fleet-content-wrapper">
+<div class="fleet-content-wrapper overflow-auto">
   <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
-    <div class="px-4 py-3 bg-white rounded-3">
+    <div class="px-4 py-3 bg-white rounded-3 me-md-4">
       <div class="accordion mb-3" id="accordionExample1">
         <div class="accordion-item border-0">
           <h2 class="accordion-header d-inline-block" id="heading1">
@@ -272,7 +270,7 @@
 
     </div>
     @if(!isSelectedData) {
-    <div class="card-footer d-flex justify-content-between mt-4 mb-3">
+    <div class="card-footer d-flex justify-content-between mt-4 mb-3 me-md-2">
       <button [routerLink]="['/customer/list']" class="btn btn-tranparent outline-0">Cancel</button>
       <button class="btn btn-secondary" type="submit" [disabled]="customerForm.invalid">Save Customer</button>
     </div>

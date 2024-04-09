@@ -47,9 +47,8 @@
     background-color: transparent;
 }
 .fleet-content-wrapper {
-  height: calc(100vh - 166px);
-  overflow: auto;
+  max-height: calc(100vh - 166px);
   @include sm{
-    max-height: calc(100vh - 200px);
+    max-height: calc(100vh - 154px);
   }
 }
