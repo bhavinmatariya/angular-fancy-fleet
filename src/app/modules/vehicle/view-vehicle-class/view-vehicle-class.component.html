@@ -1,0 +1,87 @@
+<h2 class="d-inline-block mb-3  mb-md-4">{{selectedRowData.class}}</h2>
+<div class="fleet-content-wrapper">
+  <div class="vehicle-detail-form">
+      <div class="fleet-wrapper px-4 py-3">
+          <h2 class="d-inline-block fs-5 mb-3" id="heading1">Details
+          </h2>
+          <div class="border rounded-3">
+              <div class="row">
+                  <div class="col-6">
+                      <div class="px-3 py-3">
+                          <h6 class="mb-0">Class</h6>
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="px-3 py-3">
+                          <p class="mb-0">{{ selectedRowData.class }}</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-6">
+                      <div class="px-3 py-3">
+                          <h6 class="mb-0">Vehicle Type</h6>
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="px-3 py-3">
+                          <p class="mb-0">{{ selectedRowData.vehicleType }}</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-6">
+                      <div class="px-3 py-3">
+                          <h6 class="mb-0">Passenger</h6>
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="px-3 py-3">
+                          <p class="mb-0">{{ selectedRowData.noOfVehicles }}</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-6">
+                      <div class="px-3 py-3">
+                          <h6 class="mb-0">Features</h6>
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="px-3 py-3">
+                          <p class="mb-0">{{ selectedRowData.features }}</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-6">
+                      <div class="px-3 py-3">
+                          <h6 class="mb-0"># of vehicles</h6>
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="px-3 py-3">
+                          <p class="mb-0">{{ selectedRowData.noOfVehicles }}</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-6">
+                     <div class="px-3 py-4">
+                      <h6 class="mb-0">Active</h6>
+                     </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="px-3 py-4">
+                          <p class="mb-0">{{ selectedRowData.active }}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="d-flex justify-content-between mt-4 mb-3 me-md-2">
+    <button class="btn btn-tranparent outline-0" (click)="dialogService.showViewVehicleClassModal = false">Cancel</button>
+</div>
+</div>

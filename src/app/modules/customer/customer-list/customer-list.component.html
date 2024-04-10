@@ -22,7 +22,7 @@
         <thead class="border-bottom">
           <tr>
             <th class="sort pe-1 align-middle white-space-nowrap fw-medium text-nowrap" data-sort="name">
-              <span>Customer Info</span>
+              <span>Customer</span>
             </th>
             <th class="sort pe-1 align-middle white-space-nowrap fw-medium text-nowrap" data-sort="email">
               <span>Street</span>
@@ -45,10 +45,10 @@
             <th class="sort pe-1 align-middle white-space-nowrap fw-medium text-nowrap" data-sort="phone">
               <span>License Info</span>
             </th>
-            <th class="sort pe-1 align-middle white-space-nowrap fw-medium text-nowrap" data-sort="joined">
+            <th class="sort pe-1 align-middle white-space-nowrap fw-medium" data-sort="joined">
               <span>Current Reservation</span>
             </th>
-            <th class="sort pe-1 align-middle white-space-nowrap fw-medium text-nowrap" data-sort="joined">
+            <th class="sort pe-1 align-middle white-space-nowrap fw-medium" data-sort="joined">
               <span>Past Reservation</span>
             </th>
             <th class="sort pe-1 align-middle white-space-nowrap fw-medium text-nowrap">
@@ -59,7 +59,7 @@
         <tbody class="list" id="table-customers-body">
           @for (cdata of customerData; track cdata; let i = $index) {
           <tr class="btn-reveal-trigger" routerLink="/customer/view"
-          (click)="selectedCustomerData(cdata, true)">
+          (click)="selectedCustomerData($event, cdata, true)">
             <td class="name align-middle white-space-nowrap py-2">
               <a>
                 <div class="d-flex align-items-center">
@@ -109,7 +109,7 @@
             <td class="align-middle id-actions">
               <div class="d-flex align-items-center justify-content-center gap-1">
                 <div>
-                  <button class="btn btn-transparent float-end p-1 px-md-2" routerLink="/customer/view" (click)="selectedCustomerData(cdata, false)">
+                  <button class="btn btn-transparent float-end p-1 px-md-2" routerLink="/customer/view" (click)="selectedCustomerData($event,cdata, false)">
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="edit-item"
                       viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">
                       <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="currentColor"

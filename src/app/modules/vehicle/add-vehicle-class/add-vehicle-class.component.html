@@ -1,0 +1,64 @@
+<h2 class="d-inline-block mb-3  mb-md-4">Add Vehicle Class</h2>
+<div class="fleet-content-wrapper">
+  <div class="vehicle-detail-form">
+      <div class="fleet-wrapper overflow-auto px-4 py-3">
+          <h2 class="d-inline-block fs-5 mb-3" id="heading1">Details</h2>
+          <form [formGroup]="vehicleClassForm" (ngSubmit)="onSubmit()">
+              <div class="row gy-2">
+                  <div class="col-12">
+                      <label class="mb-2">Vehicle types</label>
+                      <select formControlName="vehicleType" class="form-select border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium">
+                        @for (class of vehicleTypes; track class; let i = $index) {
+                          <option [value]="class">{{ class }}</option>
+                          }
+                      </select>
+                  </div>
+                  <div class="col-12">
+                      <label class="mb-2">Vehicle Class</label>
+                      <input formControlName="class" type="text" class="form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium">
+                      <span class="example">e.g. Full Size SUV, Standard SUV</span>
+                  </div>
+                  <div class="col-12">
+                      <label class="mb-2">Passenger</label>
+                      <select formControlName="passenger" class="form-select border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                      </select>
+                  </div>
+                  <div class="col-12">
+                      <label class="mb-2">Active</label>
+                      <select formControlName="active" class="form-select border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium">
+                          <option>Yes</option>
+                          <option>No</option>
+                      </select>
+                  </div>
+                  <div class="col-12">
+                      <label class="mb-2">Features</label>
+                      <ng-multiselect-dropdown #multiSelect
+                        class="dropdown"
+                        [settings]="settings"
+                        [placeholder]="'Features'"
+                        [data]="features"
+                        formControlName="features"
+                        >
+                      </ng-multiselect-dropdown>
+                  </div>
+              </div>
+          </form>
+      </div>
+      <div class="mt-4 mb-3 me-md-2">
+        @if(!dialogService.showEditVehicleClassModal) {
+            <button class="btn btn-tranparent outline-0" (click)="dialogService.showAddVehicleClassModal = false; dialogService.showEditVehicleClassModal = false;">Cancel</button>
+            <button class="btn btn-secondary float-end" type="submit" (click)="onSubmit(); dialogService.showAddVehicleClassModal = false; dialogService.showEditVehicleClassModal = false;" [disabled]="vehicleClassForm.invalid">Save Vehicle</button>
+        }
+          @if(dialogService.showEditVehicleClassModal) {
+            <button class="btn btn-secondary outline-0 float-end" (click)="dialogService.showAddVehicleClassModal = false; dialogService.showEditVehicleClassModal = false;">Save</button>
+          }
+      </div>
+  </div>
+</div>

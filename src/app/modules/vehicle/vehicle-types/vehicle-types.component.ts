@@ -23,6 +23,7 @@ export class VehicleTypesComponent implements OnInit {
 
   vehicleTypesData: any = [];
   headers: {}[] = [];
+  selectedRowData: any = null;
 
   ngOnInit(): void {
     this.vehicleTypesData = [
@@ -43,7 +44,7 @@ export class VehicleTypesComponent implements OnInit {
       }
     ];
 
-    this.headers = [{ header: 'Name', field: 'name', type: 'template', templateRef: this.nameTemplate }, { header: '# of vehicles', field: 'noOfVehicles', type: 'label' }, { header: 'Active', field: 'active', type: 'template', templateRef: this.activeTemplate }];
+    this.headers = [{ header: 'Name', field: 'name', type: 'template', templateRef: this.nameTemplate, width: '40%' }, { header: '# of vehicles', field: 'noOfVehicles', type: 'label' }, { header: 'Active', field: 'active', type: 'template', templateRef: this.activeTemplate, width: '40%' }];
     this.listingService.updateTableData(this.vehicleTypesData);
     this.changeDetectorRef.detectChanges();
 

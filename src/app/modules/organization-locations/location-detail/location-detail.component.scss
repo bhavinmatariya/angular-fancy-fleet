@@ -1,0 +1,59 @@
+@import '../../../../styles/responsive';
+.location-icon{
+    height: 48px;
+    width: 48px;
+    @include md{
+        height: 38px;
+        width: 38px;
+    }
+    background-color: #edf2f7;
+}
+.location-detail{
+    h5{
+        @include lg{
+            font-size: 16px;
+        }
+    }
+    a{
+        max-width: 140px;
+        width: 100%;
+        font-size: 14px;
+        color: #344050;
+        &:hover{
+            color: #6610f2;
+        }
+        @include lg{
+            max-width: 200px;
+        }
+    }
+    P{
+        max-width: 170px;
+        width: 100%;
+        font-size: 14px;
+        color: #344050;
+        &:hover{
+            color: #6610f2;
+        }
+        @include lg{
+            max-width: none;
+        }
+    }
+}
+.location-map{
+    iframe{
+        width: 100%;
+        @include md{
+            height: 350px;
+        }
+        @include sm{
+            height: 350px;
+        }
+    }
+}
+.address{
+    max-width: 160px;
+    width: 100%;
+    a{
+        color: #667085;
+    }
+}

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CustomerService } from '../customer.service';
 import { RouterModule } from '@angular/router';
+import { CustomerCreateComponent } from '../customer-create/customer-create.component';
 
 @Component({
   selector: 'app-customer-list',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CustomerCreateComponent],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.scss'
 })
@@ -23,8 +24,10 @@ export class CustomerListComponent {
       })
     }
 
-    selectedCustomerData(cData : any, isReadOnly: boolean) {
-
+    selectedCustomerData(event: Event, cData : any, isReadOnly: boolean) {
+      if (!isReadOnly) {
+        event.stopPropagation();
+      }
       cData.isReadOnly = isReadOnly;
       this.customerService.selectedCustomerData$.next(cData);
     }

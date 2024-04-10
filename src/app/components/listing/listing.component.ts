@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
 import { ListingService } from '../../services/listing.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
@@ -15,6 +15,9 @@ export class ListingComponent implements OnInit, OnDestroy{
   @Input() headers: any[] = [];
   @Input() title: string = '';
   @Input() tableData: any;
+  @Input() isOneEditIconOnly: boolean = false;
+  @Output() rowClicked: EventEmitter<any> = new EventEmitter();
+  @Output() editClicked: EventEmitter<any> = new EventEmitter();
 
   dataKeys:  string[] = [];
   currentDeleteData: any = {};
@@ -47,7 +50,8 @@ export class ListingComponent implements OnInit, OnDestroy{
       })
   }
 
-  onDeleteIcon(componentName: string, i: number) {
+  onDeleteIcon(event: Event, componentName: string, i: number) {
+    event.stopPropagation();
     this.currentDeleteData.componentName = componentName;
     this.currentDeleteData.index = i;
   }
@@ -83,6 +87,13 @@ export class ListingComponent implements OnInit, OnDestroy{
     return value.replace(/^\[|\]$/g, '');
   }
 
+  onClickRow(row: any) {
+    this.rowClicked.emit(row);
+  }
+
+  onClickEdit(event: Event, row: any, index: number) {
+    this.editClicked.emit({event, row, index});
+  }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

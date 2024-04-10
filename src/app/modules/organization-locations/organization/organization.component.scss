@@ -1,0 +1,73 @@
+@import '../../../../styles/responsive';
+
+.fleet-content-wrapper {
+    max-height: calc(100vh - 174px);
+    @include md{
+        max-height: calc(100vh - 144px);
+    }
+}
+
+.serving-location-table {
+    table {
+        min-width: 500px;
+        overflow: auto;
+    }
+}
+
+.location-icon {
+    height: 48px;
+    width: 48px;
+
+    @include md {
+        height: 38px;
+        width: 38px;
+    }
+
+    background-color: #edf2f7;
+}
+
+.location-detail {
+    h5 {
+        @include md {
+            font-size: 16px;
+        }
+    }
+
+    a {
+        max-width: 140px;
+        width: 100%;
+        font-size: 16px;
+        color: #344050;
+
+        &:hover {
+            color: #6610f2;
+        }
+
+        @include xs {
+            font-size: 12px;
+        }
+
+        @include md {
+            max-width: none;
+        }
+    }
+}
+
+.location-map {
+    iframe {
+        width: 100%;
+
+        @include sm {
+            height: 350px;
+        }
+    }
+}
+
+.address {
+    max-width: 160px;
+    width: 100%;
+
+    a {
+        color: #667085;
+    }
+}
