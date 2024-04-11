@@ -1,4 +1,19 @@
 @import '../../../styles/responsive';
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  @include md {
+    width: 0;
+  }
+  @include sm{
+    height: 0;
+  }
+}
+tbody{
+  tr{
+    cursor: pointer;
+  }
+}
 .airline-logo{
   max-width: 100px;
   width: 100%;

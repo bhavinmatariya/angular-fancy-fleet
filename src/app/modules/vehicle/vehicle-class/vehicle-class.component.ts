@@ -51,7 +51,7 @@ export class VehicleClassComponent implements OnInit {
   currentEditableIndex: number = -1;
 
   features = [
-    { item_id: 1, item_text: '5 Seates'},
+    { item_id: 1, item_text: '5 Seates' },
     { item_id: 2, item_text: 'AC' },
     { item_id: 3, item_text: '3 Luggage' },
     { item_id: 4, item_text: 'Automatic' },
@@ -96,7 +96,7 @@ export class VehicleClassComponent implements OnInit {
         class: "Standard SUV",
         vehicleType: "Car",
         passenger: 5,
-        features: ["5 Seates","Bluetooth CarPlay", "AC"],
+        features: ["5 Seates", "Bluetooth CarPlay", "AC"],
         noOfVehicles: 15,
         active: "Yes",
       },
@@ -114,7 +114,7 @@ export class VehicleClassComponent implements OnInit {
         class: "Full size Open Air SUV",
         vehicleType: "Car",
         passenger: 6,
-        features: ["5 Seates","2 Luggage", "AC"],
+        features: ["5 Seates", "2 Luggage", "AC"],
         noOfVehicles: 10,
         active: "Yes",
       },
@@ -139,8 +139,8 @@ export class VehicleClassComponent implements OnInit {
     ];
 
     this.headers = [
-      { header: "Class", field: 'class',type: "label", width: "25%" },
-      { header: "Vehicle Type", field: 'vehicleType',type: "label", width: "10%" },
+      { header: "Class", field: 'class', type: "label", width: "25%" },
+      { header: "Vehicle Type", field: 'vehicleType', type: "label", width: "10%" },
       { header: "Passenger", field: 'passenger', type: "label", width: "10%" },
       { header: "Features", field: 'features', type: "label", width: "32%" },
       { header: "# of vehicles", field: 'noOfVehicles', type: "label", width: "10%" },
@@ -153,14 +153,11 @@ export class VehicleClassComponent implements OnInit {
       const componentName = payload.componentName;
       const index = payload.index;
 
-        this.vehicleClassData.splice(index, 1);
-        this.listingService.updateTableData(this.vehicleClassData);
+      this.vehicleClassData.splice(index, 1);
+      this.listingService.updateTableData(this.vehicleClassData);
 
 
     });
-
-
-
   }
 
   onSubmit(data: any) {
@@ -187,15 +184,10 @@ export class VehicleClassComponent implements OnInit {
   }
 
   private updateVehicleClassData(updatedItem: any): void {
-    // const index = this.vehicleClassData.findIndex((item:any) => item.id === updatedItem.id);
-
     if (this.currentEditableIndex !== -1) {
       this.vehicleClassData[this.currentEditableIndex] = updatedItem;
-      const selectedFeatures = updatedItem.features.map((feature: any) => feature.item_text);
-      console.log('selectedFeatures', selectedFeatures);
-
-      this.vehicleClassData[this.currentEditableIndex].noOfVehicles = this.selectedRowData.noOfVehicles;
-      this.vehicleClassData[this.currentEditableIndex].features = selectedFeatures[0] !== undefined ? selectedFeatures : this.selectedRowData.features;
+      this.vehicleClassData[this.currentEditableIndex].noOfVehicles = this.vehicleClassData[this.currentEditableIndex].noOfVehicles;
+      this.vehicleClassData[this.currentEditableIndex].features = updatedItem.features[0] !== undefined ? updatedItem.features : this.selectedRowData.features;
     } else {
       this.vehicleClassData.push(updatedItem);
     }

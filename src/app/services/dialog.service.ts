@@ -10,4 +10,6 @@ export class DialogService {
   showViewVehicleClassModal: boolean = false;
   showAddVehicleClassModal: boolean = false;
   showEditVehicleClassModal: boolean = false;
+  showEditVehicleClassModalView: boolean = false;
+
 }
