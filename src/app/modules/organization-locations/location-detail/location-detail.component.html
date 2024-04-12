@@ -22,10 +22,11 @@
                                     </span>
                                 </div>
                                 <div class="location-detail mb-3 mb-sm-0">
-                                    <h5 class="text-capitalize fw-medium">fancy fleet inc.</h5>
+                                    <h5 class="text-capitalize fw-medium">{{organizationData.name}}</h5>
                                     <a href="javascript:void(0)" class="text-decoration-none d-block fw-medium">
-                                        30 Clingstone PL, The Woodlands TX 77382 USA,
-                                        Phone: 510-441-9950
+                                      {{selectedLocation.address.streetAddress}}, {{selectedLocation.address.city}} {{selectedLocation.address.state}}
+                                                {{selectedLocation.address.postalCode}} {{selectedLocation.address.country}} Phone:
+                                                {{selectedLocation.address.phoneNumber}}
                                     </a>
                                 </div>
                             </div>
@@ -63,9 +64,9 @@
             </div>
         </div>
         <!-- AREA DETAIL EBD -->
-
+        
         <!-- TAX & FEE LIST TABLE START -->
-
+        <!-- <app-listing></app-listing> -->
         <!-- TAX & FEE LIST TABLE END -->
     </div>
 </div>

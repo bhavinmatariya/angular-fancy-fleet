@@ -9,6 +9,7 @@ import { AddVehicleClassComponent } from "../add-vehicle-class/add-vehicle-class
 import { DialogService } from "../../../services/dialog.service";
 import { VehicleService } from "../../../services/vehicle.service";
 import { Subscription } from "rxjs";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -22,8 +23,9 @@ export class VehicleClassComponent implements OnInit {
   vehicleClassForm!: FormGroup;
   private editedDataSubscription: Subscription;
 
-  constructor(private listingService: ListingService, private fb: FormBuilder, public dialogService: DialogService, private vehicleService: VehicleService) {
-
+  constructor(private listingService: ListingService, private fb: FormBuilder, public dialogService: DialogService, private vehicleService: VehicleService,
+    public router: Router,
+  ) {
     this.vehicleTypes = ['Car', 'Motorcycle', 'Limo'];
     this.vehicleClassForm = this.fb.group({
       vehicleType: ['', Validators.required],
@@ -80,63 +82,11 @@ export class VehicleClassComponent implements OnInit {
   };
 
   ngOnInit(): void {
-
-    this.vehicleClassData = [
-      {
-        id: 1,
-        class: "Full Size SUV",
-        vehicleType: "Car",
-        passenger: 7,
-        features: ["5 Seates", "AC"],
-        noOfVehicles: 10,
-        active: "Yes",
-      },
-      {
-        id: 2,
-        class: "Standard SUV",
-        vehicleType: "Car",
-        passenger: 5,
-        features: ["5 Seates", "Bluetooth CarPlay", "AC"],
-        noOfVehicles: 15,
-        active: "Yes",
-      },
-      {
-        id: 3,
-        class: "Midsize Open Air SUV",
-        vehicleType: "Car",
-        passenger: 4,
-        features: ["4 Seates", "Automatic", "Bluetooth CarPlay", "AC"],
-        noOfVehicles: 5,
-        active: "Yes",
-      },
-      {
-        id: 4,
-        class: "Full size Open Air SUV",
-        vehicleType: "Car",
-        passenger: 6,
-        features: ["5 Seates", "2 Luggage", "AC"],
-        noOfVehicles: 10,
-        active: "Yes",
-      },
-      {
-        id: 5,
-        class: "Full Size Car",
-        vehicleType: "Car",
-        passenger: 5,
-        features: ["5 Seates", "AC"],
-        noOfVehicles: 10,
-        active: "Yes",
-      },
-      {
-        id: 6,
-        class: "Economy car",
-        vehicleType: "Car",
-        passenger: 4,
-        features: ["4 Seates", "AC"],
-        noOfVehicles: 15,
-        active: "Yes",
+    this.vehicleService.getVehicleClass().subscribe((res: any) => {
+      if (res) {
+        this.vehicleClassData = res;
       }
-    ];
+    })
 
     this.headers = [
       { header: "Class", field: 'class', type: "label", width: "25%" },
@@ -159,6 +109,9 @@ export class VehicleClassComponent implements OnInit {
 
     });
   }
+  addvehicleClass() {
+    this.router.navigate(['vehicle/add-vehicle-class']);
+  }
 
   onSubmit(data: any) {
     this.vehicleClassData.push(data);
@@ -170,17 +123,12 @@ export class VehicleClassComponent implements OnInit {
   }
 
   onRowClicked(rowData: any) {
-    this.selectedRowData = rowData;
-    // this.isViewModal = true;
-    this.dialogService.showViewVehicleClassModal = true;
+    this.router.navigate([`vehicle/view-vehicle-class/${rowData.id}`]);
   }
 
   onEditClicked(data: any) {
     data.event.stopPropagation();
-    this.selectedRowData = data.row;
-    this.currentEditableIndex = data.index;
-    this.dialogService.showViewVehicleClassModal = false;
-    this.dialogService.showEditVehicleClassModal = true;
+    this.router.navigate([`vehicle/edit-vehicle-class/${data.row.id}`]);
   }
 
   private updateVehicleClassData(updatedItem: any): void {

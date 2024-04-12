@@ -1,7 +1,6 @@
-@if(!dialogService.showAddVehicleClassModal && !dialogService.showViewVehicleClassModal && !dialogService.showEditVehicleClassModal) {
-<div class="d-flex justify-content-between mb-3  mb-md-4" *ngIf="!dialogService.showAddVehicleClassModal">
+<div class="d-flex justify-content-between mb-3  mb-md-4">
     <h2 class="d-inline-block">Vehicle Class List</h2>
-    <div id="table-customers-replace-element" (click)="dialogService.showAddVehicleClassModal = true">
+    <div id="table-customers-replace-element" (click)="addvehicleClass()">
       <button type="button" class="btn btn-secondary"><span class="fas fa-plus"
           data-fa-transform="shrink-3 down-2"></span><span class="d-none d-sm-inline-block ms-1">Add Vehicle Class</span></button>
     </div>
@@ -10,10 +9,4 @@
   <div>
     <app-listing [tableData]="vehicleClassData" [headers]="headers" [isOneEditIconOnly]="isOneEditIconOnly" (rowClicked)="onRowClicked($event)" (editClicked)="onEditClicked($event)"></app-listing>
   </div>
-}
 
-@if(dialogService.showAddVehicleClassModal || dialogService.showEditVehicleClassModal) {
-  <app-add-vehicle-class (classAdded)="onSubmit($event)" [selectedData]="selectedRowData"></app-add-vehicle-class>
-}
-
-<app-view-vehicle-class *ngIf="dialogService.showViewVehicleClassModal" [selectedRowData]="selectedRowData"></app-view-vehicle-class>

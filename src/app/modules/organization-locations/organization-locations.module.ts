@@ -7,10 +7,7 @@ import { OrganizationLocationsRoutingModule } from './organization-locations-rou
 
 
 @NgModule({
-  declarations: [
-    OrganizationComponent,
-    LocationDetailComponent
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     OrganizationLocationsRoutingModule

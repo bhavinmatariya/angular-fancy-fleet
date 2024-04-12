@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DialogService } from '../../../services/dialog.service';
 import { AddVehicleClassComponent } from '../add-vehicle-class/add-vehicle-class.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { VehicleService } from '../../../services/vehicle.service';
 
 @Component({
   selector: 'app-view-vehicle-class',
@@ -11,11 +13,30 @@ import { AddVehicleClassComponent } from '../add-vehicle-class/add-vehicle-class
 })
 export class ViewVehicleClassComponent implements OnInit{
 
-  constructor(public dialogService: DialogService) {}
+  selectedRowData: any;
+  constructor(public dialogService: DialogService, private vehicleService: VehicleService,
+    private route: ActivatedRoute,
+    public router: Router,
 
-  @Input() selectedRowData: any;
+  ) {
+    const id = parseInt(this.route.snapshot.paramMap.get("id") ?? "-1");
+
+    if (id) {
+      this.vehicleService.getVehicleClassById(id).subscribe((value) => {
+        this.selectedRowData = value;
+      });
+    }
+  }
+
 
   ngOnInit(): void {
   }
 
+  onCancel() {
+    this.router.navigate(['vehicle/vehicle-class']);
+  }
+
+  onEdit() {
+    this.router.navigate([`vehicle/edit-vehicle-class/${this.selectedRowData.id}`]);
+  }
 }
