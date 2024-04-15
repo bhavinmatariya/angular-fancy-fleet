@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="location-detail mb-3 mb-sm-0">
                                     <h5 class="text-capitalize fw-medium">Business hours</h5>
-                                    <p class="mb-0 fw-medium">Mon-Fri from 8am to 5pm</p>
+                                    <p class="mb-0 fw-medium">Mon-Fri from {{selectedLocation.workingHours.startTime}} to {{selectedLocation.workingHours.endTime}}</p>
                                 </div>
                             </div>
                         </div>
@@ -64,9 +64,36 @@
             </div>
         </div>
         <!-- AREA DETAIL EBD -->
-        
+
         <!-- TAX & FEE LIST TABLE START -->
-        <!-- <app-listing></app-listing> -->
+        <div class="pb-5">
+          <app-listing [tableData]="taxAndFeesData" [headers]="headers" [title]="'Tax & Fee List'"></app-listing>
+          <button type="button" class="btn btn-outline-secondary bg-white btn-outline rounded-3 fw-medium float-end mt-3" (click)="addRow()"> Add Row </button>
+        </div>
         <!-- TAX & FEE LIST TABLE END -->
     </div>
 </div>
+
+<ng-template #nameTemplate let-inputValue="inputValue" let-index="index">
+  <span>
+    <input type="text" [id]="'input'+index" class="form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue"  [(ngModel)]="taxAndFeesData[index].name" (ngModelChange)="onChange($event, index)">
+  </span>
+</ng-template>
+
+<ng-template #appliedTemplate let-inputValue="inputValue" let-index="index">
+  <div>
+    <select [id]="'select'+index" class="form-select form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue">
+      <option value="%">%</option>
+      <option value="Flat">Flat</option>
+    </select>
+  </div>
+</ng-template>
+
+<ng-template #applied2Template let-inputValue="inputValue" let-index="index">
+  <div>
+    <select [id]="'select'+index" class="form-select form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue">
+      <option value="Per Reservation">Per Reservation</option>
+      <option value="Per Invoice">Per Invoice</option>
+    </select>
+  </div>
+</ng-template>

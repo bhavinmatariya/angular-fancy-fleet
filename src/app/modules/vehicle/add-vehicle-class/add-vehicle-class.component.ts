@@ -161,7 +161,7 @@ export class AddVehicleClassComponent implements OnInit, AfterViewInit {
 
   checkUnsavedData() {
     const formData = JSON.parse(JSON.stringify(this.vehicleClassForm.value));
-    let sData = JSON.parse(JSON.stringify(this.selectedData));
+    let sData = JSON.parse(JSON.stringify(this.selectedData || {}));
     delete sData.id;
     delete sData.noOfVehicles;
     sData = JSON.parse(JSON.stringify(sData));

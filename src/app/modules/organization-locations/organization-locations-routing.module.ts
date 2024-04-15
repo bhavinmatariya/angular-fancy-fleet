@@ -10,7 +10,11 @@ const routes: Routes = [
     component: OrganizationComponent
   },
   {
-    path:'location-detail',
+    path:'location-detail/:id',
+    component: LocationDetailComponent
+  },
+  {
+    path:'edit-location-detail/:id',
     component: LocationDetailComponent
   },
 
