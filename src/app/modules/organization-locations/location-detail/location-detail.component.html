@@ -80,6 +80,12 @@
   </span>
 </ng-template>
 
+<ng-template #amountTemplate let-inputValue="inputValue" let-index="index">
+  <span>
+    <input type="text" [id]="'input2'+index" class="form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue"  [(ngModel)]="taxAndFeesData[index].amount" (ngModelChange)="onChange($event, index)">
+  </span>
+</ng-template>
+
 <ng-template #appliedTemplate let-inputValue="inputValue" let-index="index">
   <div>
     <select [id]="'select'+index" class="form-select form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue">
@@ -91,7 +97,7 @@
 
 <ng-template #applied2Template let-inputValue="inputValue" let-index="index">
   <div>
-    <select [id]="'select'+index" class="form-select form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue">
+    <select [id]="'select2'+index" class="form-select form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue">
       <option value="Per Reservation">Per Reservation</option>
       <option value="Per Invoice">Per Invoice</option>
     </select>

@@ -23,6 +23,8 @@ export class OrganizationComponent implements OnInit{
   servingLocations: any;
   selectedLocationToShow: any;
   isEditServingLocation: boolean = false;
+  selectedDeleteIndex: number = -1;
+  selectedEditLocationId: any;
 
   ngOnInit(): void {
     this.organizationService.getOrganizationData().subscribe((data: any) => {
@@ -35,9 +37,9 @@ export class OrganizationComponent implements OnInit{
 
     this.addLocationForm = this.fb.group({
       streetAddress: ['', Validators.required],
-      country: ['United States', Validators.required],
-      state: ['TX', Validators.required],
-      city: ['The Woodlands', Validators.required],
+      country: ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required],
       postalCode: ['', Validators.required],
       phone: ['', Validators.required],
       airportCode: ['', Validators.required],
@@ -59,9 +61,13 @@ export class OrganizationComponent implements OnInit{
     this.locationDetailModal.nativeElement.style.display = 'block';
   }
 
+  onAddLocation() {
+    this.addLocationForm.reset();
+  }
+
   addLocation(){
     if (this.addLocationForm.valid) {
-      let addLocation = {
+      let addLocation: any = {
         address: {
           streetAddress: this.addLocationForm.get('streetAddress')?.value,
           city: this.addLocationForm.get('city')?.value,
@@ -76,7 +82,11 @@ export class OrganizationComponent implements OnInit{
           endTime: this.addLocationForm.get('businessHoursTo')?.value,
         }
       }
-      this.organizationService.addLocation(addLocation);
+      if (this.isEditServingLocation) {
+        addLocation.id = this.selectedEditLocationId
+      }
+      this.addLocationForm.reset();
+      this.organizationService.addLocation(addLocation, this.isEditServingLocation);
     } else {
       console.log('Form is Invalid');
     }
@@ -92,10 +102,24 @@ export class OrganizationComponent implements OnInit{
       postalCode: location.address.postalCode,
       phone: location.address.phoneNumber,
       airportCode: location.airportCode,
+      // businessHoursFrom: new Date(location.workingHours.startTime),
+      // businessHoursTo: new Date(location.workingHours.endTime),
+
       businessHoursFrom: location.workingHours.startTime,
-      businessHoursTo: location.workingHours.startTime,
+      businessHoursTo: location.workingHours.endTime,
     }
     this.isEditServingLocation = true;
+    this.selectedEditLocationId = location.id;
     this.addLocationForm.patchValue(patchData);
+  }
+
+  onDelete(index: number) {
+    this.selectedDeleteIndex = index;
+  }
+
+  confirmDelete() {
+    if (this.selectedDeleteIndex !== -1) {
+      this.organizationService.deleteLocation(this.selectedDeleteIndex);
+    }
   }
 }

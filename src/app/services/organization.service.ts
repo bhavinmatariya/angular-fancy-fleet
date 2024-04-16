@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,28 +30,28 @@ export class OrganizationService {
         "city": "The Woodlands",
         "state": "TX",
         "postalCode": "77382",
-        "country": "USA",
+        "country": "United States",
         "phoneNumber": "510-441-9950"
       },
       workingHours: {
-        "startTime": "08:00 AM",
-        "endTime": "05:00 PM",
+        "startTime": "08:00",
+        "endTime": "17:00",
       }
     },
     {
       id: 2,
       airportCode: 'No Airport',
       address: {
-        "streetAddress": "30 Clingstone PL",
-        "city": "The Woodlands",
-        "state": "TX",
-        "postalCode": "77382",
-        "country": "USA",
-        "phoneNumber": "510-441-9950"
+        "streetAddress": "10 Halawai Dr",
+        "city": "New York City",
+        "state": "New York",
+        "postalCode": "33348",
+        "country": "United States",
+        "phoneNumber": "508-334-5084"
       },
       workingHours: {
-        "startTime": "09:00 AM",
-        "endTime": "06:00 PM",
+        "startTime": "09:00",
+        "endTime": "18:00",
       }
     }
   ]
@@ -89,9 +89,24 @@ export class OrganizationService {
     return of(this.servingLocations.find((location: any) => location.id === id));
   }
 
-  addLocation(location: any) {
-    location.id = this.servingLocations.length + 1;
-    this.servingLocations.push(location);
+  addLocation(location: any, isEditMode: boolean) {
+    if (isEditMode) {
+      const index = this.servingLocations.findIndex((classData: any) => classData.id === location.id);
+      if (index !== -1) {
+        this.servingLocations[index] = location;
+        return of(this.servingLocations);
+      } else {
+        return throwError(() => new Error("Location not found"));
+      }
+    } else {
+      location.id = this.servingLocations.length + 1;
+      this.servingLocations.push(location);
+      return of(this.servingLocations);
+    }
+  }
+
+  deleteLocation(index: number) {
+    this.servingLocations.splice(index, 1);
   }
 }
 

@@ -67,10 +67,22 @@ export class ListingComponent implements OnInit, OnDestroy{
       elementInput.classList.toggle('disabled');
     }
 
+    const idInput2 = 'input2' + i;
+    const elementInput2 = document.getElementById(idInput2);
+    if (elementInput2) {
+      elementInput2.classList.toggle('disabled');
+    }
+
     const idSelect = 'select' + i;
     const elementSelect = document.getElementById(idSelect);
     if (elementSelect) {
       elementSelect.classList.toggle('disabled');
+    }
+
+    const idSelect2 = 'select2' + i;
+    const elementSelect2 = document.getElementById(idSelect2);
+    if (elementSelect2) {
+      elementSelect2.classList.toggle('disabled');
     }
   }
 

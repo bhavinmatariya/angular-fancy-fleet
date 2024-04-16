@@ -1,7 +1,7 @@
 <h2 class="d-inline-block mb-3  mb-md-4">{{ (selectedData && (dialogService.showEditVehicleClassModal || dialogService.showEditVehicleClassModalView)) ? 'Edit Vehicle Class' : 'Add Vehicle Class' }}</h2>
 <div class="fleet-content-wrapper">
   <div class="vehicle-detail-form">
-      <div class="fleet-wrapper overflow-auto px-4 py-3">
+      <div class="fleet-wrapper px-4 py-3" style="overflow: inherit !important;">
           <h2 class="d-inline-block fs-5 mb-3" id="heading1">Details</h2>
           <form [formGroup]="vehicleClassForm" (ngSubmit)="onSubmit()">
               <div class="row gy-2">
