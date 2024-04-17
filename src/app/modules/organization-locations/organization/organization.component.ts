@@ -4,13 +4,14 @@ import { LocationDetailComponent } from '../location-detail/location-detail.comp
 import { Router } from '@angular/router';
 import { AddLocationComponent } from '../add-location/add-location.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @Component({
   selector: 'app-organization',
   standalone: true,
   templateUrl: './organization.component.html',
   styleUrl: './organization.component.scss',
-  imports: [LocationDetailComponent, AddLocationComponent, ReactiveFormsModule]
+  imports: [LocationDetailComponent, AddLocationComponent, ReactiveFormsModule, GoogleMapsModule]
 })
 export class OrganizationComponent implements OnInit{
 
@@ -26,9 +27,23 @@ export class OrganizationComponent implements OnInit{
   selectedDeleteIndex: number = -1;
   selectedEditLocationId: any;
 
+  mapOptions: google.maps.MapOptions = {
+    center: { lat: 0, lng: 0 },
+    zoom : 16
+  }
+  marker = {
+      position: { lat: 0, lng: 0 },
+  }
+
   ngOnInit(): void {
     this.organizationService.getOrganizationData().subscribe((data: any) => {
       this.organizationData = data;
+
+      this.mapOptions.center!.lat = this.organizationData.lat;
+        this.mapOptions.center!.lng = this.organizationData.lng;
+
+        this.marker.position!.lat = this.organizationData.lat;
+        this.marker.position!.lng = this.organizationData.lng;
     });
 
     this.organizationService.getServingLocations().subscribe((locations: any[]) => {
@@ -49,11 +64,7 @@ export class OrganizationComponent implements OnInit{
   }
 
   showLocationDetails(location: any) {
-    // this.selectedLocationToShow = location;
-    // this.openModal();
-
     this.router.navigate([`organization/location-detail/${location.id}`]);
-    // this.router.navigate([`organization/location-detail`]);
   }
 
   openModal() {

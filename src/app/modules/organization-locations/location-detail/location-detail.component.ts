@@ -6,13 +6,14 @@ import { Router } from 'express';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ListingService } from '../../../services/listing.service';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @Component({
   selector: 'app-location-detail',
   standalone: true,
   templateUrl: './location-detail.component.html',
   styleUrl: './location-detail.component.scss',
-  imports: [ListingComponent, CommonModule, FormsModule]
+  imports: [ListingComponent, CommonModule, FormsModule, GoogleMapsModule]
 })
 export class LocationDetailComponent implements OnInit{
 
@@ -21,6 +22,11 @@ export class LocationDetailComponent implements OnInit{
     if (id) {
       this.organizationService.getDataById(id).subscribe((location) => {
         this.selectedLocation = location;
+        this.mapOptions.center!.lat = this.selectedLocation.lat;
+        this.mapOptions.center!.lng = this.selectedLocation.lng;
+
+        this.marker.position!.lat = this.selectedLocation.lat;
+        this.marker.position!.lng = this.selectedLocation.lng;
       });
     }
 
@@ -45,6 +51,14 @@ export class LocationDetailComponent implements OnInit{
   organizationData: any;
   taxAndFeesData: any;
   headers: {}[] = [];
+  options: any;
+  mapOptions: google.maps.MapOptions = {
+    center: { lat: 0, lng: 0 },
+    zoom : 16
+  }
+  marker = {
+      position: { lat: 0, lng: 0 },
+  }
 
 
   ngOnInit(): void {

@@ -35,10 +35,9 @@
                     <div class="col-12 col-sm-6 col-md-8 col-xl-9">
                         <div>
                             <div class="location-map">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.960142551701!2d-95.5494148238209!3d30.209685010721643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864730114eee1a51%3A0x739f3bb347bc3900!2s30%20Clingstone%20Pl%2C%20Spring%2C%20TX%2077382%2C%20USA!5e0!3m2!1sen!2sin!4v1712733200523!5m2!1sen!2sin"
-                                    height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                              <google-map [options]="mapOptions" [width]="'100%'" [height]="450">
+                                <map-marker [position]="marker.position"></map-marker>
+                              </google-map>
                             </div>
                         </div>
                     </div>
@@ -151,24 +150,6 @@
     </div>
 </div>
 
-<!-- @if(selectedLocationToShow) { -->
-  <!-- <div class="modal fade" #locationDetailModal id="locationDetailModal" aria-labelledby="locationDetailModalLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-xl modal-dialog-scrollable">
-      <div class="modal-content bg-white">
-        <div class="modal-header">
-          <h2 class="modal-title fs-5" id="exampleModalLabel">Location Details</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-      @if(selectedLocationToShow) {
-        <div class="modal-body p-0">
-          <app-location-detail [selectedLocation]="selectedLocationToShow" [organizationData]="organizationData"></app-location-detail>
-        </div>
-      }
-      </div>
-    </div>
-  </div> -->
-<!-- } -->
-
 <!-- ADD LOCATION MODAL START -->
 <div class="modal fade" id="addLocationModal" aria-labelledby="addLocationModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
@@ -263,7 +244,6 @@
       </div>
   </div>
 </div>
-<!-- <app-add-location></app-add-location> -->
 <!-- ADD LOCATION MODAL END -->
 
 
@@ -271,9 +251,6 @@
   aria-hidden="true">
   <div class="modal-dialog modal-sm rounded-3">
     <div class="modal-content bg-white">
-      <!-- <div class="modal-header border-bottom-0 py-3">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div> -->
       <div class="modal-body">
         <p class="mb-4 fw-medium text-center">Are you sure to delete ?</p>
         <div class="d-flex align-items-center justify-content-center gap-3">

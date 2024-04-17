@@ -17,8 +17,8 @@ export class OrganizationService {
       "country": "USA",
       "phoneNumber": "510-441-9950"
     },
-    latitude: 30.209685010721643,
-    longitude: -95.5494148238209,
+    lat: 30.209685010721643,
+    lng: -95.5494148238209,
   }
 
   private servingLocations = [
@@ -36,7 +36,9 @@ export class OrganizationService {
       workingHours: {
         "startTime": "08:00",
         "endTime": "17:00",
-      }
+      },
+      lat: 30.2096804,
+      lng: -95.5494148
     },
     {
       id: 2,
@@ -52,7 +54,9 @@ export class OrganizationService {
       workingHours: {
         "startTime": "09:00",
         "endTime": "18:00",
-      }
+      },
+      lat: 20.9422499,
+      lng: -156.6890149
     }
   ]
 

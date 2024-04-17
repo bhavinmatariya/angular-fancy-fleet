@@ -53,10 +53,9 @@
                     <div class="col-12 col-lg-7 col-xl-8">
                         <div>
                             <div class="location-map">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.960142551701!2d-95.5494148238209!3d30.209685010721643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864730114eee1a51%3A0x739f3bb347bc3900!2s30%20Clingstone%20Pl%2C%20Spring%2C%20TX%2077382%2C%20USA!5e0!3m2!1sen!2sin!4v1712733200523!5m2!1sen!2sin"
-                                    height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                              <google-map [options]="mapOptions" [width]="'100%'" [height]="450">
+                                <map-marker [position]="marker.position"></map-marker>
+                              </google-map>
                             </div>
                         </div>
                     </div>
