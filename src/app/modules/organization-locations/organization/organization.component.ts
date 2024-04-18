@@ -103,8 +103,9 @@ export class OrganizationComponent implements OnInit{
     }
   }
 
-  onEdit(location: any) {
+  onEdit(location: any, event: Event) {
     // this.router.navigate([`organization/edit-location-detail/${location.id}`]);
+    event.stopPropagation();
     const patchData = {
       streetAddress: location.address.streetAddress,
       country: location.address.country,
@@ -124,7 +125,8 @@ export class OrganizationComponent implements OnInit{
     this.addLocationForm.patchValue(patchData);
   }
 
-  onDelete(index: number) {
+  onDelete(index: number, event: Event) {
+    event.stopPropagation();
     this.selectedDeleteIndex = index;
   }
 

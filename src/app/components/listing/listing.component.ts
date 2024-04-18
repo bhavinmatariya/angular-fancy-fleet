@@ -16,6 +16,8 @@ export class ListingComponent implements OnInit, OnDestroy{
   @Input() title: string = '';
   @Input() tableData: any;
   @Input() isOneEditIconOnly: boolean = false;
+  @Input() entity: number = -1;
+  @Input() entityName = '';
   @Output() rowClicked: EventEmitter<any> = new EventEmitter();
   @Output() editClicked: EventEmitter<any> = new EventEmitter();
 
@@ -23,15 +25,19 @@ export class ListingComponent implements OnInit, OnDestroy{
   currentDeleteData: any = {};
   isVehicleTypeView: boolean = false;
   isVehicleClassView: boolean = false;
-  private subscription: Subscription;
+  // private subscription: Subscription;
 
   constructor(private listingService: ListingService, private route: ActivatedRoute) {
-    this.subscription = this.listingService.tableData$.subscribe(data => {
-      this.tableData = data;
-    });
-  }
+    this.listingService.tableData$.subscribe((data: any) => {
+        if (data.entity === this.entityName && data.data) {
+            this.tableData = data.data;
+        } else if(!data.data) {
+          this.tableData = data;
+        }
+      });
+    }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
     let snapshot: ActivatedRouteSnapshot = this.route.snapshot;
     const urlSegments: string[] = snapshot.url.map(segment => segment.path);
     this.isVehicleTypeView = urlSegments.includes('vehicle-types');
@@ -44,10 +50,6 @@ export class ListingComponent implements OnInit, OnDestroy{
       });
       this.dataKeys = Object.keys(this.tableData[0]);
       }
-
-      this.listingService.tableData$.subscribe((data) => {
-        this.tableData = data;
-      })
   }
 
   onDeleteIcon(event: Event, componentName: string, i: number) {
@@ -62,25 +64,25 @@ export class ListingComponent implements OnInit, OnDestroy{
 
   toggleClass(i: number) {
     const idInput = 'input' + i;
-    const elementInput = document.getElementById(idInput);
+    const elementInput = document?.getElementById(idInput);
     if (elementInput) {
       elementInput.classList.toggle('disabled');
     }
 
     const idInput2 = 'input2' + i;
-    const elementInput2 = document.getElementById(idInput2);
+    const elementInput2 = document?.getElementById(idInput2);
     if (elementInput2) {
       elementInput2.classList.toggle('disabled');
     }
 
     const idSelect = 'select' + i;
-    const elementSelect = document.getElementById(idSelect);
+    const elementSelect = document?.getElementById(idSelect);
     if (elementSelect) {
       elementSelect.classList.toggle('disabled');
     }
 
     const idSelect2 = 'select2' + i;
-    const elementSelect2 = document.getElementById(idSelect2);
+    const elementSelect2 = document?.getElementById(idSelect2);
     if (elementSelect2) {
       elementSelect2.classList.toggle('disabled');
     }
@@ -88,7 +90,7 @@ export class ListingComponent implements OnInit, OnDestroy{
 
   checkDisabledClass(i: number): boolean {
     const id = 'input' + i;
-    const element = document.getElementById(id);
+    const element = document?.getElementById(id);
     if (element) {
       return element.classList.contains('disabled');
     }
@@ -108,7 +110,7 @@ export class ListingComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 
 }

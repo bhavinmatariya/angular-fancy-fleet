@@ -28,7 +28,7 @@
             <ng-container *ngFor="let header of headers; let j = index">
 
               <td class="align-middle" *ngIf="header.type === 'template'" [style.width]="header.width">
-                <ng-container [ngTemplateOutlet]="header.templateRef" [ngTemplateOutletContext]="{ inputValue: row[header.field], index: i }"></ng-container>
+                <ng-container [ngTemplateOutlet]="header.templateRef" [ngTemplateOutletContext]="{ inputValue: row[header.field], index: i, entity: entity }"></ng-container>
               </td>
 
               <td class="align-middle" [style.width]="header.width" *ngIf="header.type !== 'template'">

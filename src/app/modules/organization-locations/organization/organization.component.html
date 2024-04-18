@@ -62,7 +62,7 @@
                               </thead>
                               <tbody>
                 @for (location of servingLocations; track location; let i = $index) {
-                                  <tr>
+                                  <tr (click)="showLocationDetails(location)" style="cursor: pointer;">
                                       <td>
                                           <div class="address">
                                               <a href="javascript:void(0)" class="text-decoration-none d-block">
@@ -103,7 +103,7 @@
                                                           </g>
                                                       </svg>
                                                   </button> -->
-                                                  <button class="btn btn-transparent p-1 px-md-2" data-bs-target="#addLocationModal" data-bs-toggle="modal" (click)="onEdit(location)">
+                                                  <button class="btn btn-transparent p-1 px-md-2" data-bs-target="#addLocationModal" data-bs-toggle="modal" (click)="onEdit(location, $event)">
                                                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="edit-item" viewBox="0 0 512 512"
                                                       preserveAspectRatio="xMidYMid meet">
                                                       <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
@@ -128,7 +128,7 @@
                                                       </path>
                                                   </svg>
                                               </button> -->
-                                              <button class="btn btn-transparent p-1 px-md-2" data-bs-target="#exampleModal" data-bs-toggle="modal" (click)="onDelete(i)">
+                                              <button class="btn btn-transparent p-1 px-md-2" data-bs-target="#exampleModal" data-bs-toggle="modal" (click)="onDelete(i, $event)">
                                                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
                                                       height="24" fill="currentColor" class="delete-item">
                                                       <path
@@ -155,7 +155,7 @@
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
       <div class="modal-content bg-white">
           <div class="modal-header">
-              <h2 class="modal-title fs-5" id="exampleModalLabel">Add Location</h2>
+              <h2 class="modal-title fs-5" id="exampleModalLabel">Add Tax Entity</h2>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body p-0">
@@ -180,13 +180,13 @@
                               <div class="col-12 col-sm-6">
                                   <label>State</label>
                                   <select class="form-select" aria-label="State" formControlName="state">
-                                      <option disabled>Select State</option>New York City
+                                      <option disabled>Select State</option>
                                       <option value="TX">Texas</option>
                                       <option value="California">California</option>
                                       <option value="Alaska">Alaska</option>
                                       <option value="Ohio">Ohio</option>
                                       <option value="Georgia">Georgia</option>
-                                      <option value="New York City">New York City</option>
+                                      <option value="New York">New York</option>
                                   </select>
                               </div>
                               <div class="col-12 col-sm-6">
@@ -195,7 +195,7 @@
                                     <option disabled>Select City</option>
                                       <option value="The Woodlands">The Woodlands</option>
                                       <option value="San Francisco">San Francisco</option>
-                                      <option value="New York">New York</option>
+                                      <option value="New York City">New York City</option>
                                       <option value="Chicago">Chicago</option>
                                       <option value="Los Angeles">Los Angeles</option>
                                       <option value="Seattle">Seattle</option>

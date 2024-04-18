@@ -4,7 +4,7 @@ import { OrganizationService } from '../../../services/organization.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from 'express';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ListingService } from '../../../services/listing.service';
 import { GoogleMapsModule } from '@angular/google-maps';
 
@@ -13,11 +13,11 @@ import { GoogleMapsModule } from '@angular/google-maps';
   standalone: true,
   templateUrl: './location-detail.component.html',
   styleUrl: './location-detail.component.scss',
-  imports: [ListingComponent, CommonModule, FormsModule, GoogleMapsModule]
+  imports: [ListingComponent, CommonModule, FormsModule, GoogleMapsModule, ReactiveFormsModule]
 })
 export class LocationDetailComponent implements OnInit{
 
-  constructor(private organizationService: OrganizationService, private route: ActivatedRoute, private listingService: ListingService){
+  constructor(private organizationService: OrganizationService, private route: ActivatedRoute, private listingService: ListingService, private fb: FormBuilder){
     const id = parseInt(this.route.snapshot.paramMap.get("id") ?? "-1");
     if (id) {
       this.organizationService.getDataById(id).subscribe((location) => {
@@ -34,6 +34,8 @@ export class LocationDetailComponent implements OnInit{
       this.organizationData = data;
     })
   }
+
+  addEntityForm!: FormGroup;
 
   @ViewChild('nameTemplate', { read: TemplateRef, static: true })
   nameTemplate!: TemplateRef<any>;
@@ -52,6 +54,8 @@ export class LocationDetailComponent implements OnInit{
   taxAndFeesData: any;
   headers: {}[] = [];
   options: any;
+  isEditEntity: boolean = false;
+  selectedEditEntityId: any;
   mapOptions: google.maps.MapOptions = {
     center: { lat: 0, lng: 0 },
     zoom : 16
@@ -81,6 +85,16 @@ export class LocationDetailComponent implements OnInit{
       this.listingService.updateTableData(this.taxAndFeesData);
 
     });
+
+    this.addEntityForm = this.fb.group({
+      entity: ['', Validators.required],
+      streetAddress: ['', Validators.required],
+      country: ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      phone: ['', Validators.required],
+    });
   }
 
 
@@ -88,18 +102,53 @@ export class LocationDetailComponent implements OnInit{
     this.taxAndFeesData[index].value = value;
   }
 
-  addRow() {
-    this.taxAndFeesData.push(
+  addRow(index: number, entity: string) {
+    this.taxAndFeesData[index].taxAndFees.push(
     {
-      rowId: this.taxAndFeesData.length + 1,
-      data: [
-        { title: 'Name', field: 'name', value: '', type: 'template', templateRef: this.nameTemplate },
-        { title: 'Applied', field: 'applied', value: '', type: 'template', templateRef: this.appliedTemplate },
-        { title: 'Applied', field: 'applied2', value: '', type: 'template', templateRef: this.applied2Template },
-        { title: 'Amount', field: 'amount', value: '', type: 'template', templateRef: this.amountTemplate }
-      ]
-    })
-    this.listingService.updateTableData(this.taxAndFeesData);
+      name: '',
+      applied: '',
+      applied2: '',
+      amount: ''
+    }
+  )
+    this.listingService.updateTableData({data: this.taxAndFeesData[index].taxAndFees, entity: entity});
 
+  }
+
+  onAddEntity() {
+    this.addEntityForm.reset();
+  }
+
+  addEntity(){
+    if (this.addEntityForm.valid) {
+      let addEntity: any = {
+          entity: this.addEntityForm.get('entity')?.value,
+          taxAndFees: []
+      }
+      // if (this.isEditEntity) {
+      //   addEntity.id = this.selectedEditEntityId
+      // }
+      // this.addEntityForm.reset();
+      // this.taxAndFeesData.push(addEntity);
+      this.organizationService.addEntity(addEntity, this.isEditEntity).subscribe((res: any) => {
+        if (res) {
+          // this.taxAndFeesData = res;
+          // setTimeout(() => {
+          //   this.listingService.updateTableData(res);
+          // }, 1000);
+          // this.taxAndFeesData = res;
+          // this.taxAndFeesData[this.taxAndFeesData.length].push({
+          //   data: [
+          //     { title: 'Name', field: 'name', value: '', type: 'template', templateRef: this.nameTemplate },
+          //     { title: 'Applied', field: 'applied', value: '', type: 'template', templateRef: this.appliedTemplate },
+          //     { title: 'Applied', field: 'applied2', value: '', type: 'template', templateRef: this.applied2Template },
+          //     { title: 'Amount', field: 'amount', value: '', type: 'template', templateRef: this.amountTemplate }
+          //   ]
+          // });
+        }
+      })
+    } else {
+      console.log('Form is Invalid');
+    }
   }
 }

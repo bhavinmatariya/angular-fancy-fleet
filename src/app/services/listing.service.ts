@@ -12,7 +12,7 @@ export class ListingService {
 
   constructor() { }
 
-  updateTableData(data: any[]): void {
+  updateTableData(data: any): void {
     this.tableDataSubject.next(data);
   }
 

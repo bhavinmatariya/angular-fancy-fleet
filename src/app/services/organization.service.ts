@@ -60,19 +60,42 @@ export class OrganizationService {
     }
   ]
 
-  private taxAndFees = [
+  private taxAndFees: any = [
     {
-      name: 'GET',
-      applied: '%',
-      applied2: 'Per Reservation',
-      amount: '4.17%'
+      entity: 'Airport',
+      taxAndFees: [
+        {
+          name: 'GET',
+          applied: '%',
+          applied2: 'Per Reservation',
+          amount: '4.17%'
+        },
+        {
+          name: 'Airport Fee',
+          applied: 'Flat',
+          applied2: 'Per Invoice',
+          amount: '$8.00'
+        }
+      ]
     },
     {
-      name: 'Airport Fee',
-      applied: 'Flat',
-      applied2: 'Per Reservation',
-      amount: '$8.00'
+      entity: 'Government',
+      taxAndFees: [
+        {
+          name: 'GET',
+          applied: '%',
+          applied2: 'Per Reservation',
+          amount: '4.17%'
+        },
+        {
+          name: 'Airport Fee',
+          applied: 'Flat',
+          applied2: 'Per Reservation',
+          amount: '$8.00'
+        }
+      ]
     }
+
   ]
 
   constructor() { }
@@ -111,6 +134,31 @@ export class OrganizationService {
 
   deleteLocation(index: number) {
     this.servingLocations.splice(index, 1);
+  }
+
+  addEntity(entity: any, isEditMode: boolean) {
+    // if (isEditMode) {
+    //   const index = this.taxAndFees.findIndex((e: any) => e.id === entity.id);
+    //   if (index !== -1) {
+    //     this.taxAndFees[index] = entity;
+    //     return of(this.taxAndFees);
+    //   } else {
+    //     return throwError(() => new Error("entity not found"));
+    //   }
+    // } else {
+      // entity.id = this.taxAndFees.length + 1;
+      // debugger;
+      // entity.taxAndFees = [
+      //   {
+      //     name: '',
+      //     applied: '',
+      //     applied2: '',
+      //     amount: ''
+      //   }
+      // ]
+      this.taxAndFees.push(entity);
+      return of(this.taxAndFees);
+    // }
   }
 }
 
