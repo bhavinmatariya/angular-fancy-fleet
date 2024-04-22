@@ -7,17 +7,19 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ListingService } from '../../../services/listing.service';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { DeleteConfirmModalComponent } from '../../../components/common/delete-confirm-modal/delete-confirm-modal.component';
+import { DialogService } from '../../../services/dialog.service';
 
 @Component({
   selector: 'app-location-detail',
   standalone: true,
   templateUrl: './location-detail.component.html',
   styleUrl: './location-detail.component.scss',
-  imports: [ListingComponent, CommonModule, FormsModule, GoogleMapsModule, ReactiveFormsModule]
+  imports: [ListingComponent, DeleteConfirmModalComponent, CommonModule, FormsModule, GoogleMapsModule, ReactiveFormsModule]
 })
 export class LocationDetailComponent implements OnInit{
 
-  constructor(private organizationService: OrganizationService, private route: ActivatedRoute, private listingService: ListingService, private fb: FormBuilder){
+  constructor(private organizationService: OrganizationService, private route: ActivatedRoute, private listingService: ListingService, public dialogService: DialogService, private fb: FormBuilder){
     const id = parseInt(this.route.snapshot.paramMap.get("id") ?? "-1");
     if (id) {
       this.organizationService.getDataById(id).subscribe((location) => {
@@ -56,6 +58,7 @@ export class LocationDetailComponent implements OnInit{
   options: any;
   isEditEntity: boolean = false;
   selectedEditEntityId: any;
+  selectedEditEntity: any
   selectedDeleteEntity: any;
   mapOptions: google.maps.MapOptions = {
     center: { lat: 0, lng: 0 },
@@ -129,26 +132,15 @@ export class LocationDetailComponent implements OnInit{
           entity: this.addEntityForm.get('entity')?.value,
           taxAndFees: []
       }
-      // if (this.isEditEntity) {
-      //   addEntity.id = this.selectedEditEntityId
-      // }
-      // this.addEntityForm.reset();
+      if (this.isEditEntity) {
+        addEntity.id = this.selectedEditEntityId;
+        addEntity.taxAndFees = this.selectedEditEntity.taxAndFees;
+      }
+      this.addEntityForm.reset();
       // this.taxAndFeesData.push(addEntity);
       this.organizationService.addEntity(addEntity, this.isEditEntity).subscribe((res: any) => {
         if (res) {
-          // this.taxAndFeesData = res;
-          // setTimeout(() => {
-          //   this.listingService.updateTableData(res);
-          // }, 1000);
-          // this.taxAndFeesData = res;
-          // this.taxAndFeesData[this.taxAndFeesData.length].push({
-          //   data: [
-          //     { title: 'Name', field: 'name', value: '', type: 'template', templateRef: this.nameTemplate },
-          //     { title: 'Applied', field: 'applied', value: '', type: 'template', templateRef: this.appliedTemplate },
-          //     { title: 'Applied', field: 'applied2', value: '', type: 'template', templateRef: this.applied2Template },
-          //     { title: 'Amount', field: 'amount', value: '', type: 'template', templateRef: this.amountTemplate }
-          //   ]
-          // });
+          this.isEditEntity = false;
         }
       })
     } else {
@@ -160,16 +152,17 @@ export class LocationDetailComponent implements OnInit{
     // this.router.navigate([`organization/edit-location-detail/${location.id}`]);
     // event.stopPropagation();
     const patchData = {
-      // streetAddress: location.address.streetAddress,
-      // country: location.address.country,
-      // state: location.address.state,
-      // city: location.address.city,
-      // postalCode: location.address.postalCode,
-      // phone: location.address.phoneNumber,
+      streetAddress: location.streetAddress,
+      country: location.country,
+      state: location.state,
+      city: location.city,
+      postalCode: location.postalCode,
+      phone: location.phoneNumber,
       entity: location.entity,
     }
     this.isEditEntity = true;
     this.selectedEditEntityId = location.id;
+    this.selectedEditEntity = location;
     this.addEntityForm.patchValue(patchData);
   }
 
@@ -189,5 +182,9 @@ export class LocationDetailComponent implements OnInit{
 
   onEditClicked(event: any) {
     console.log('Event:::', event);
+  }
+
+  trimEntityString(entity: string): string {
+    return entity.replace(/\s+/g, '');
   }
 }

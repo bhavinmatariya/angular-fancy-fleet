@@ -53,15 +53,15 @@
     }
 }
 
-.location-map {
-    iframe {
-        width: 100%;
+// .location-map {
+//     iframe {
+//         width: 100%;
 
-        @include sm {
-            height: 350px;
-        }
-    }
-}
+//         @include sm {
+//             height: 350px;
+//         }
+//     }
+// }
 
 .address {
     max-width: 160px;

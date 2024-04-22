@@ -24,23 +24,23 @@ tbody{
   // display: block;
 }
 
-.table-wrtapper thead{
-  display: table;
-  width: 100%;
-  table-layout: fixed;
+// .table-wrtapper thead{
+//   display: table;
+//   width: 100%;
+//   table-layout: fixed;
 
-  @include sm {
-    table-layout: auto;
-  }
-}
+//   @include sm {
+//     table-layout: auto;
+//   }
+// }
 
-.table-wrtapper tbody tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
+// .table-wrtapper tbody tr {
+//   display: table;
+//   width: 100%;
+//   table-layout: fixed;
+// }
 .id-actions {
-  width: 7% !important;
+  width: 8% !important;
   @include xxl {
     width: 10% !important;
   }
@@ -94,4 +94,28 @@ tbody{
   @include xs{
   width: 19%;
   }
+}
+.taxes-and-fees table{
+  min-width: 900px;
+}
+.taxes-and-fees table tbody {
+  overflow: auto;
+  display: block;
+  max-height: 300px;
+}
+
+.taxes-and-fees thead{
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+
+  @include sm {
+    table-layout: auto;
+  }
+}
+
+.taxes-and-fees tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }

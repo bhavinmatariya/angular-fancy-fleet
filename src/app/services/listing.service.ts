@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ListingService {
   private tableDataSubject = new BehaviorSubject<any[]>([]);
   tableData$ = this.tableDataSubject.asObservable();
+  currentDeleteData: any = {};
 
   deleteInitiated = new EventEmitter<{ componentName: string, index: number }>();
 

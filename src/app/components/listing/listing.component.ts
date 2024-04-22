@@ -3,13 +3,15 @@ import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } 
 import { ListingService } from '../../services/listing.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { DialogService } from '../../services/dialog.service';
+import { DeleteConfirmModalComponent } from '../common/delete-confirm-modal/delete-confirm-modal.component';
 
 @Component({
   selector: 'app-listing',
   standalone: true,
   templateUrl: './listing.component.html',
   styleUrl: './listing.component.scss',
-  imports: [CommonModule]
+  imports: [CommonModule, DeleteConfirmModalComponent]
 })
 export class ListingComponent implements OnInit, OnDestroy{
   @Input() headers: any[] = [];
@@ -25,9 +27,10 @@ export class ListingComponent implements OnInit, OnDestroy{
   currentDeleteData: any = {};
   isVehicleTypeView: boolean = false;
   isVehicleClassView: boolean = false;
+  isLocationDetailsView: boolean = false;
   // private subscription: Subscription;
 
-  constructor(private listingService: ListingService, private route: ActivatedRoute) {
+  constructor(private listingService: ListingService, private route: ActivatedRoute, public dialogService: DialogService) {
     this.listingService.tableData$.subscribe((data: any) => {
         if (data.entity === this.entityName && data.data) {
             this.tableData = data.data;
@@ -42,6 +45,7 @@ export class ListingComponent implements OnInit, OnDestroy{
     const urlSegments: string[] = snapshot.url.map(segment => segment.path);
     this.isVehicleTypeView = urlSegments.includes('vehicle-types');
     this.isVehicleClassView = urlSegments.includes('vehicle-class');
+    this.isLocationDetailsView = urlSegments.includes('location-detail');
 
     if (this.tableData && this.tableData.length > 0) {
      this.tableData =  this.tableData.map((data: any) => {
@@ -55,39 +59,54 @@ export class ListingComponent implements OnInit, OnDestroy{
   onDeleteIcon(event: Event, componentName: string, i: number) {
     event.stopPropagation();
     this.currentDeleteData.componentName = componentName;
-    this.currentDeleteData.index = i;
+    this.listingService.currentDeleteData.index = i;
     if (this.entity !== -1 && this.entityName !== '') {
-      this.currentDeleteData.entity = this.entity;
-      this.currentDeleteData.entityName = this.entityName;
+      this.listingService.currentDeleteData.entity = this.entity;
+      this.listingService.currentDeleteData.entityName = this.entityName;
     }
+    this.dialogService.showConfirmDeleteDialog = true;
   }
 
   confirmDelete() {
-    const dataToEmit = { ...this.currentDeleteData };
+    this.dialogService.showConfirmDeleteDialog = false;
+    const dataToEmit = { ...this.listingService.currentDeleteData };
     this.listingService.deleteInitiated.emit(dataToEmit);
-    this.currentDeleteData = null;
+    // this.currentDeleteData = null;
+    this.dialogService.showConfirmDeleteDialog = false;
   }
 
   toggleClass(i: number) {
-    const idInput = 'input' + i;
+    let idInput;
+    let idInput2;
+    let idSelect;
+    let idSelect2;
+
+    if (this.isLocationDetailsView) {
+      idInput = 'input' + i + this.entityName;
+      idInput2 = 'input2' + i + this.entityName;
+      idSelect = 'select' + i + this.entityName;
+      idSelect2 = 'select2' + i + this.entityName;
+    } else {
+      idInput = 'input' + i;
+      idInput2 = 'input2' + i;
+      idSelect = 'select' + i;
+      idSelect2 = 'select2' + i;
+    }
     const elementInput = document?.getElementById(idInput);
     if (elementInput) {
       elementInput.classList.toggle('disabled');
     }
 
-    const idInput2 = 'input2' + i;
     const elementInput2 = document?.getElementById(idInput2);
     if (elementInput2) {
       elementInput2.classList.toggle('disabled');
     }
 
-    const idSelect = 'select' + i;
     const elementSelect = document?.getElementById(idSelect);
     if (elementSelect) {
       elementSelect.classList.toggle('disabled');
     }
 
-    const idSelect2 = 'select2' + i;
     const elementSelect2 = document?.getElementById(idSelect2);
     if (elementSelect2) {
       elementSelect2.classList.toggle('disabled');
@@ -95,7 +114,13 @@ export class ListingComponent implements OnInit, OnDestroy{
   }
 
   checkDisabledClass(i: number): boolean {
-    const id = 'input' + i;
+
+    let id: string;
+    if (this.isLocationDetailsView) {
+      id = 'input' + i + this.entityName;
+    } else {
+      id = 'input' + i;
+    }
     const element = document?.getElementById(id);
     if (element) {
       return element.classList.contains('disabled');

@@ -62,7 +62,14 @@ export class OrganizationService {
 
   private taxAndFees: any = [
     {
-      entity: 'Airport',
+      id: 1,
+      entity: 'Airport Taxes',
+      streetAddress: "30 Clingstone PL",
+      city: "The Woodlands",
+      state: "TX",
+      postalCode: "77382",
+      country: "United States",
+      phoneNumber: "510-441-9950",
       taxAndFees: [
         {
           name: 'GET',
@@ -79,7 +86,14 @@ export class OrganizationService {
       ]
     },
     {
-      entity: 'Government',
+      id: 2,
+      entity: 'Government Taxes',
+      streetAddress: "30 Clingstone PL",
+      city: "The Woodlands",
+      state: "TX",
+      postalCode: "77382",
+      country: "United States",
+      phoneNumber: "510-441-9950",
       taxAndFees: [
         {
           name: 'GET',
@@ -137,28 +151,19 @@ export class OrganizationService {
   }
 
   addEntity(entity: any, isEditMode: boolean) {
-    // if (isEditMode) {
-    //   const index = this.taxAndFees.findIndex((e: any) => e.id === entity.id);
-    //   if (index !== -1) {
-    //     this.taxAndFees[index] = entity;
-    //     return of(this.taxAndFees);
-    //   } else {
-    //     return throwError(() => new Error("entity not found"));
-    //   }
-    // } else {
-      // entity.id = this.taxAndFees.length + 1;
-      // debugger;
-      // entity.taxAndFees = [
-      //   {
-      //     name: '',
-      //     applied: '',
-      //     applied2: '',
-      //     amount: ''
-      //   }
-      // ]
+    if (isEditMode) {
+      const index = this.taxAndFees.findIndex((e: any) => e.id === entity.id);
+      if (index !== -1) {
+        this.taxAndFees[index] = entity;
+        return of(this.taxAndFees);
+      } else {
+        return throwError(() => new Error("entity not found"));
+      }
+    } else {
+      entity.id = this.taxAndFees.length + 1;
       this.taxAndFees.push(entity);
       return of(this.taxAndFees);
-    // }
+    }
   }
 }
 

@@ -1,5 +1,5 @@
-<div>
-    <div class="p-4">
+<div class="fleet-content-wrapper overflow-auto">
+    <div class="me-2">
         <!-- AREA DETAIL START -->
         <div class="fleet-wrapper mb-lg-4">
             <div class="py-3 px-4 border-bottom">
@@ -74,13 +74,14 @@
               <!-- ACCORDION START -->
               <div class="accordion" [id]="data.entity">
                 <div class="accordion-item border-0">
+                  <div class="d-flex align-items-center gap-1 justify-content-between">
                   <h2 class="d-inline-block px-4 mb-0" id="heading1">
                     <button class="accordion-button px-0 my-1 fw-medium" type="button" data-bs-toggle="collapse"
-                      [attr.data-bs-target]="'#' + data.entity + data.entity" aria-expanded="true" aria-controls="collapse1">
+                      [attr.data-bs-target]="'#' + trimEntityString(data.entity) + trimEntityString(data.entity)" aria-expanded="true" aria-controls="collapse1">
                       {{data.entity}}
                     </button>
                   </h2>
-                  <span class="float-end mt-3 me-2">
+                  <div class="d-flex align-items-center gap-1 justify-content-center">
                     <div class="d-flex align-items-center gap-1 justify-content-center">
                       <button class="btn btn-transparent float-end p-1 px-md-2" data-bs-target="#addLocationModal" data-bs-toggle="modal" (click)="onEdit(data)">
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="edit-item"
@@ -106,9 +107,10 @@
                         </svg>
                       </button>
                     </div>
-                  </span>
-                  <div class="accordion-collapse collapse show" [id]="data.entity + data.entity" aria-labelledby="heading1"
-                    [attr.data-bs-parent]="'#' + data.entity">
+                  </div>
+                </div>
+                  <div class="accordion-collapse collapse show" [id]="trimEntityString(data.entity) + trimEntityString(data.entity)" aria-labelledby="heading1"
+                    [attr.data-bs-parent]="'#' + trimEntityString(data.entity)">
                     <div class="accordion-body py-0 px-0">
                       <!-- TABLE START -->
                       <app-listing [tableData]="data.taxAndFees" [headers]="headers" [entity]="j" [entityName]="data.entity" (editClicked)="onEditClicked($event)"></app-listing>
@@ -232,32 +234,34 @@
   </div>
 </div>
 
-<ng-template #nameTemplate let-inputValue="inputValue" let-index="index" let-entity="entity">
+<ng-template #nameTemplate let-inputValue="inputValue" let-index="index" let-entity="entity" let-entityName="entityName">
   <span>
-    <input type="text" [id]="'input'+index" class="form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue"  [(ngModel)]="taxAndFeesData[entity].taxAndFees[index].name" (ngModelChange)="onChange($event, index)">
+    <input type="text" [id]="'input'+index+entityName" class="form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue"  [(ngModel)]="taxAndFeesData[entity].taxAndFees[index].name" (ngModelChange)="onChange($event, index)">
   </span>
 </ng-template>
 
-<ng-template #amountTemplate let-inputValue="inputValue" let-index="index" let-entity="entity">
+<ng-template #amountTemplate let-inputValue="inputValue" let-index="index" let-entity="entity" let-entityName="entityName">
   <span>
-    <input type="text" [id]="'input2'+index" class="form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue"  [(ngModel)]="taxAndFeesData[entity].taxAndFees[index].amount" (ngModelChange)="onChange($event, index)">
+    <input type="text" [id]="'input2'+index+entityName" class="form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue"  [(ngModel)]="taxAndFeesData[entity].taxAndFees[index].amount" (ngModelChange)="onChange($event, index)">
   </span>
 </ng-template>
 
-<ng-template #appliedTemplate let-inputValue="inputValue" let-index="index" let-entity="entity">
+<ng-template #appliedTemplate let-inputValue="inputValue" let-index="index" let-entity="entity" let-entityName="entityName">
   <div>
-    <select [id]="'select'+index" class="form-select form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue" [(ngModel)]="taxAndFeesData[entity].taxAndFees[index].applied">
+    <select [id]="'select'+index+entityName" class="form-select form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue" [(ngModel)]="taxAndFeesData[entity].taxAndFees[index].applied">
       <option value="%">%</option>
       <option value="Flat">Flat</option>
     </select>
   </div>
 </ng-template>
 
-<ng-template #applied2Template let-inputValue="inputValue" let-index="index" let-entity="entity">
+<ng-template #applied2Template let-inputValue="inputValue" let-index="index" let-entity="entity" let-entityName="entityName">
   <div>
-    <select [id]="'select2'+index" class="form-select form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue" [(ngModel)]="taxAndFeesData[entity].taxAndFees[index].applied2">
+    <select [id]="'select2'+index+entityName" class="form-select form-control border rounded-2 px-md-3 py-2 rounded-3 w-100 fw-medium" [class.disabled]="inputValue" [(ngModel)]="taxAndFeesData[entity].taxAndFees[index].applied2">
       <option value="Per Reservation">Per Reservation</option>
       <option value="Per Invoice">Per Invoice</option>
     </select>
   </div>
 </ng-template>
+
+<!-- <app-delete-confirm-modal></app-delete-confirm-modal> -->

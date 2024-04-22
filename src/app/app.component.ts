@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DialogService } from './services/dialog.service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,6 @@ export class AppComponent {
   collapseSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
+
+  constructor(public dialogService: DialogService){}
 }

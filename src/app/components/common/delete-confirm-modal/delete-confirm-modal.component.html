@@ -1,0 +1,13 @@
+<div class="custom-moal-wrapper position-absolute">
+    <div class="custom-modal w-100 mx-auto rounded-3 bg-white">
+        <div class="modal-body w-100">
+            <p class="mb-4 fw-medium text-center">Are you sure to delete ?</p>
+            <div class="d-flex align-items-center justify-content-center gap-3">
+              <button type="button" class="btn btn-sm btn-outline-secondary rounded-2"
+                 (click)="dialogService.showConfirmDeleteDialog = false">Cancel</button>
+              <button type="button" class="btn btn-sm btn-outline-danger rounded-2"  (click)="deleteClicked.emit()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="custom-backdrop position-fixed top-0 start-0 h-100 w-100 overflow-hidden"></div>

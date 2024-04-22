@@ -11,5 +11,6 @@ export class DialogService {
   showAddVehicleClassModal: boolean = false;
   showEditVehicleClassModal: boolean = false;
   showEditVehicleClassModalView: boolean = false;
+  showConfirmDeleteDialog: boolean = false;
 
 }

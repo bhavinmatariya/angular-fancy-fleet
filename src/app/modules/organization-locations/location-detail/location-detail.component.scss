@@ -1,4 +1,7 @@
 @import '../../../../styles/responsive';
+.fleet-content-wrapper{
+  max-height: calc(100vh - 112px);
+}
 .location-icon{
     height: 48px;
     width: 48px;
@@ -25,6 +28,9 @@
         @include lg{
             max-width: 200px;
         }
+        @include sm{
+          max-width: none;
+      }
     }
     P{
         max-width: 170px;
@@ -39,17 +45,17 @@
         }
     }
 }
-.location-map{
-    iframe{
-        width: 100%;
-        @include md{
-            height: 350px;
-        }
-        @include sm{
-            height: 350px;
-        }
-    }
-}
+// .location-map{
+//     iframe{
+//         width: 100%;
+//         @include md{
+//             height: 350px;
+//         }
+//         @include sm{
+//             height: 350px;
+//         }
+//     }
+// }
 .address{
     max-width: 160px;
     width: 100%;

@@ -1,267 +1,269 @@
 <div>
-    <div>
-        <h2 class="d-inline-block mb-4" id="heading1">Organization & Locations</h2>
-    </div>
-    <div class="fleet-content-wrapper overflow-auto">
-        <div class="fleet-wrapper">
-            <div class="py-3 px-3 px-sm-4 border-bottom">
-                <h3 class="mb-0 fs-5">Organization</h3>
-            </div>
-            <div class="py-3 px-3">
-                <div class="row p-0">
-                    <div class="col-12 col-sm-6 col-md-4 col-xl-3">
-                        <div class="d-flex align-items-start gap-3">
-                            <div
-                                class="location-icon rounded-circle d-flex align-items-center justify-content-center flex-shrink-0">
-                                <span class="d-flex align-items-center justify-content-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-                                        fill="currentColor">
-                                        <path
-                                            d="M12 20.8995L16.9497 15.9497C19.6834 13.2161 19.6834 8.78392 16.9497 6.05025C14.2161 3.31658 9.78392 3.31658 7.05025 6.05025C4.31658 8.78392 4.31658 13.2161 7.05025 15.9497L12 20.8995ZM12 23.7279L5.63604 17.364C2.12132 13.8492 2.12132 8.15076 5.63604 4.63604C9.15076 1.12132 14.8492 1.12132 18.364 4.63604C21.8787 8.15076 21.8787 13.8492 18.364 17.364L12 23.7279ZM12 13C13.1046 13 14 12.1046 14 11C14 9.89543 13.1046 9 12 9C10.8954 9 10 9.89543 10 11C10 12.1046 10.8954 13 12 13ZM12 15C9.79086 15 8 13.2091 8 11C8 8.79086 9.79086 7 12 7C14.2091 7 16 8.79086 16 11C16 13.2091 14.2091 15 12 15Z">
-                                        </path>
-                                    </svg>
-                                </span>
-                            </div>
-                            <div class="location-detail mb-3 mb-sm-0">
-                                <h5 class="text-capitalize fw-medium">{{organizationData.name}}</h5>
-                                <a href="javascript:void(0)" class="text-decoration-none d-block fw-medium">
-                                  {{organizationData.address.streetAddress}}, {{organizationData.address.city}} {{organizationData.address.state}}
-                                  {{organizationData.address.postalCode}} {{organizationData.address.country}}, Phone:
-                                  {{organizationData.address.phoneNumber}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-8 col-xl-9">
-                        <div>
-                            <div class="location-map">
-                              <google-map [options]="mapOptions" [width]="'100%'" [height]="450">
-                                <map-marker [position]="marker.position"></map-marker>
-                              </google-map>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SERVING LOCATION START -->
-            <div class="pt-3">
-                <div class="py-3 px-3 px-sm-4 d-flex align-items-center justify-content-between">
-                    <h3 class="mb-0 fs-5">Serving Locations</h3>
-                    <button class="btn btn-secondary" data-bs-target="#addLocationModal" data-bs-toggle="modal" (click)="onAddLocation()">Add Location</button>
-                </div>
-                  <div class="serving-location-table">
-                      <div class="table-responsive">
-                          <table class="table mb-0">
-                              <thead class="border-bottom border-top">
-                                  <tr>
-                                      <th style="width: 45%;">Location</th>
-                                      <th>Airport Code</th>
-                                      <th style="width: 15%;">Actions</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                @for (location of servingLocations; track location; let i = $index) {
-                                  <tr (click)="showLocationDetails(location)" style="cursor: pointer;">
-                                      <td>
-                                          <div class="address">
-                                              <a href="javascript:void(0)" class="text-decoration-none d-block">
-                                                {{location.address.city}}, {{location.address.state}}, {{location.address.country}}
-                                                </a>
-                                              <!-- <a href="tel:510-441-9950" class="text-decoration-none  d-block">Phone:
-                                                {{location.address.phoneNumber}}</a> -->
-                                          </div>
-                                      </td>
-                                      <td class="align-middle">
-                                          <p class="mb-0">{{location.airportCode}}</p>
-                                      </td>
-                                      <td class="align-middle">
-                                          <div class="d-flex align-items-center gap-1">
-                                              <!-- <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Show details</button> -->
-                                              <!-- DETAIL BUTTON START -->
-                                              <button class="btn btn-transparent p-1 px-md-2" (click)="showLocationDetails(location)">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3ZM12.0003 19C16.2359 19 19.8603 16.052 20.7777 12C19.8603 7.94803 16.2359 5 12.0003 5C7.7646 5 4.14022 7.94803 3.22278 12C4.14022 16.052 7.7646 19 12.0003 19ZM12.0003 16.5C9.51498 16.5 7.50026 14.4853 7.50026 12C7.50026 9.51472 9.51498 7.5 12.0003 7.5C14.4855 7.5 16.5003 9.51472 16.5003 12C16.5003 14.4853 14.4855 16.5 12.0003 16.5ZM12.0003 14.5C13.381 14.5 14.5003 13.3807 14.5003 12C14.5003 10.6193 13.381 9.5 12.0003 9.5C10.6196 9.5 9.50026 10.6193 9.50026 12C9.50026 13.3807 10.6196 14.5 12.0003 14.5Z"></path></svg>
-                                              </button>
-                                              <!-- DETAIL BUTTON END -->
-
-                                              <div>
-                                                  <!-- <button class="btn btn-transparent p-1 px-md-2">
-                                                      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="24"
-                                                          height="24" class="edit-item" viewBox="0 0 512 512"
-                                                          preserveAspectRatio="xMidYMid meet">
-                                                          <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                                                              fill="currentColor" stroke="none">
-                                                              <path
-                                                                  d="M3720 4629 c-145 -22 -268 -78 -393 -179 -40 -32 -637 -624 -1329
-                                                                -1316 l-1256 -1259 -15 -70 c-210 -975 -249 -1167 -243 -1200 9 -46 57 -101
-                                                                103 -116 19 -6 54 -9 77 -6 30 4 983 207 1186 252 27 7 2526 2496 2609 2600
-                                                                279 349 224 860 -121 1131 -169 132 -408 195 -618 163z m223 -324 c243 -51
-                                                                410 -294 369 -537 -23 -139 -59 -193 -275 -413 l-192 -196 -340 341 -340 340
-                                                                201 200 c174 174 209 204 266 229 110 50 197 60 311 36z m-688 -1736 c-198
-                                                                -198 -628 -625 -955 -949 l-596 -588 -423 -91 c-233 -50 -425 -90 -427 -88 -1
-                                                                1 38 194 88 427 l90 425 951 953 952 952 340 -340 340 -340 -360 -361z" />
-                                                          </g>
-                                                      </svg>
-                                                  </button> -->
-                                                  <button class="btn btn-transparent p-1 px-md-2" data-bs-target="#addLocationModal" data-bs-toggle="modal" (click)="onEdit(location, $event)">
-                                                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="edit-item" viewBox="0 0 512 512"
-                                                      preserveAspectRatio="xMidYMid meet">
-                                                      <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
-                                                        <path
-                                                          d="M3720 4629 c-145 -22 -268 -78 -393 -179 -40 -32 -637 -624 -1329
-                                                                                                                -1316 l-1256 -1259 -15 -70 c-210 -975 -249 -1167 -243 -1200 9 -46 57 -101
-                                                                                                                103 -116 19 -6 54 -9 77 -6 30 4 983 207 1186 252 27 7 2526 2496 2609 2600
-                                                                                                                279 349 224 860 -121 1131 -169 132 -408 195 -618 163z m223 -324 c243 -51
-                                                                                                                410 -294 369 -537 -23 -139 -59 -193 -275 -413 l-192 -196 -340 341 -340 340
-                                                                                                                201 200 c174 174 209 204 266 229 110 50 197 60 311 36z m-688 -1736 c-198
-                                                                                                                -198 -628 -625 -955 -949 l-596 -588 -423 -91 c-233 -50 -425 -90 -427 -88 -1
-                                                                                                                1 38 194 88 427 l90 425 951 953 952 952 340 -340 340 -340 -360 -361z" />
-                                                      </g>
-                                                    </svg>
-                                                  </button>
-                                              </div>
-                                              <!-- <button class="btn btn-transparent float-end p-1 px-md-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-                                                      height="24" fill="currentColor" class="delete-item">
-                                                      <path
-                                                          d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z">
-                                                      </path>
-                                                  </svg>
-                                              </button> -->
-                                              <button class="btn btn-transparent p-1 px-md-2" data-bs-target="#exampleModal" data-bs-toggle="modal" (click)="onDelete(i, $event)">
-                                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-                                                      height="24" fill="currentColor" class="delete-item">
-                                                      <path
-                                                          d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z">
-                                                      </path>
-                                                  </svg>
-                                              </button>
-                                          </div>
-                                      </td>
-                                  </tr>
-                                }
-                              </tbody>
-                          </table>
+  <div>
+      <h2 class="d-inline-block mb-4" id="heading1">Organization & Locations</h2>
+  </div>
+  <div class="fleet-content-wrapper overflow-auto">
+      <div class="fleet-wrapper me-2">
+          <div class="py-3 px-3 px-sm-4 border-bottom">
+              <h3 class="mb-0 fs-5">Organization</h3>
+          </div>
+          <div class="py-3 px-3">
+              <div class="row p-0">
+                  <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                      <div class="d-flex align-items-start gap-3">
+                          <div
+                              class="location-icon rounded-circle d-flex align-items-center justify-content-center flex-shrink-0">
+                              <span class="d-flex align-items-center justify-content-center">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                      fill="currentColor">
+                                      <path
+                                          d="M12 20.8995L16.9497 15.9497C19.6834 13.2161 19.6834 8.78392 16.9497 6.05025C14.2161 3.31658 9.78392 3.31658 7.05025 6.05025C4.31658 8.78392 4.31658 13.2161 7.05025 15.9497L12 20.8995ZM12 23.7279L5.63604 17.364C2.12132 13.8492 2.12132 8.15076 5.63604 4.63604C9.15076 1.12132 14.8492 1.12132 18.364 4.63604C21.8787 8.15076 21.8787 13.8492 18.364 17.364L12 23.7279ZM12 13C13.1046 13 14 12.1046 14 11C14 9.89543 13.1046 9 12 9C10.8954 9 10 9.89543 10 11C10 12.1046 10.8954 13 12 13ZM12 15C9.79086 15 8 13.2091 8 11C8 8.79086 9.79086 7 12 7C14.2091 7 16 8.79086 16 11C16 13.2091 14.2091 15 12 15Z">
+                                      </path>
+                                  </svg>
+                              </span>
+                          </div>
+                          <div class="location-detail mb-3 mb-sm-0">
+                              <h5 class="text-capitalize fw-medium">{{organizationData.name}}</h5>
+                              <a href="javascript:void(0)" class="text-decoration-none d-block fw-medium">
+                                {{organizationData.address.streetAddress}}, {{organizationData.address.city}} {{organizationData.address.state}}
+                                {{organizationData.address.postalCode}} {{organizationData.address.country}}, Phone:
+                                {{organizationData.address.phoneNumber}}
+                              </a>
+                          </div>
                       </div>
                   </div>
-            </div>
-            <!-- SERVING LOCATION END -->
-        </div>
-    </div>
-</div>
-
-<!-- ADD LOCATION MODAL START -->
-<div class="modal fade" id="addLocationModal" aria-labelledby="addLocationModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable">
-      <div class="modal-content bg-white">
-          <div class="modal-header">
-              <h2 class="modal-title fs-5" id="exampleModalLabel">Add Tax Entity</h2>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body p-0">
-              <div class="fleet-content-wrapper">
-                  <div class="fleet-wrapper">
-                      <div class="py-3 px-3 px-sm-4">
-                        <form [formGroup]="addLocationForm" (ngSubmit)="addLocation()">
-                          <div class="row mb-2">
-                              <div class="col-12 col-sm-6">
-                                  <label>Street Address</label>
-                                  <input type="text" class="form-control" formControlName="streetAddress">
-                              </div>
-                              <div class="col-12 col-sm-6">
-                                  <label>Country</label>
-                                  <select class="form-select" aria-label="Country" formControlName="country">
-                                      <option disabled>Select Country</option>
-                                      <option value="United States">United States</option>
-                                  </select>
-                              </div>
+                  <div class="col-12 col-sm-6 col-md-8 col-xl-9">
+                      <div>
+                          <div class="location-map">
+                            <google-map [options]="mapOptions" [width]="'100%'" [height]="450">
+                              <map-marker [position]="marker.position"></map-marker>
+                            </google-map>
                           </div>
-                          <div class="row mb-2">
-                              <div class="col-12 col-sm-6">
-                                  <label>State</label>
-                                  <select class="form-select" aria-label="State" formControlName="state">
-                                      <option disabled>Select State</option>
-                                      <option value="TX">Texas</option>
-                                      <option value="California">California</option>
-                                      <option value="Alaska">Alaska</option>
-                                      <option value="Ohio">Ohio</option>
-                                      <option value="Georgia">Georgia</option>
-                                      <option value="New York">New York</option>
-                                  </select>
-                              </div>
-                              <div class="col-12 col-sm-6">
-                                  <label>City</label>
-                                  <select class="form-select" aria-label="City" formControlName="city">
-                                    <option disabled>Select City</option>
-                                      <option value="The Woodlands">The Woodlands</option>
-                                      <option value="San Francisco">San Francisco</option>
-                                      <option value="New York City">New York City</option>
-                                      <option value="Chicago">Chicago</option>
-                                      <option value="Los Angeles">Los Angeles</option>
-                                      <option value="Seattle">Seattle</option>
-                                      <option value="Boston">Boston</option>
-                                      <option value="Houston">Houston</option>
-                                      <option value="San Diego">San Diego</option>
-
-                                  </select>
-                              </div>
-                          </div>
-                          <div class="row mb-3">
-                              <div class="col-12 col-sm-6">
-                                  <label>Postal code</label>
-                                  <input type="text" class="form-control" formControlName="postalCode">
-                              </div>
-                              <div class="col-12 col-sm-6">
-                                  <label>Phone</label>
-                                  <input type="tel" class="form-control" formControlName="phone">
-                              </div>
-                              <div class="col-12 col-sm-6">
-                                <label>Airport Code</label>
-                                <input type="text" class="form-control" formControlName="airportCode">
-                            </div>
-                          </div>
-                          <div class="row mb-4">
-                              <p class="mb-0">Business Hours</p>
-                              <div class="col-12 col-sm-6">
-                                  <label>From</label>
-                                  <input type="time" class="form-control" formControlName="businessHoursFrom">
-                              </div>
-                              <div class="col-12 col-sm-6">
-                                  <label>To</label>
-                                  <input type="time" class="form-control" formControlName="businessHoursTo">
-                              </div>
-                          </div>
-                          <div class="mb-2 d-flex align-items-center justify-content-between">
-                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                              <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" [disabled]="addLocationForm.invalid">Save</button>
-                          </div>
-                      </form>
-
                       </div>
                   </div>
               </div>
           </div>
+
+          <!-- SERVING LOCATION START -->
+          <div class="pt-3">
+              <div class="py-3 px-3 px-sm-4 d-flex align-items-center justify-content-between">
+                  <h3 class="mb-0 fs-5">Serving Locations</h3>
+                  <button class="btn btn-secondary" data-bs-target="#addLocationModal" data-bs-toggle="modal" (click)="onAddLocation()">Add Location</button>
+              </div>
+                <div class="serving-location-table">
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead class="border-bottom border-top">
+                                <tr>
+                                    <th style="width: 45%;">Location</th>
+                                    <th>Airport Code</th>
+                                    <th style="width: 15%;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+              @for (location of servingLocations; track location; let i = $index) {
+                                <tr (click)="showLocationDetails(location)" style="cursor: pointer;">
+                                    <td>
+                                        <div class="address">
+                                            <a href="javascript:void(0)" class="text-decoration-none d-block">
+                                              {{location.address.city}}, {{location.address.state}}, {{location.address.country}}
+                                              </a>
+                                            <!-- <a href="tel:510-441-9950" class="text-decoration-none  d-block">Phone:
+                                              {{location.address.phoneNumber}}</a> -->
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <p class="mb-0">{{location.airportCode}}</p>
+                                    </td>
+                                    <td class="align-middle">
+                                        <div class="d-flex align-items-center gap-1">
+                                            <!-- <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Show details</button> -->
+                                            <!-- DETAIL BUTTON START -->
+                                            <button class="btn btn-transparent p-1 px-md-2" (click)="showLocationDetails(location)">
+                                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3ZM12.0003 19C16.2359 19 19.8603 16.052 20.7777 12C19.8603 7.94803 16.2359 5 12.0003 5C7.7646 5 4.14022 7.94803 3.22278 12C4.14022 16.052 7.7646 19 12.0003 19ZM12.0003 16.5C9.51498 16.5 7.50026 14.4853 7.50026 12C7.50026 9.51472 9.51498 7.5 12.0003 7.5C14.4855 7.5 16.5003 9.51472 16.5003 12C16.5003 14.4853 14.4855 16.5 12.0003 16.5ZM12.0003 14.5C13.381 14.5 14.5003 13.3807 14.5003 12C14.5003 10.6193 13.381 9.5 12.0003 9.5C10.6196 9.5 9.50026 10.6193 9.50026 12C9.50026 13.3807 10.6196 14.5 12.0003 14.5Z"></path></svg>
+                                            </button>
+                                            <!-- DETAIL BUTTON END -->
+
+                                            <div>
+                                                <!-- <button class="btn btn-transparent p-1 px-md-2">
+                                                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="24"
+                                                        height="24" class="edit-item" viewBox="0 0 512 512"
+                                                        preserveAspectRatio="xMidYMid meet">
+                                                        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                                            fill="currentColor" stroke="none">
+                                                            <path
+                                                                d="M3720 4629 c-145 -22 -268 -78 -393 -179 -40 -32 -637 -624 -1329
+                                                              -1316 l-1256 -1259 -15 -70 c-210 -975 -249 -1167 -243 -1200 9 -46 57 -101
+                                                              103 -116 19 -6 54 -9 77 -6 30 4 983 207 1186 252 27 7 2526 2496 2609 2600
+                                                              279 349 224 860 -121 1131 -169 132 -408 195 -618 163z m223 -324 c243 -51
+                                                              410 -294 369 -537 -23 -139 -59 -193 -275 -413 l-192 -196 -340 341 -340 340
+                                                              201 200 c174 174 209 204 266 229 110 50 197 60 311 36z m-688 -1736 c-198
+                                                              -198 -628 -625 -955 -949 l-596 -588 -423 -91 c-233 -50 -425 -90 -427 -88 -1
+                                                              1 38 194 88 427 l90 425 951 953 952 952 340 -340 340 -340 -360 -361z" />
+                                                        </g>
+                                                    </svg>
+                                                </button> -->
+                                                <button class="btn btn-transparent p-1 px-md-2" data-bs-target="#addLocationModal" data-bs-toggle="modal" (click)="onEdit(location, $event)">
+                                                  <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="edit-item" viewBox="0 0 512 512"
+                                                    preserveAspectRatio="xMidYMid meet">
+                                                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
+                                                      <path
+                                                        d="M3720 4629 c-145 -22 -268 -78 -393 -179 -40 -32 -637 -624 -1329
+                                                                                                              -1316 l-1256 -1259 -15 -70 c-210 -975 -249 -1167 -243 -1200 9 -46 57 -101
+                                                                                                              103 -116 19 -6 54 -9 77 -6 30 4 983 207 1186 252 27 7 2526 2496 2609 2600
+                                                                                                              279 349 224 860 -121 1131 -169 132 -408 195 -618 163z m223 -324 c243 -51
+                                                                                                              410 -294 369 -537 -23 -139 -59 -193 -275 -413 l-192 -196 -340 341 -340 340
+                                                                                                              201 200 c174 174 209 204 266 229 110 50 197 60 311 36z m-688 -1736 c-198
+                                                                                                              -198 -628 -625 -955 -949 l-596 -588 -423 -91 c-233 -50 -425 -90 -427 -88 -1
+                                                                                                              1 38 194 88 427 l90 425 951 953 952 952 340 -340 340 -340 -360 -361z" />
+                                                    </g>
+                                                  </svg>
+                                                </button>
+                                            </div>
+                                            <!-- <button class="btn btn-transparent float-end p-1 px-md-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                                    height="24" fill="currentColor" class="delete-item">
+                                                    <path
+                                                        d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z">
+                                                    </path>
+                                                </svg>
+                                            </button> -->
+                                            <button class="btn btn-transparent p-1 px-md-2" data-bs-target="#exampleModal" data-bs-toggle="modal" (click)="onDelete(i, $event)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                                    height="24" fill="currentColor" class="delete-item">
+                                                    <path
+                                                        d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                              }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+          </div>
+          <!-- SERVING LOCATION END -->
       </div>
   </div>
+</div>
+
+<!-- ADD LOCATION MODAL START -->
+<div class="modal fade" id="addLocationModal" aria-labelledby="addLocationModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content bg-white">
+        <div class="modal-header">
+            <h2 class="modal-title fs-5" id="exampleModalLabel">Add Tax Entity</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+            <div class="fleet-content-wrapper">
+                <div class="fleet-wrapper">
+                    <div class="py-3 px-3 px-sm-4">
+                      <form [formGroup]="addLocationForm" (ngSubmit)="addLocation()">
+                        <div class="row mb-2">
+                            <div class="col-12 col-sm-6">
+                                <label>Street Address</label>
+                                <input type="text" class="form-control" formControlName="streetAddress">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <label>Country</label>
+                                <select class="form-select" aria-label="Country" formControlName="country">
+                                    <option disabled>Select Country</option>
+                                    <option value="United States">United States</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-12 col-sm-6">
+                                <label>State</label>
+                                <select class="form-select" aria-label="State" formControlName="state">
+                                    <option disabled>Select State</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="California">California</option>
+                                    <option value="Alaska">Alaska</option>
+                                    <option value="Ohio">Ohio</option>
+                                    <option value="Georgia">Georgia</option>
+                                    <option value="New York">New York</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <label>City</label>
+                                <select class="form-select" aria-label="City" formControlName="city">
+                                  <option disabled>Select City</option>
+                                    <option value="The Woodlands">The Woodlands</option>
+                                    <option value="San Francisco">San Francisco</option>
+                                    <option value="New York City">New York City</option>
+                                    <option value="Chicago">Chicago</option>
+                                    <option value="Los Angeles">Los Angeles</option>
+                                    <option value="Seattle">Seattle</option>
+                                    <option value="Boston">Boston</option>
+                                    <option value="Houston">Houston</option>
+                                    <option value="San Diego">San Diego</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-12 col-sm-6">
+                                <label>Postal code</label>
+                                <input type="text" class="form-control" formControlName="postalCode">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <label>Phone</label>
+                                <input type="tel" class="form-control" formControlName="phone">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col-12 col-sm-6">
+                              <label>Airport Code</label>
+                              <input type="text" class="form-control" formControlName="airportCode">
+                          </div>
+                        </div>
+                        <div class="row mb-4">
+                            <p class="mb-0">Business Hours</p>
+                            <div class="col-12 col-sm-6">
+                                <label>From</label>
+                                <input type="time" class="form-control" formControlName="businessHoursFrom">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <label>To</label>
+                                <input type="time" class="form-control" formControlName="businessHoursTo">
+                            </div>
+                        </div>
+                        <div class="mb-2 d-flex align-items-center justify-content-between">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" [disabled]="addLocationForm.invalid">Save</button>
+                        </div>
+                    </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 <!-- ADD LOCATION MODAL END -->
 
 
 <div class="modal fade overflow-hidden" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-sm rounded-3">
-    <div class="modal-content bg-white">
-      <div class="modal-body">
-        <p class="mb-4 fw-medium text-center">Are you sure to delete ?</p>
-        <div class="d-flex align-items-center justify-content-center gap-3">
-          <button type="button" class="btn btn-sm btn-outline-secondary rounded-2"
-            data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-sm btn-outline-danger rounded-2" data-bs-dismiss="modal"
-            (click)="confirmDelete()">Delete</button>
-        </div>
+aria-hidden="true">
+<div class="modal-dialog modal-sm rounded-3">
+  <div class="modal-content bg-white">
+    <div class="modal-body">
+      <p class="mb-4 fw-medium text-center">Are you sure to delete ?</p>
+      <div class="d-flex align-items-center justify-content-center gap-3">
+        <button type="button" class="btn btn-sm btn-outline-secondary rounded-2"
+          data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-sm btn-outline-danger rounded-2" data-bs-dismiss="modal"
+          (click)="confirmDelete()">Delete</button>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
