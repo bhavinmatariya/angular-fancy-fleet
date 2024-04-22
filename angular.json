@@ -39,11 +39,7 @@
             "styles": [
               "src/styles.scss",
               "src/styles/common.scss"
-            ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": false
+            ]
           },
           "configurations": {
             "production": {

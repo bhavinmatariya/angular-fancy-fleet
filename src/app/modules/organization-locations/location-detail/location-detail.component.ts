@@ -56,6 +56,7 @@ export class LocationDetailComponent implements OnInit{
   options: any;
   isEditEntity: boolean = false;
   selectedEditEntityId: any;
+  selectedDeleteEntity: any;
   mapOptions: google.maps.MapOptions = {
     center: { lat: 0, lng: 0 },
     zoom : 16
@@ -76,13 +77,16 @@ export class LocationDetailComponent implements OnInit{
       { header: "Applied", field: 'applied2', type: "template", templateRef: this.applied2Template },
       { header: "Amount", field: 'amount', type: "template", templateRef: this.amountTemplate },
     ];
-    this.listingService.updateTableData(this.taxAndFeesData);
+    // this.listingService.updateTableData(this.taxAndFeesData);
 
-    this.listingService.deleteInitiated.subscribe(payload => {
+    this.listingService.deleteInitiated.subscribe((payload: any) => {
       const index = payload.index;
+      const entity = payload.entity;
+      const entityName = payload.entityName;
 
-      this.taxAndFeesData.splice(index, 1);
-      this.listingService.updateTableData(this.taxAndFeesData);
+      this.taxAndFeesData[entity].taxAndFees.splice(index, 1);
+      // this.listingService.updateTableData(this.taxAndFeesData);
+      this.listingService.updateTableData({data: this.taxAndFeesData[entity].taxAndFees, entity: entityName});
 
     });
 
@@ -150,5 +154,40 @@ export class LocationDetailComponent implements OnInit{
     } else {
       console.log('Form is Invalid');
     }
+  }
+
+  onEdit(location: any) {
+    // this.router.navigate([`organization/edit-location-detail/${location.id}`]);
+    // event.stopPropagation();
+    const patchData = {
+      // streetAddress: location.address.streetAddress,
+      // country: location.address.country,
+      // state: location.address.state,
+      // city: location.address.city,
+      // postalCode: location.address.postalCode,
+      // phone: location.address.phoneNumber,
+      entity: location.entity,
+    }
+    this.isEditEntity = true;
+    this.selectedEditEntityId = location.id;
+    this.addEntityForm.patchValue(patchData);
+  }
+
+  onDelete(data: any) {
+    this.selectedDeleteEntity = data.entity;
+  }
+
+  confirmDelete() {
+    const index = this.taxAndFeesData.findIndex((e: any) => e.entity === this.selectedDeleteEntity);
+
+    if (index !== -1) {
+        this.taxAndFeesData.splice(index, 1);
+    } else {
+        console.log("Entity 'Government' not found.");
+    }
+  }
+
+  onEditClicked(event: any) {
+    console.log('Event:::', event);
   }
 }

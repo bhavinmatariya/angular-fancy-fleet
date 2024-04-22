@@ -56,10 +56,16 @@ export class ListingComponent implements OnInit, OnDestroy{
     event.stopPropagation();
     this.currentDeleteData.componentName = componentName;
     this.currentDeleteData.index = i;
+    if (this.entity !== -1 && this.entityName !== '') {
+      this.currentDeleteData.entity = this.entity;
+      this.currentDeleteData.entityName = this.entityName;
+    }
   }
 
   confirmDelete() {
-    this.listingService.deleteInitiated.emit(this.currentDeleteData);
+    const dataToEmit = { ...this.currentDeleteData };
+    this.listingService.deleteInitiated.emit(dataToEmit);
+    this.currentDeleteData = null;
   }
 
   toggleClass(i: number) {
@@ -106,7 +112,7 @@ export class ListingComponent implements OnInit, OnDestroy{
   }
 
   onClickEdit(event: Event, row: any, index: number) {
-    this.editClicked.emit({event, row, index});
+    this.editClicked.emit({event, row, index, entityName: this.entityName});
   }
 
   ngOnDestroy(): void {
