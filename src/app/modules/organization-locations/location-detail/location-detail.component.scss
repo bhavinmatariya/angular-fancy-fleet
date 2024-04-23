@@ -1,6 +1,12 @@
 @import '../../../../styles/responsive';
 .fleet-content-wrapper{
-  max-height: calc(100vh - 112px);
+  max-height: calc(100vh - 144px);
+  @include lg{
+    max-height: calc(100vh - 96px);
+  }
+  @include md{
+    max-height: calc(100vh - 84px);
+  }
 }
 .location-icon{
     height: 48px;
