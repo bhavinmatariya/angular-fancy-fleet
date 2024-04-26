@@ -31,9 +31,7 @@ export class AddVehicleClassComponent implements OnInit, AfterViewInit {
   @ViewChild("openModalButton") openModalButton!: ElementRef;
 
   vehicleClassForm!: FormGroup;
-
   selectedData: any;
-
   unsavedChanges: boolean = false;
 
   constructor(
@@ -141,8 +139,8 @@ export class AddVehicleClassComponent implements OnInit, AfterViewInit {
       .get("features")
       ?.value.map((feature: any) => feature.item_text);
 
-    const addedVehicleClass = {
-      id: this.selectedData.id,
+    let totalLength;
+    let addedVehicleClass: any = {
       vehicleType: this.vehicleClassForm.value.vehicleType,
       class: this.vehicleClassForm.value.class,
       passenger: this.vehicleClassForm.value.passenger,
@@ -150,6 +148,15 @@ export class AddVehicleClassComponent implements OnInit, AfterViewInit {
       features: selectedFeatures,
       noOfVehicles: 10, // Default value for now
     };
+
+    if (!this.selectedData || !this.selectedData?.id || this.selectedData === undefined) {
+      this.vehicleService.getVehicleClass().subscribe((data: any) => {
+        totalLength = data.length;
+        addedVehicleClass.id = totalLength + 1;
+      })
+    } else {
+      addedVehicleClass.id = this.selectedData.id;
+    }
 
     if (this.selectedData) {
       this.vehicleService.updateVehicleClass(addedVehicleClass);
