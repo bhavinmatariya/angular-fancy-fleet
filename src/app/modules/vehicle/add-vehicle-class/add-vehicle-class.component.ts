@@ -142,6 +142,7 @@ export class AddVehicleClassComponent implements OnInit, AfterViewInit {
       ?.value.map((feature: any) => feature.item_text);
 
     const addedVehicleClass = {
+      id: this.selectedData.id,
       vehicleType: this.vehicleClassForm.value.vehicleType,
       class: this.vehicleClassForm.value.class,
       passenger: this.vehicleClassForm.value.passenger,

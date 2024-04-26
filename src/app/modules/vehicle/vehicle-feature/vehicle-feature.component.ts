@@ -70,10 +70,10 @@ export class VehicleFeatureComponent implements OnInit {
       const componentName = payload.componentName;
       const index = payload.index;
 
-      if (componentName === 'vehicle-types') {
+      // if (componentName === 'vehicle-types') {
         this.vehicleFeaturesData.splice(index, 1);
         this.listingService.updateTableData(this.vehicleFeaturesData);
-      }
+      // }
 
 
     });
